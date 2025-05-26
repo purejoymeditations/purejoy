@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-red-500 min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-slate-100 text-slate-800 min-h-screen flex flex-col items-center pt-10">
       <div className="text-center">
         <div className="flex justify-center items-center mb-8">
           <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
@@ -53,19 +53,31 @@ function App() {
           </a>
         </div>
         <h1>Vite + React</h1>
-        {message && <p>Message from backend: {message}</p>}
+        {message && <p className="mb-4">Message from backend: {message}</p>}
+        {error && <p className="text-red-500 mb-4">Error: {error}</p>}
 
-        <div className="product-list">
-          <h2>Our Products</h2>
+        <div className="product-list bg-white p-6 rounded-lg shadow-md w-full max-w-2xl mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-center">
+            Our Products
+          </h2>
           {products.length > 0 ? (
-            <ul>
+            <ul className="space-y-4">
               {products.map((product) => (
-                <li key={product._id}>
-                  <h3>{product.name}</h3>
-                  <p>{product.description}</p>
-                  <p>Price: ${product.price.toFixed(2)}</p>
+                <li
+                  key={product._id}
+                  className="border-b pb-4 last:border-b-0 last:pb-0"
+                >
+                  <h3 className="text-xl font-medium text-emerald-700">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {product.description}
+                  </p>
+                  <p className="mt-1 font-semibold">
+                    Price: ${product.price.toFixed(2)}
+                  </p>
                   {product.category && (
-                    <p>
+                    <p className="text-xs text-gray-500 mt-1">
                       <em>Category: {product.category}</em>
                     </p>
                   )}
@@ -77,8 +89,11 @@ function App() {
           )}
         </div>
 
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
+        <div className="card bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
+          <button
+            onClick={() => setCount((count) => count + 1)}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded mb-4 w-full"
+          >
             count is {count}
           </button>
           <p>
