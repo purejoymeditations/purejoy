@@ -8,6 +8,7 @@ import ServicesOffered from "./components/ServicesOffered";
 import RetreatsEvents from "./components/RetreatsEvents";
 import ProductStore from "./components/ProductStore";
 import Testimonials from "./components/Testimonials";
+import NgoImpact from "./components/NgoImpact";
 
 function App() {
   const [error, setError] = useState(null);
@@ -25,6 +26,7 @@ function App() {
       <RetreatsEvents />
       <ProductStore />
       <Testimonials />
+      <NgoImpact />
       <Footer />
     </div>
   );
