@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -46,6 +47,7 @@ function App() {
   return (
     <div className="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
       <Navbar />
+      <Hero />
       <main className="flex-grow flex flex-col items-center pt-10 pb-10 w-full px-4">
         <div className="flex justify-center items-center mb-8">
           <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
