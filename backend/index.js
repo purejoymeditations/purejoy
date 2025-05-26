@@ -1,7 +1,8 @@
-require('dotenv').config(); // Load .env file
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb'); // Import MongoClient
+const mongoose = require('mongoose'); // Import Mongoose
+const Product = require('./models/Product'); // Import Product model
 
 const app = express();
 const port = 3001;
@@ -13,27 +14,15 @@ if (!MONGODB_URI) {
     process.exit(1);
 }
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(MONGODB_URI, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
-
-// Function to start the server AFTER connecting to DB
+// Function to connect to DB and start the server
 async function startServer() {
     try {
-        console.log("Attempting to connect to MongoDB Atlas...");
-        await client.connect();
-        console.log("Successfully connected to client. Attempting to ping admin database...");
-        await client.db("admin").command({ ping: 1 });
-        console.log("Successfully pinged admin database. MongoDB Atlas connection established!");
+        console.log("Attempting to connect to MongoDB Atlas using Mongoose...");
+        await mongoose.connect(MONGODB_URI); // Mongoose handles connection options from the URI
+        console.log("Successfully connected to MongoDB Atlas via Mongoose!");
 
-        // Configure middleware and routes AFTER DB connection is successful
         app.use(cors());
-        app.use(express.json());
+        app.use(express.json()); // Middleware to parse JSON bodies
 
         app.get('/', (req, res) => {
             res.send('Hello from the Purejoy Backend!');
@@ -43,20 +32,56 @@ async function startServer() {
             res.json({ message: 'Connection successful! Data from backend.' });
         });
 
-        app.get('/api/db-test', async (req, res) => {
+        // GET /api/products - Retrieve all products
+        app.get('/api/products', async (req, res) => {
             try {
-                const dbList = await client.db().admin().listDatabases();
-                res.json({
-                    message: 'Database connection successful!',
-                    databases: dbList.databases.map(db => db.name)
-                });
+                const products = await Product.find();
+                res.json(products);
             } catch (err) {
-                console.error('Error fetching database list:', err);
-                res.status(500).json({ message: 'Error listing databases', error: err.message });
+                console.error('Error fetching products:', err);
+                res.status(500).json({ message: 'Error fetching products', error: err.message });
             }
         });
 
-        // Start listening for requests
+        // POST /api/products - Add a new product
+        app.post('/api/products', async (req, res) => {
+            try {
+                const { name, description, price, category } = req.body;
+                if (!name || !description || price === undefined) {
+                    return res.status(400).json({ message: 'Missing required fields: name, description, price' });
+                }
+                const newProduct = new Product({ name, description, price, category });
+                await newProduct.save();
+                res.status(201).json(newProduct);
+            } catch (err) {
+                console.error('Error adding product:', err);
+                if (err.name === 'ValidationError') {
+                    return res.status(400).json({ message: 'Validation Error', errors: err.errors });
+                }
+                res.status(500).json({ message: 'Error adding product', error: err.message });
+            }
+        });
+
+        // Test DB connection route (can be removed later or kept for diagnostics)
+        app.get('/api/db-test', async (req, res) => {
+            try {
+                if (mongoose.connection.readyState === 1) { // 1 means connected
+                    const adminDb = mongoose.connection.db.admin();
+                    const dbList = await adminDb.listDatabases();
+                    res.json({
+                        message: 'Database connection successful (via Mongoose)!',
+                        databases: dbList.databases.map(db => db.name)
+                    });
+                } else {
+                    res.status(500).json({ message: 'Mongoose not connected' });
+                }
+            } catch (err) {
+                console.error('Error fetching database list (Mongoose):', err);
+                res.status(500).json({ message: 'Error connecting to database', error: err.message });
+            }
+        });
+
+
         app.listen(port, () => {
             console.log(`Backend server listening at http://localhost:${port}`);
         });
@@ -67,15 +92,12 @@ async function startServer() {
     }
 }
 
-// Call the function to connect to DB and then start the server
 startServer();
 
-// Graceful shutdown
+// Graceful shutdown for Mongoose
 process.on('SIGINT', async () => {
-    console.log('SIGINT signal received: closing MongoDB connection');
-    if (client) { // Check if client is defined
-        await client.close();
-        console.log('MongoDB connection closed.');
-    }
+    console.log('SIGINT signal received: closing MongoDB connection via Mongoose');
+    await mongoose.connection.close();
+    console.log('Mongoose connection closed.');
     process.exit(0);
 }); 
