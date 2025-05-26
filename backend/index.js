@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose'); // Import Mongoose
 const Product = require('./models/Product'); // Import Product model
+const Service = require('./models/Service'); // Import Service model
 
 const app = express();
 const port = 3001;
@@ -48,7 +49,7 @@ async function startServer() {
             try {
                 const { name, description, price, category } = req.body;
                 if (!name || !description || price === undefined) {
-                    return res.status(400).json({ message: 'Missing required fields: name, description, price' });
+                    return res.status(400).json({ message: 'Missing required fields: name, description, price for product' });
                 }
                 const newProduct = new Product({ name, description, price, category });
                 await newProduct.save();
@@ -59,6 +60,36 @@ async function startServer() {
                     return res.status(400).json({ message: 'Validation Error', errors: err.errors });
                 }
                 res.status(500).json({ message: 'Error adding product', error: err.message });
+            }
+        });
+
+        // GET /api/services - Retrieve all services
+        app.get('/api/services', async (req, res) => {
+            try {
+                const services = await Service.find();
+                res.json(services);
+            } catch (err) {
+                console.error('Error fetching services:', err);
+                res.status(500).json({ message: 'Error fetching services', error: err.message });
+            }
+        });
+
+        // POST /api/services - Add a new service
+        app.post('/api/services', async (req, res) => {
+            try {
+                const { name, description, price, duration, category } = req.body;
+                if (!name || !description || price === undefined || duration === undefined || !category) {
+                    return res.status(400).json({ message: 'Missing required fields: name, description, price, duration, category for service' });
+                }
+                const newService = new Service({ name, description, price, duration, category });
+                await newService.save();
+                res.status(201).json(newService);
+            } catch (err) {
+                console.error('Error adding service:', err);
+                if (err.name === 'ValidationError') {
+                    return res.status(400).json({ message: 'Validation Error', errors: err.errors });
+                }
+                res.status(500).json({ message: 'Error adding service', error: err.message });
             }
         });
 
@@ -80,7 +111,6 @@ async function startServer() {
                 res.status(500).json({ message: 'Error connecting to database', error: err.message });
             }
         });
-
 
         app.listen(port, () => {
             console.log(`Backend server listening at http://localhost:${port}`);
