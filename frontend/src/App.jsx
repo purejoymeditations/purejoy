@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,8 +44,9 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-slate-100 text-slate-800 min-h-screen flex flex-col items-center pt-10">
-      <div className="text-center">
+    <div className="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow flex flex-col items-center pt-10 pb-10 w-full px-4">
         <div className="flex justify-center items-center mb-8">
           <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
             <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -52,8 +55,10 @@ function App() {
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
-        <h1>Vite + React</h1>
-        {message && <p className="mb-4">Message from backend: {message}</p>}
+        <h1 className="text-4xl font-bold mb-4">Vite + React</h1>
+        {message && (
+          <p className="mb-4 text-lg">Message from backend: {message}</p>
+        )}
         {error && <p className="text-red-500 mb-4">Error: {error}</p>}
 
         <div className="product-list bg-white p-6 rounded-lg shadow-md w-full max-w-2xl mb-8">
@@ -96,14 +101,15 @@ function App() {
           >
             count is {count}
           </button>
-          <p>
+          <p className="text-center">
             Edit <code>src/App.jsx</code> and save to test HMR
           </p>
         </div>
-        <p className="read-the-docs">
+        <p className="read-the-docs mt-8 text-sm text-gray-500">
           Click on the Vite and React logos to learn more
         </p>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
