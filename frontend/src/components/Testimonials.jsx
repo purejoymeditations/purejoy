@@ -6,7 +6,7 @@ const Testimonials = () => {
     {
       id: 1,
       quote:
-        "Working with [Founder Name/Purejoy] has been a life-changing experience. I feel more centered, peaceful, and connected to myself than ever before.",
+        "Working with Leanne and Lesley at Purejoy has been a life-changing experience. I feel more centered, peaceful, and connected to myself than ever before.",
       name: "A. K.",
       location: "Sydney, NSW",
     },
