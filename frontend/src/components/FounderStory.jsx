@@ -4,22 +4,22 @@ const FounderStory = () => {
   // Placeholder data - replace with actual data later
   const founders = [
     {
-      name: "Founder One",
+      name: "Leanne",
       title: "Wisdom Keeper & Healer",
-      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Founder+One", // Updated Placeholder image
+      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Leanne",
       quote:
         "Navigating the path of healing is a journey of courage and self-discovery. I am here to guide you.",
       story:
-        "With decades of experience in ancient healing traditions and a deep connection to nature's wisdom, Founder One has dedicated her life to guiding others towards wholeness. Her journey has been one of profound learning and sharing, empowering countless individuals to find their inner strength and peace.",
+        "With decades of experience in ancient healing traditions and a deep connection to nature's wisdom, Leanne has dedicated her life to guiding others towards wholeness. Her journey has been one of profound learning and sharing, empowering countless individuals to find their inner strength and peace.",
     },
     {
-      name: "Founder Two",
+      name: "Lesley",
       title: "Spiritual Guide & Mentor",
-      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Founder+Two", // Updated Placeholder image
+      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Lesley",
       quote:
         "Spirituality is the an_ch_or that grounds us, allowing us to weather any storm with grace and resilience.",
       story:
-        "Founder Two brings a wealth of knowledge in spiritual practices and mentorship. Her path has been illuminated by a commitment to compassionate guidance, helping people connect with their spiritual core and live a more meaningful, authentic life. Together, they weave a rich tapestry of experience and wisdom.",
+        "Lesley brings a wealth of knowledge in spiritual practices and mentorship. Her path has been illuminated by a commitment to compassionate guidance, helping people connect with their spiritual core and live a more meaningful, authentic life. Together, they weave a rich tapestry of experience and wisdom.",
     },
   ];
 

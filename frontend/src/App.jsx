@@ -7,6 +7,7 @@ import FounderStory from "./components/FounderStory";
 import ServicesOffered from "./components/ServicesOffered";
 import RetreatsEvents from "./components/RetreatsEvents";
 import ProductStore from "./components/ProductStore";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   const [error, setError] = useState(null);
@@ -23,6 +24,7 @@ function App() {
       <ServicesOffered />
       <RetreatsEvents />
       <ProductStore />
+      <Testimonials />
       <Footer />
     </div>
   );
