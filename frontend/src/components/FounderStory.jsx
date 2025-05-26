@@ -6,7 +6,7 @@ const FounderStory = () => {
     {
       name: "Founder One",
       title: "Wisdom Keeper & Healer",
-      image: "https://via.placeholder.com/300x300.png?text=Founder+One", // Placeholder image
+      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Founder+One", // Updated Placeholder image
       quote:
         "Navigating the path of healing is a journey of courage and self-discovery. I am here to guide you.",
       story:
@@ -15,7 +15,7 @@ const FounderStory = () => {
     {
       name: "Founder Two",
       title: "Spiritual Guide & Mentor",
-      image: "https://via.placeholder.com/300x300.png?text=Founder+Two", // Placeholder image
+      image: "https://placehold.co/300x300/a2d9c3/4A5568?text=Founder+Two", // Updated Placeholder image
       quote:
         "Spirituality is the an_ch_or that grounds us, allowing us to weather any storm with grace and resilience.",
       story:
