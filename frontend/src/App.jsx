@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import FounderStory from "./components/FounderStory";
 import ServicesOffered from "./components/ServicesOffered";
+import RetreatsEvents from "./components/RetreatsEvents";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -52,6 +53,7 @@ function App() {
       <Hero />
       <FounderStory />
       <ServicesOffered />
+      <RetreatsEvents />
       <main className="flex-grow flex flex-col items-center pt-10 pb-10 w-full px-4">
         <div className="flex justify-center items-center mb-8">
           <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
