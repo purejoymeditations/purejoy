@@ -1,103 +1,91 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { ShoppingBag } from "lucide-react";
+import AnimateOnScroll from "./AnimateOnScroll";
+import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
+import saltImg from "../assets/images/salt.jpg";
+import rollonImg from "../assets/images/rollon.jpg";
+import soapbarImg from "../assets/images/soapbar.jpg";
 
 const ProductStore = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/api/products")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-slate-600 text-xl">Loading our treasures...</p>
-          {/* You could add a spinner here */}
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-red-600 text-xl">
-            Error loading products: {error}
-          </p>
-        </div>
-      </section>
-    );
-  }
+  const previewProducts = [
+    {
+      _id: 1,
+      name: "Vanilla Candle",
+      description:
+        "A soothing candle to bring warmth and tranquility to your space.",
+      image: vanillaCandleImg,
+    },
+    {
+      _id: 2,
+      name: "Himalayan Salt",
+      description:
+        "Himalayan salt for purification and creating a sacred bathing ritual.",
+      image: saltImg,
+    },
+    {
+      _id: 3,
+      name: "Aromatherapy Roll On",
+      description:
+        "A convenient roll-on to apply calming essential oils on the go.",
+      image: rollonImg,
+    },
+    {
+      _id: 4,
+      name: "Handmade Soap Bar",
+      description:
+        "A natural, handcrafted soap bar to nourish your skin and soul.",
+      image: soapbarImg,
+    },
+  ];
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-secondary py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 text-center mb-12 md:mb-16">
-          Our Curated Collection
-        </h2>
-        {products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {products.map((product) => (
-              <div
-                key={product._id}
-                className="bg-slate-50 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden"
-              >
-                {/* Placeholder for image - assuming you might add an imageURL to your product data later */}
-                <div className="w-full h-48 bg-slate-200 flex items-center justify-center">
-                  <span className="text-slate-400 text-sm">
-                    Image Coming Soon
-                  </span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 font-serif">
+            Our Curated Collection
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            Discover handcrafted goods and tools to support your spiritual
+            practice and bring tranquility to your space.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {previewProducts.map((product) => (
+            <AnimateOnScroll key={product._id}>
+              <div className="bg-container-bg rounded-lg shadow-lg overflow-hidden group transition-transform duration-300 ease-in-out hover:-translate-y-2 flex flex-col h-[500px]">
+                <div className="h-80 overflow-hidden bg-background flex-shrink-0">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-emerald-600 mb-2">
+                <div className="p-6 text-center flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-text-primary mb-2 font-serif">
                     {product.name}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-3 flex-grow">
+                  <p className="text-sm text-text-secondary mb-4 flex-grow">
                     {product.description}
                   </p>
-                  {product.category && (
-                    <p className="text-xs text-slate-500 mb-2">
-                      <em>Category: {product.category}</em>
-                    </p>
-                  )}
-                  <p className="text-lg font-bold text-emerald-700 mb-4">
-                    ${product.price.toFixed(2)}
-                  </p>
-                  <a
-                    href="#" // Replace with actual link to product page or add to cart later
-                    className="mt-auto bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-0.5 text-center text-sm"
-                  >
-                    View Details
-                  </a>
                 </div>
               </div>
-            ))}
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <AnimateOnScroll>
+          <div className="mt-12 text-center">
+            <a
+              href="#" // This will later point to the main /shop page
+              className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            >
+              <ShoppingBag size={22} />
+              <span>Visit Our Shop</span>
+            </a>
           </div>
-        ) : (
-          <div className="text-center">
-            <p className="text-slate-600 text-xl">
-              No products currently available. Please check back soon!
-            </p>
-          </div>
-        )}
+        </AnimateOnScroll>
       </div>
     </section>
   );

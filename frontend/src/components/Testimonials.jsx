@@ -1,60 +1,88 @@
 import React from "react";
+import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import AnimateOnScroll from "./AnimateOnScroll";
+import alanaImg from "../assets/images/alank.jpg";
+import esterImg from "../assets/images/ester.jpg";
+import kellyImg from "../assets/images/kelly.jpg";
 
 const Testimonials = () => {
-  // Placeholder testimonial data - replace with actual testimonials later
   const testimonials = [
     {
       id: 1,
       quote:
-        "Working with Leanne and Lesley at Purejoy has been a life-changing experience. I feel more centered, peaceful, and connected to myself than ever before.",
-      name: "A. K.",
-      location: "Sydney, NSW",
+        "What an amazing experience! My four girlfriends and I booked in for a true pamper and healing session. We each received a beautiful massage, reiki healing, tarot reading, got to make our own essential oil rollers, and had foot soaks - absolute bliss. Couldn't recommend the beautiful Leslie, Leanne and Vicki more!",
+      name: "Alana K",
+      rating: 5,
+      avatar: alanaImg,
     },
     {
       id: 2,
       quote:
-        "The guidance and healing I received were profound. I've unlocked a new level of understanding and self-acceptance. Highly recommend!",
-      name: "S. B.",
-      location: "Melbourne, VIC",
+        "Best massage I've had in a long time, both of my hips, lower back and right knee had been aching for a couple of months, I felt immediate relief and woke up the next morning feeling better than I had for a long time and able to walk with limping or feeling stiff. Ended the massage with a 15 minute tarot reading which was incredible accurate and relevant, I will definitely make the trip back to Maldon for a massage and tarot reading. 1 week later and my body is still feeling great.",
+      name: "Kelly-Ann Wilson",
+      rating: 5,
+      avatar: kellyImg,
     },
     {
       id: 3,
       quote:
-        "I was skeptical at first, but the [Service Name, e.g., Womb Healing session] was incredibly powerful. I feel a deep sense of release and renewal.",
-      name: "L. M.",
-      location: "Online Client",
+        "I love PURE GOLD the newest shop and Workshop space in Maldon Town, Victoria/Goldfields. This shop is a true delight to the senses to come to and sniff your way through all the candles & other scented gifts that you can purchase to treat yourself or for that special friend or family member for their next birthday!",
+      name: "Esther",
+      rating: 5,
+      avatar: esterImg,
     },
   ];
 
   return (
-    <section className="bg-slate-50 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 text-center mb-12 md:mb-16">
-          What Our Clients Say
-        </h2>
+    <section className="py-16 relative overflow-hidden">
+      {/* Background pattern */}
+      <div
+        className="absolute inset-0 bg-repeat bg-center opacity-5"
+        style={{
+          backgroundImage:
+            "url('https://www.transparenttextures.com/patterns/subtle-prism.png')",
+        }}
+      ></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 font-serif">
+            What Our Clients Say
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            Real stories from our vibrant community.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col"
-            >
-              <div className="text-emerald-600 text-6xl mb-4 leading-none font-serif self-start">
-                “
-              </div>
-              <blockquote className="text-slate-600 italic leading-relaxed mb-6 flex-grow">
-                {testimonial.quote}
-              </blockquote>
-              <div className="mt-auto pt-4 border-t border-slate-200">
-                <p className="font-semibold text-emerald-700 text-right">
-                  - {testimonial.name}
+            <AnimateOnScroll key={testimonial.id}>
+              <div className="bg-container-bg/80 backdrop-blur-sm p-8 rounded-xl shadow-lg h-full flex flex-col transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 border border-border">
+                <FaQuoteLeft className="text-primary/50 text-3xl mb-4" />
+                <p className="text-text-secondary italic leading-relaxed mb-6 flex-grow">
+                  {testimonial.quote}
                 </p>
-                {testimonial.location && (
-                  <p className="text-sm text-slate-500 text-right">
-                    {testimonial.location}
-                  </p>
-                )}
+                <div className="mt-auto flex items-center justify-between">
+                  <div className="flex items-center">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full mr-4 object-cover"
+                    />
+                    <div>
+                      <p className="font-bold text-text-primary font-serif">
+                        {testimonial.name}
+                      </p>
+                      <div className="flex mt-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <FaStar key={i} className="text-yellow-400" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

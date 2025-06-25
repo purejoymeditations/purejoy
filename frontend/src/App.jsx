@@ -9,6 +9,9 @@ import RetreatsEvents from "./components/RetreatsEvents";
 import ProductStore from "./components/ProductStore";
 import Testimonials from "./components/Testimonials";
 import NgoImpact from "./components/NgoImpact";
+import AnimateOnScroll from "./components/AnimateOnScroll";
+import OurApproach from "./components/OurApproach";
+import SectionSeparator from "./components/SectionSeparator";
 
 function App() {
   const [error, setError] = useState(null);
@@ -18,16 +21,42 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
-      <Navbar />
-      <Hero />
-      <FounderStory />
-      <ServicesOffered />
-      <RetreatsEvents />
-      <ProductStore />
-      <Testimonials />
-      <NgoImpact />
-      <Footer />
+    <div className="py-2">
+      <div className="max-w-7xl mx-auto bg-container-bg rounded-lg shadow-golden">
+        <Navbar />
+        <main>
+          <Hero />
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <FounderStory />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <OurApproach />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <ServicesOffered />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <RetreatsEvents />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <ProductStore />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <Testimonials />
+          </AnimateOnScroll>
+          <SectionSeparator />
+          <AnimateOnScroll>
+            <NgoImpact />
+          </AnimateOnScroll>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

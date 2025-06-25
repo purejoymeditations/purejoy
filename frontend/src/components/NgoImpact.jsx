@@ -1,61 +1,61 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import AnimateOnScroll from "./AnimateOnScroll";
+import mongoliaImg1 from "../assets/images/mangolia.jpeg";
+import mongoliaImg2 from "../assets/images/mangolia2.jpeg";
+import mongoliaImg3 from "../assets/images/mangolia3.jpeg";
 
 const NgoImpact = () => {
+  const images = [mongoliaImg1, mongoliaImg2, mongoliaImg3];
+
   return (
-    <section className="bg-emerald-100 py-16 md:py-24">
+    <section className="bg-text-secondary py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-700">
-            Our Heartfelt Mission & Global Impact
-          </h2>
-          <p className="mt-4 text-lg text-emerald-600 max-w-3xl mx-auto">
-            Extending our healing touch beyond our direct services, we proudly
-            partner with an NGO in Mongolia, supporting their artisans and
-            community through ethical practices.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-semibold text-emerald-600 mb-4">
-              Supporting Mongolian Artisans
-            </h3>
-            <p className="text-slate-700 leading-relaxed mb-3">
-              We believe in the power of conscious commerce. A selection of
-              beautiful, handmade products available in our store are sourced
-              directly from talented artisans in Mongolia. Each purchase makes a
-              difference.
-            </p>
-            <p className="text-slate-700 leading-relaxed mb-4">
-              These unique items are crafted with traditional skills and infused
-              with the spirit of Mongolian culture, offering you a piece of
-              their heritage while providing vital support to their community.
-            </p>
-            <a
-              href="#product-store"
-              className="font-semibold text-emerald-500 hover:text-emerald-700 transition duration-300"
-            >
-              Shop Handmade Collection &rarr;
-            </a>
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-semibold text-emerald-600 mb-4">
-              Ethical Profit Sharing & Community Upliftment
-            </h3>
-            <p className="text-slate-700 leading-relaxed mb-3">
-              Our commitment runs deep. A significant portion of the profits
-              from these handmade Mongolian products is shared directly with the
-              NGO, ensuring fair compensation for the artisans and contributing
-              to the well-being of their families and community.
-            </p>
-            <p className="text-slate-700 leading-relaxed">
-              This partnership is more than just trade; it's a bridge of
-              solidarity and a testament to our belief that healing and
-              spirituality can create positive ripples across the globe.
-            </p>
-            {/* Optionally, add a link to a page with more details about the NGO or impact reports */}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <AnimateOnScroll>
+            <div className="text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
+                Healing Beyond Ourselves
+              </h2>
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto md:mx-0 mb-8">
+                Our commitment to healing extends beyond our walls. We're
+                honored to partner with talented artisans in Mongolia, bringing
+                their beautiful, handcrafted goods to our community. Each
+                purchase directly supports their families and helps preserve
+                their rich cultural heritage.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                Learn About Our Impact
+              </a>
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              <Carousel
+                showThumbs={false}
+                showStatus={false}
+                infiniteLoop
+                autoPlay
+                interval={4000}
+                transitionTime={600}
+                className="rounded-lg"
+              >
+                {images.map((img, index) => (
+                  <div key={index} className="h-96 bg-background">
+                    <img
+                      src={img}
+                      alt={`Mongolia partnership ${index + 1}`}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
