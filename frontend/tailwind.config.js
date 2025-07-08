@@ -11,8 +11,9 @@ module.exports = {
         'container-bg': '#FFFFFF',
         'text-primary': '#4A3F35',    // Rich, Dark Brown
         'text-secondary': '#8C7B70',  // Soft Brown
-        'primary': '#D89B72',         // Rich Amber (Golden with red richness)
-        'primary-hover': '#C38962',    // Darker Amber
+        'primary': '#20B2AA',         // Light Sea Green (new)
+        'primary-hover': '#1A8F8A',    // Darker Sea Green (new)
+        'logo-gold': '#C0A063',       // A more accurate gold from the logo
         'secondary': '#F5F3F0',       // Light, earthy beige for contrast
         'accent': '#6C757D',          // Muted Grey for secondary elements
         'accent-hover': '#5A6268',     // Darker Muted Grey

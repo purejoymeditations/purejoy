@@ -9,7 +9,7 @@ const SectionSeparator = () => {
           <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-background px-4 text-primary">
+          <span className="bg-background px-4 text-red-500">
             <svg
               className="h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"

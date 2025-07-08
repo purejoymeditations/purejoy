@@ -58,7 +58,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <AnimateOnScroll key={testimonial.id}>
               <div className="bg-container-bg/80 backdrop-blur-sm p-8 rounded-xl shadow-lg h-full flex flex-col transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 border border-border">
-                <FaQuoteLeft className="text-primary/50 text-3xl mb-4" />
+                <FaQuoteLeft className="text-logo-gold/50 text-3xl mb-4" />
                 <p className="text-text-secondary italic leading-relaxed mb-6 flex-grow">
                   {testimonial.quote}
                 </p>

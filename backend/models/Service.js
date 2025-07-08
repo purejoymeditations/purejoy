@@ -25,6 +25,25 @@ const serviceSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
+    },
+    image: {
+        type: String,
+        required: false // Not every service might have an image initially
+    },
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
+    practitioners: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Practitioner',
+        required: true
+    }],
     // Add other relevant fields like 'therapist', 'availability_schedule_template', etc. later
     createdAt: {
         type: Date,

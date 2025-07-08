@@ -7,19 +7,19 @@ import sunflowerImg from "../assets/images/sunflower.jpeg";
 const OurApproach = () => {
   const steps = [
     {
-      icon: <Calendar size={32} className="text-primary" />,
+      icon: <Calendar size={32} className="text-logo-gold" />,
       title: "1. Book with Ease",
       description:
         "Schedule your session and take the first step towards transformation.",
     },
     {
-      icon: <HandHeart size={32} className="text-primary" />,
-      title: "2. Personalized Healing",
+      icon: <HandHeart size={32} className="text-logo-gold" />,
+      title: "Holistic & Heart-Centered",
       description:
-        "Experience a session tailored to your unique needs for body and soul.",
+        "We believe in treating the whole person—mind, body, and spirit.",
     },
     {
-      icon: <Sparkles size={32} className="text-primary" />,
+      icon: <Sparkles size={32} className="text-logo-gold" />,
       title: "3. Emerge Renewed",
       description:
         "Leave with a sense of peace, clarity, and profound well-being.",
@@ -71,7 +71,7 @@ const OurApproach = () => {
                   whileHover={{ scale: 1.03 }}
                 >
                   <div className="flex-shrink-0 mr-6">
-                    <div className="bg-primary/10 p-4 rounded-full">
+                    <div className="bg-logo-gold/10 p-4 rounded-full">
                       {step.icon}
                     </div>
                   </div>

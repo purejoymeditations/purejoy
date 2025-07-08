@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
@@ -7,8 +8,11 @@ import bannerImg from "../assets/images/banner.jpeg";
 const Hero = () => {
   return (
     <AnimateOnScroll>
-      <section className="py-12 md:py-20 text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-20 text-center relative">
+        {/* Soft healing background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-purple-50/20 to-background"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="w-full max-w-5xl mx-auto mb-8"
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -28,14 +32,15 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-4 font-serif leading-tight"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            A Sacred Space for Healing & Renewal
-          </motion.h1>
+            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-logo-gold mb-4 font-serif leading-tight">
+              A Sacred Space for Healing & Renewal
+            </p>
+          </motion.div>
 
           <motion.p
             className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-10"
@@ -55,7 +60,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             <a
-              href="#"
+              href="/#services"
               className="group inline-flex items-center bg-primary hover:bg-primary-hover text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             >
               <Calendar className="mr-3 h-6 w-6 transition-transform duration-300 group-hover:rotate-6" />

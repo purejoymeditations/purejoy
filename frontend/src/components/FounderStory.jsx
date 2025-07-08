@@ -1,24 +1,24 @@
 import React from "react";
-import leanneImg from "../assets/images/Sheargold.jpg";
-import lesleyImg from "../assets/images/lesley.jpg";
+import leanneImg from "../assets/images/homepage/leannebio.jpeg";
+import lesleyImg from "../assets/images/homepage/leselybio.jpeg";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const FounderStory = () => {
-  // Placeholder data - replace with actual data later
+  // Updated practitioner data with new bios
   const founders = [
     {
       name: "Leanne",
-      title: "Wisdom Keeper & Healer",
+      title: "Quantum Lightworker & Multidimensional Healer",
       image: leanneImg,
       story:
-        "With decades of experience in ancient healing traditions and a deep connection to nature's wisdom, Leanne has dedicated her life to guiding others towards wholeness. Her journey has been one of profound learning and sharing, empowering countless individuals to find their inner strength and peace.",
+        "Leanne offers quantum healing sessions infused with multidimensional frequencies from the Galactic Universe, interwoven with her own embodied advanced healing techniques anchored in higher light intelligence. Leanne works within advanced dimensional frequencies to clear illness at its energetic root, activating deep healing across timelines, heal past & present soul layers, ancestral lines and fragmented chakras. Within her sacred healing temple, she holds a nurturing, high-frequency space where your spirit guides, galactic allies, and higher self are invited to step forward, offering divine insight, guidance, and transmissions tailored for your unique soul path.",
     },
     {
       name: "Lesley",
-      title: "Spiritual Guide & Mentor",
+      title: "Aromatic Alchemist / Energy Healer",
       image: lesleyImg,
       story:
-        "Lesley brings a wealth of knowledge in spiritual practices and mentorship. Her path has been illuminated by a commitment to compassionate guidance, helping people connect with their spiritual core and live a more meaningful, authentic life.",
+        "Lesley's passion for wellbeing and intuitive guidance has transformed the lives of those she supports. With expertise in Reiki, Tarot, and Rune readings, she brings a profound sense of clarity to those seeking spiritual and emotional alignment. As a skilled AromaTouch and Massage Therapist, she uses the art of touch to restore harmony within the body, offering comfort and rejuvenation through her gentle, restorative techniques. A dedicated advocate for doTERRA, Lesley's vast knowledge of Pure Essential Oils helps bring a sense of calmness to everyday life. Her creative spirit has shaped a fragrant sanctuary with an array of beautiful handcrafted aromatherapy products—a haven of tranquility designed to awaken the senses and soothe the soul. Lesley's approach to healing is imbued with kindness, intuition, and a heartfelt commitment to guiding others on their wellness journey.",
     },
   ];
 
@@ -62,10 +62,10 @@ const FounderStory = () => {
                   </div>
                 </div>
                 <div className="md:w-2/3 text-center md:text-left">
-                  <h3 className="text-3xl font-serif font-bold text-text-primary mb-2">
+                  <h3 className="text-3xl font-serif font-bold text-logo-gold mb-2">
                     {founder.name}
                   </h3>
-                  <p className="text-lg text-primary italic mb-4">
+                  <p className="text-lg text-text-primary italic mb-4">
                     {founder.title}
                   </p>
                   <p className="text-lg text-text-secondary leading-relaxed">
