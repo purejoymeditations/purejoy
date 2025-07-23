@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+  "name": "purejoy-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Frontend for PureJoy Wellness Website",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -36,5 +37,12 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.3.5"
-  }
+  },
+  "keywords": [
+    "wellness",
+    "react",
+    "vite",
+    "tailwind"
+  ],
+  "author": "PureJoy Development Team"
 }

@@ -34,7 +34,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden bg-honey-glow">
       {/* Background pattern */}
       <div
         className="absolute inset-0 bg-repeat bg-center opacity-5"
@@ -57,28 +57,33 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
             <AnimateOnScroll key={testimonial.id}>
-              <div className="bg-container-bg/80 backdrop-blur-sm p-8 rounded-xl shadow-lg h-full flex flex-col transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 border border-border">
-                <FaQuoteLeft className="text-logo-gold/50 text-3xl mb-4" />
-                <p className="text-text-secondary italic leading-relaxed mb-6 flex-grow">
-                  {testimonial.quote}
-                </p>
-                <div className="mt-auto flex items-center justify-between">
-                  <div className="flex items-center">
+              <div className="bg-container-bg/80 backdrop-blur-sm p-8 rounded-xl shadow-warm h-full flex flex-col transition-all duration-300 ease-in-out hover:shadow-golden hover:-translate-y-2 border border-border-light">
+                <div className="flex-grow">
+                  <div className="flex items-center mb-4">
+                    <FaQuoteLeft className="text-logo-gold text-2xl mr-3" />
+                    <div className="flex space-x-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <FaStar key={i} className="text-logo-gold" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-text-secondary leading-relaxed mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="flex items-center pt-4 border-t border-border-light">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-logo-gold/20">
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4 object-cover"
+                      className="w-full h-full object-cover"
                     />
-                    <div>
-                      <p className="font-bold text-text-primary font-serif">
-                        {testimonial.name}
-                      </p>
-                      <div className="flex mt-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <FaStar key={i} className="text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-text-primary">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-earth-brown">Verified Client</p>
                   </div>
                 </div>
               </div>

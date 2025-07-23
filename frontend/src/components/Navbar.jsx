@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/images/High Resolution Logo.png";
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const navLinks = [
     { title: "HOME", href: "/" },
-    { title: "ABOUT US", href: "#" },
+    { title: "ABOUT US", href: "/about" },
     {
       title: "SERVICES",
       href: "/services",
@@ -39,8 +39,8 @@ const Navbar = () => {
         },
       ],
     },
+    { title: "SHOP", href: "/shop" },
     { title: "OUR PEOPLE", href: "#" },
-    { title: "CONTACT US", href: "#" },
   ];
 
   const menuVariants = {
@@ -55,12 +55,61 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-container-bg/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+    <header className="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-sm sticky top-0 z-50 shadow-2xl border-b border-logo-gold/20 overflow-hidden">
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 animate-gradient-x"></div>
+
+      {/* Floating Natural Elements - Reduced */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Golden Stars - Reduced and Repositioned */}
+        <div className="absolute top-2 right-1/5 text-logo-gold animate-twinkle">
+          <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        <div className="absolute top-4 left-1/3 text-logo-gold animate-twinkle-delayed">
+          <svg className="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        <div className="absolute top-3 right-1/3 text-logo-gold animate-twinkle-slow">
+          <svg className="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        <div className="absolute top-5 left-2/3 text-logo-gold animate-twinkle">
+          <svg className="w-1 h-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+
+        {/* Sparkle Elements - Reduced */}
+        <div className="absolute top-2 right-1/8 text-logo-gold animate-sparkle">
+          <svg className="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" />
+          </svg>
+        </div>
+        <div className="absolute top-4 left-1/2 text-logo-gold animate-sparkle-delayed">
+          <svg className="w-1 h-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" />
+          </svg>
+        </div>
+
+        {/* Glowing Orbs - Reduced */}
+        <div className="absolute top-3 right-1/12 w-0.5 h-0.5 bg-logo-gold/50 rounded-full animate-glow"></div>
+        <div className="absolute top-5 left-3/4 w-0.5 h-0.5 bg-logo-gold/40 rounded-full animate-glow-delayed"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <a href="#">
-              <img src={logo} alt="Purejoy Logo" className="h-20 w-auto" />
+            <a href="#" className="group relative">
+              <div className="absolute inset-0 bg-logo-gold/5 rounded-full blur-md group-hover:bg-logo-gold/20 transition-all duration-500"></div>
+              <img
+                src={logo}
+                alt="Purejoy Logo"
+                className="h-16 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-golden relative z-10 mix-blend-multiply"
+              />
             </a>
           </div>
 
@@ -73,7 +122,7 @@ const Navbar = () => {
               return (
                 <div
                   key={link.title}
-                  className="relative"
+                  className="relative group/nav"
                   onMouseEnter={() =>
                     isServicesLink && setIsServicesHovered(true)
                   }
@@ -83,13 +132,13 @@ const Navbar = () => {
                 >
                   <Link
                     to={link.href}
-                    className={`font-medium transition-colors duration-300 relative group ${
+                    className={`font-medium transition-all duration-300 relative group ${
                       isActive
                         ? "text-logo-gold"
-                        : "text-text-primary hover:text-logo-gold"
+                        : "text-white hover:text-logo-gold"
                     }`}
                   >
-                    <span>{link.title}</span>
+                    <span className="relative z-10">{link.title}</span>
                     <span
                       className={`absolute bottom-0 left-0 w-full h-0.5 bg-logo-gold transition-all duration-300 ${
                         isActive
@@ -97,7 +146,14 @@ const Navbar = () => {
                           : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     ></span>
+
+                    {/* Glowing hover effect */}
+                    <div className="absolute inset-0 bg-logo-gold/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm"></div>
                   </Link>
+
+                  {/* Pulse effect on hover */}
+                  <div className="absolute inset-0 bg-logo-gold/5 rounded-lg opacity-0 group-hover/nav:opacity-100 transition-all duration-500 animate-pulse"></div>
+
                   <AnimatePresence>
                     {isServicesLink && isServicesHovered && (
                       <Submenu
@@ -110,21 +166,19 @@ const Navbar = () => {
                 </div>
               );
             })}
-            <a href="/#services" className="ml-4">
-              <button className="font-semibold px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
-                Book Now
-              </button>
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-primary hover:text-primary transition-colors duration-300"
+              className="relative text-white hover:text-logo-gold transition-all duration-300 group"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              <div className="absolute inset-0 bg-logo-gold/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <div className="relative z-10">
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              </div>
             </button>
           </div>
         </div>
@@ -134,7 +188,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-container-bg absolute top-full left-0 right-0 shadow-lg"
+            className="md:hidden bg-gradient-to-b from-slate-900 to-purple-900 absolute top-full left-0 right-0 shadow-2xl border-b border-logo-gold/20"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -145,22 +199,13 @@ const Navbar = () => {
                 <motion.a
                   key={link.title}
                   href={link.href}
-                  className="font-medium text-xl text-text-primary hover:text-primary transition-colors duration-300"
+                  className="font-medium text-xl text-white hover:text-logo-gold transition-colors duration-300"
                   variants={linkVariants}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.title}
                 </motion.a>
               ))}
-              <a
-                href="/#services"
-                onClick={() => setIsOpen(false)}
-                className="mt-6"
-              >
-                <button className="font-semibold w-full text-center px-8 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-lg">
-                  Book Now
-                </button>
-              </a>
             </div>
           </motion.div>
         )}

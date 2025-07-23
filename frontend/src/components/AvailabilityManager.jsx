@@ -199,7 +199,7 @@ const AvailabilityManager = () => {
         </h3>
         <form
           onSubmit={handleAddRule}
-          className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end bg-gray-50 p-4 rounded-lg"
+          className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end bg-warm-beige p-4 rounded-lg"
         >
           <div>
             <label className="block text-sm font-medium">Practitioner</label>
@@ -266,7 +266,7 @@ const AvailabilityManager = () => {
           {rules.map((rule) => (
             <div
               key={rule._id}
-              className="flex justify-between items-center bg-gray-100 p-3 rounded"
+              className="flex justify-between items-center bg-warm-beige p-3 rounded"
             >
               <p>
                 <span className="font-semibold">{rule.practitioner?.name}</span>
@@ -303,7 +303,7 @@ const AvailabilityManager = () => {
         </h3>
         <form
           onSubmit={handleAddBlockedTime}
-          className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end bg-gray-50 p-4 rounded-lg"
+          className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end bg-warm-beige p-4 rounded-lg"
         >
           <div>
             <label className="block text-sm font-medium">

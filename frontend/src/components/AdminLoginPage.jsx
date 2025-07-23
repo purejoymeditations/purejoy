@@ -35,16 +35,16 @@ const AdminLoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold text-center text-gray-800">
+    <div className="flex items-center justify-center min-h-screen bg-background">
+      <div className="w-full max-w-md p-8 space-y-8 bg-container-bg rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-center text-text-primary">
           Admin Login
         </h1>
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form onSubmit={handleLogin} className="mt-8 space-y-6">
           <div>
             <label
               htmlFor="email"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-text-primary"
             >
               Email
             </label>
@@ -55,13 +55,13 @@ const AdminLoginPage = () => {
               value={email}
               onChange={onChange}
               required
-              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 text-text-primary bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-text-primary"
             >
               Password
             </label>
@@ -72,7 +72,7 @@ const AdminLoginPage = () => {
               value={password}
               onChange={onChange}
               required
-              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 text-text-primary bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
           {error && <p className="text-sm text-center text-red-500">{error}</p>}

@@ -8,12 +8,14 @@ const {
     deleteProduct
 } = require('../controllers/productController');
 
-// Public route
+// Public route - Get all products
 router.route('/').get(getProducts);
 
-// Admin routes
-router.route('/admin').post(protect, createProduct);
-router.route('/admin/:id')
+// Admin routes - Create product (protected)
+router.route('/').post(createProduct);
+
+// Admin routes - Update and delete specific product (protected)
+router.route('/:id')
     .put(protect, updateProduct)
     .delete(protect, deleteProduct);
 

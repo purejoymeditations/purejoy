@@ -100,7 +100,7 @@ const BookingPage = () => {
       <form onSubmit={handleBookingSubmit}>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-text-primary text-sm font-bold mb-2"
             htmlFor="name"
           >
             Your Name
@@ -110,13 +110,13 @@ const BookingPage = () => {
             id="name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-text-primary leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-text-primary text-sm font-bold mb-2"
             htmlFor="email"
           >
             Your Email
@@ -126,13 +126,13 @@ const BookingPage = () => {
             id="email"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-text-primary leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-text-primary text-sm font-bold mb-2"
             htmlFor="phone"
           >
             Your Phone Number
@@ -142,14 +142,14 @@ const BookingPage = () => {
             id="phone"
             value={userPhone}
             onChange={(e) => setUserPhone(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-text-primary leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         {practitioners.length > 1 && (
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-text-primary text-sm font-bold mb-2"
               htmlFor="practitioner"
             >
               Choose a Practitioner
@@ -158,7 +158,7 @@ const BookingPage = () => {
               id="practitioner"
               value={selectedPractitioner}
               onChange={(e) => setSelectedPractitioner(e.target.value)}
-              className="shadow border rounded w-full py-2 px-3 text-gray-700"
+              className="shadow border rounded w-full py-2 px-3 text-text-primary"
             >
               <option value="">--Select--</option>
               {practitioners.map((p) => (
@@ -179,7 +179,7 @@ const BookingPage = () => {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-text-primary text-sm font-bold mb-2"
             htmlFor="service"
           >
             Select an Available Time Slot

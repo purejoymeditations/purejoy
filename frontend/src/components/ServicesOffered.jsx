@@ -16,6 +16,7 @@ import holographicImg from "../assets/images/services/holographic.jpeg";
 import reikiserviceImg from "../assets/images/services/reikiservice.jpeg";
 import tarotImg from "../assets/images/tarrot.jpeg";
 import stoneImg from "../assets/images/stone.jpeg";
+import meditationImg from "../assets/images/services/meditation.jpeg";
 
 const servicesData = {
   Massage: [
@@ -73,6 +74,17 @@ const servicesData = {
   Healing: [
     {
       _id: "healing1",
+      name: "Quantum Healing",
+      description:
+        "Access the energetic, ethereal, and subconscious realms for profound transformation. Clear blockages and align your energy systems for deep healing...",
+      fullDescription:
+        "During a Quantum Healing session, Leanne works beyond the physical body, accessing the energetic, ethereal, and subconscious realms to initiate profound transformation and deep healing. Grounded in the principles of quantum physics and energy medicine, this practice harmonizes and aligns your energy systems while clearing blockages that disrupt your emotional, mental, and physical well-being. Each session targets a specific trauma, illness, or energetic imbalance, addressing its root cause embedded within your body, mind, or emotional layers. These disruptions often stem from unresolved inner child wounds or past-life imprints. Through her intuitive guidance, Leanne clears these traumas, patterns, dissolving the energetic stagnation that manifests as stress, fatigue, anxiety, or physical symptoms. As blockages are released, your energy flows freely, fostering renewal and a higher vibrational state. This process shifts limiting beliefs and negative self-perceptions, helping you reconnect with your true essence, clarity, and balance. You'll leave feeling lighter, aligned, and ready to explore the limitless possibilities of your life.",
+      price: "A$160.00",
+      duration: "1 hr 30 min",
+      image: quantumImg,
+    },
+    {
+      _id: "healing2",
       name: "Massage & Reiki",
       description:
         "A deeply nurturing fusion of body and energy healing. This 90-minute session combines the grounding power of full-body massage with the gentle, restorative energy of Reiki...",
@@ -83,7 +95,7 @@ const servicesData = {
       image: reikiImg,
     },
     {
-      _id: "healing2",
+      _id: "healing3",
       name: "Ancestral Healing",
       description:
         "Heal the roots to free the soul. This deeply transformative session connects you to the energetic threads of your lineage...",
@@ -92,17 +104,6 @@ const servicesData = {
       price: "A$130.00",
       duration: "1 hr",
       image: ancestralhealingImg,
-    },
-    {
-      _id: "healing3",
-      name: "Crystal Healing",
-      description:
-        "Elevate your healing journey with Crystal Healing enhanced by various frequencies and dimensional energies...",
-      fullDescription:
-        "Elevate your healing journey with Crystal Healing enhanced by various frequencies and dimensional energies. In this advanced session, crystals are carefully placed on and around your body, attuned to specific energetic frequencies that align with multiple dimensions of your being—physical, emotional, mental, and spiritual. These powerful frequencies, combined with the crystals' natural vibration, help clear deep blockages, release stagnant energy, and balance your chakras. This multidimensional approach addresses not only current imbalances but also ancestral trauma, past-life wounds, and other layers of energetic distortion. During the session, you may experience sensations of warmth, tingling, or shifts in consciousness as your energy fields are cleansed and elevated. Perfect for those seeking profound transformation and alignment across all levels of existence. Discover holistic harmony and unlock your full potential with Crystal Healing with Multidimensional Frequencies. 💎✨🌈",
-      price: "A$150.00",
-      duration: "1 hr",
-      image: crystalImg,
     },
     {
       _id: "healing4",
@@ -161,7 +162,32 @@ const servicesData = {
     },
   ],
   Readings: [
-    // Tarot Readings removed - now handled by dynamic pricing system in AllServicesPage
+    {
+      _id: "tarot1",
+      name: "Tarot Readings",
+      description:
+        "Gain clarity and insight into your life's path with an intuitive Tarot reading. Quick 15-minute sessions available for focused guidance...",
+      fullDescription:
+        "A 15-minute Tarot reading is a focused and empowering session designed to provide quick yet profound insights into your current situation, questions, or challenges. Whether you're seeking guidance on love, career, life purpose, or simply need clarity, this reading helps illuminate the energies surrounding you and offers actionable advice. What You Can Expect: A clear and concise reading focused on your chosen question or area of life, Intuitive interpretations of key cards and messages from your higher self, Gentle, supportive guidance to help you make empowered decisions. In just 15 minutes, you'll gain valuable perspectives and a sense of direction to support your journey forward. Perfect for when you need a quick, soulful check-in.",
+      price: "A$30.00",
+      duration: "15 min",
+      isHighlighted: true,
+      image: tarotImg,
+    },
+  ],
+  Meditation: [
+    {
+      _id: "meditation1",
+      name: "Meditation Sessions",
+      description:
+        "Find inner peace through guided meditation. Single sessions or 5-session packages available for deep relaxation and mindfulness...",
+      fullDescription:
+        "This 60-minute guided meditation is a transformative journey into deep relaxation, supported by soothing music and vibrational frequencies that assist the body in releasing tension and restoring balance. In this sacred space, the collective energy of the group amplifies the experience, making it easier to relax and go deeper into meditation.",
+      price: "A$20.00",
+      duration: "1 hr",
+      isHighlighted: true,
+      image: meditationImg,
+    },
   ],
 };
 
@@ -169,6 +195,7 @@ const categoryIcons = {
   Massage: <Hand size={22} />,
   Healing: <Sparkles size={22} />,
   Readings: <BookOpen size={22} />,
+  Meditation: <Sparkles size={22} />,
 };
 
 const ServicesOffered = () => {
@@ -237,13 +264,17 @@ const ServicesOffered = () => {
             {displayedServices.map((service) => (
               <motion.div
                 key={service._id}
-                className="relative overflow-hidden rounded-xl shadow-lg group h-[450px]"
+                className={`relative overflow-hidden rounded-xl shadow-lg group h-[450px] ring-2 ring-yellow-400 ring-opacity-60 shadow-yellow-400/25 ${
+                  service.isHighlighted
+                    ? "ring-opacity-100 shadow-yellow-400/40"
+                    : ""
+                }`}
                 whileHover={{ scale: 1.03, y: -5 }}
               >
                 <img
                   src={service.image}
                   alt={service.name}
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
@@ -251,7 +282,7 @@ const ServicesOffered = () => {
                     {service.name}
                   </h3>
                   <div className="text-white/90 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
-                    <p className="mb-4 text-gray-200">{service.description}</p>
+                    <p className="mb-4 text-secondary">{service.description}</p>
                     <div className="flex justify-between items-center text-lg border-t border-white/20 pt-4">
                       <div className="flex flex-col">
                         {service.isIntroductory ? (
@@ -259,11 +290,20 @@ const ServicesOffered = () => {
                             <span className="font-bold text-logo-gold text-xl">
                               {service.price}
                             </span>
-                            <span className="text-sm text-gray-400 line-through">
+                            <span className="text-sm text-accent line-through">
                               {service.originalPrice}
                             </span>
                             <span className="text-xs text-yellow-400 font-medium">
                               🌟 Introductory Price!
+                            </span>
+                          </>
+                        ) : service.isHighlighted ? (
+                          <>
+                            <span className="font-bold text-logo-gold text-xl">
+                              {service.price}
+                            </span>
+                            <span className="text-xs text-yellow-400 font-medium">
+                              ✨ Quick & Insightful!
                             </span>
                           </>
                         ) : (

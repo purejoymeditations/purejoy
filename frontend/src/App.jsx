@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./animations.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -18,6 +19,8 @@ import AdminLoginPage from "./components/AdminLoginPage";
 import AdminDashboard from "./components/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AllServicesPage from "./components/AllServicesPage";
+import ShopPage from "./components/ShopPage";
+import AboutUsPage from "./components/AboutUsPage";
 
 const HomePage = () => (
   <>
@@ -53,30 +56,37 @@ const HomePage = () => (
   </>
 );
 
+const AppContent = () => {
+  return (
+    <div className="w-full">
+      <Navbar />
+
+      <main>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/services" element={<AllServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailsPage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/book/:serviceId" element={<BookingPage />} />
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+
+          {/* Protected Admin Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          </Route>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
 function App() {
   return (
     <Router>
-      <div className="py-2">
-        <div className="max-w-7xl mx-auto bg-container-bg rounded-lg shadow-golden">
-          <Navbar />
-          <main>
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<HomePage />} />
-              <Route path="/services" element={<AllServicesPage />} />
-              <Route path="/services/:slug" element={<ServiceDetailsPage />} />
-              <Route path="/book/:serviceId" element={<BookingPage />} />
-              <Route path="/admin/login" element={<AdminLoginPage />} />
-
-              {/* Protected Admin Routes */}
-              <Route element={<ProtectedRoute />}>
-                <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              </Route>
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </div>
+      <AppContent />
     </Router>
   );
 }

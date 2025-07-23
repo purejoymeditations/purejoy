@@ -154,7 +154,7 @@ const ServiceManager = () => {
             className="p-2 border rounded"
           />
           <div className="md:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-primary mb-1">
               Assign Practitioners
             </label>
             <select
@@ -200,12 +200,12 @@ const ServiceManager = () => {
           {services.map((service) => (
             <div
               key={service._id}
-              className="flex justify-between items-center bg-gray-50 p-4 rounded-lg"
+              className="flex justify-between items-center bg-warm-beige p-4 rounded-lg"
             >
               <div>
                 <p className="font-bold text-lg">
                   {service.name}{" "}
-                  <span className="text-sm font-normal text-gray-500">
+                  <span className="text-sm font-normal text-text-secondary">
                     ({service.category})
                   </span>
                 </p>
@@ -213,7 +213,7 @@ const ServiceManager = () => {
                 <p className="text-sm font-semibold mt-2">
                   ${service.price} for {service.duration} mins
                 </p>
-                <p className="text-xs text-gray-600 mt-2">
+                <p className="text-xs text-text-secondary mt-2">
                   Practitioners:{" "}
                   {service.practitioners.map((p) => p.user?.name).join(", ")}
                 </p>

@@ -62,7 +62,7 @@ const PractitionerManager = () => {
         {practitioners.map((p) => (
           <div
             key={p._id}
-            className="flex justify-between items-center bg-gray-100 p-2 rounded"
+            className="flex justify-between items-center bg-warm-beige p-2 rounded"
           >
             <p>{p.name}</p>
             <button

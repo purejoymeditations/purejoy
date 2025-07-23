@@ -19,10 +19,33 @@ const productSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    weight: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    volume: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    image: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    inStock: {
+        type: Boolean,
+        default: true
+    },
     // We can add more fields later, like images, stock, etc.
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    Highlight:{
+        type:Boolean,
+        default:false
     }
 });
 

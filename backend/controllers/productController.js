@@ -8,44 +8,54 @@ const getProducts = async (req, res) => {
         const products = await Product.find({});
         res.json(products);
     } catch (error) {
+        console.error('Error fetching products:', error);
         res.status(500).json({ message: 'Server Error' });
     }
 };
 
 // @desc    Create a product
-// @route   POST /api/admin/products
+// @route   POST /api/products
 // @access  Private/Admin
 const createProduct = async (req, res) => {
     try {
+        const { name, price, description, category, weight, volume, image, inStock } = req.body;
+
         const product = new Product({
-            name: 'Sample Name',
-            price: 0,
-            description: 'Sample description',
-            category: 'Sample category',
-            image: '/images/sample.jpg',
-            // ...other fields
+            name,
+            price,
+            description,
+            category,
+            weight: weight || '',
+            volume: volume || '',
+            image: image || '',
+            inStock: inStock !== undefined ? inStock : true
         });
+
         const createdProduct = await product.save();
         res.status(201).json(createdProduct);
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        console.error('Error creating product:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
     }
 };
 
 // @desc    Update a product
-// @route   PUT /api/admin/products/:id
+// @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = async (req, res) => {
     try {
-        const { name, price, description, image, category } = req.body;
+        const { name, price, description, image, category, weight, volume, inStock } = req.body;
         const product = await Product.findById(req.params.id);
 
         if (product) {
-            product.name = name;
-            product.price = price;
-            product.description = description;
-            product.image = image;
-            product.category = category;
+            product.name = name || product.name;
+            product.price = price !== undefined ? price : product.price;
+            product.description = description || product.description;
+            product.image = image !== undefined ? image : product.image;
+            product.category = category || product.category;
+            product.weight = weight !== undefined ? weight : product.weight;
+            product.volume = volume !== undefined ? volume : product.volume;
+            product.inStock = inStock !== undefined ? inStock : product.inStock;
 
             const updatedProduct = await product.save();
             res.json(updatedProduct);
@@ -53,24 +63,26 @@ const updateProduct = async (req, res) => {
             res.status(404).json({ message: 'Product not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        console.error('Error updating product:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
     }
 };
 
 // @desc    Delete a product
-// @route   DELETE /api/admin/products/:id
+// @route   DELETE /api/products/:id
 // @access  Private/Admin
 const deleteProduct = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
         if (product) {
-            await product.remove();
+            await Product.findByIdAndDelete(req.params.id);
             res.json({ message: 'Product removed' });
         } else {
             res.status(404).json({ message: 'Product not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        console.error('Error deleting product:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
     }
 };
 

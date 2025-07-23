@@ -23,6 +23,7 @@ import deepTissueImg from "../assets/images/deeptissue.jpeg";
 import relaxedImg from "../assets/images/relaxed.jpeg";
 import tarotImg from "../assets/images/tarrot.jpeg";
 import stoneImg from "../assets/images/stone.jpeg";
+import meditationImg from "../assets/images/services/meditation.jpeg";
 
 // Image mapping object
 const imageMap = {
@@ -54,6 +55,8 @@ const imageMap = {
   "relaxed.jpeg": relaxedImg,
   "tarrot.jpeg": tarotImg,
   "stone.jpeg": stoneImg,
+  "services/meditation.jpeg": meditationImg,
+  "meditation.jpeg": meditationImg,
 };
 
 // Helper to create URL-friendly IDs
@@ -85,12 +88,13 @@ const AllServicesPage = () => {
         const fetchedServices = response.data.filter(
           (s) => s.slug !== "discovery-call"
         );
+
         const uniqueCategories = [
           "Remedial & Relaxation Massage",
           "Energy & Ancestral Healing",
           "Tarot & Card Readings",
           "Meditation & Classes",
-        ].filter((cat) => fetchedServices.some((s) => s.category === cat));
+        ];
 
         setServices(fetchedServices);
         setCategories(uniqueCategories);
@@ -191,115 +195,147 @@ const AllServicesPage = () => {
               </motion.div>
 
               <div className="space-y-20">
-                {services
-                  .filter((s) => s.category === category)
-                  .map((service, index) => {
-                    // Check if this service has dynamic pricing options
-                    const hasDynamicPricing =
-                      service.name === "Meditation Sessions" ||
-                      service.name === "Tarot Readings";
-
-                    if (hasDynamicPricing) {
-                      return (
+                {category === "Meditation & Classes" ? (
+                  // Special handling for Meditation & Classes - show hardcoded service if none from database
+                  services.filter((s) => s.category === category).length > 0 ? (
+                    services
+                      .filter((s) => s.category === category)
+                      .map((service, index) => (
                         <DynamicServiceCard
                           key={service._id}
                           service={service}
                           index={index}
                           imageMap={imageMap}
                         />
-                      );
-                    }
+                      ))
+                  ) : (
+                    <DynamicServiceCard
+                      key="meditation-hardcoded"
+                      service={{
+                        _id: "meditation-sessions",
+                        name: "Meditation Sessions",
+                        description:
+                          "Guided meditation sessions to help you find inner peace and develop mindfulness. Choose from individual sessions or a comprehensive 5-session package.",
+                        image: "services/meditation.jpeg",
+                        category: "Meditation & Classes",
+                      }}
+                      index={0}
+                      imageMap={imageMap}
+                    />
+                  )
+                ) : (
+                  services
+                    .filter((s) => s.category === category)
+                    .map((service, index) => {
+                      // Check if this service has dynamic pricing options
+                      const hasDynamicPricing =
+                        service.name === "Meditation Sessions" ||
+                        service.name === "Tarot Readings";
 
-                    // Regular service card for services without dynamic pricing
-                    return (
-                      <motion.div
-                        key={service._id}
-                        className="max-w-5xl mx-auto"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        variants={{
-                          visible: { opacity: 1, y: 0 },
-                          hidden: { opacity: 0, y: 30 },
-                        }}
-                      >
-                        <div className="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                          {/* Service Name Header */}
-                          <div className="px-8 py-8 text-center border-b border-gray-200 bg-gray-50/50">
-                            <h3 className="text-2xl md:text-3xl font-sans font-semibold text-text-primary tracking-wide">
-                              {service.name}
-                            </h3>
-                          </div>
+                      if (hasDynamicPricing) {
+                        return (
+                          <DynamicServiceCard
+                            key={service._id}
+                            service={service}
+                            index={index}
+                            imageMap={imageMap}
+                          />
+                        );
+                      }
 
-                          <div
-                            className={`grid md:grid-cols-2 ${
-                              index % 2 !== 0 ? "md:grid-flow-col-dense" : ""
-                            }`}
-                          >
-                            {/* Image */}
-                            <div
-                              className={`${
-                                index % 2 !== 0 ? "md:col-start-2" : ""
-                              } flex items-center justify-center`}
-                            >
-                              <img
-                                src={
-                                  imageMap[service.image] ||
-                                  `/src/assets/images/${service.image}`
-                                }
-                                alt={service.name}
-                                className="w-full h-64 md:h-96 object-contain object-center"
-                              />
+                      // Regular service card for services without dynamic pricing
+                      return (
+                        <motion.div
+                          key={service._id}
+                          className="max-w-5xl mx-auto"
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6 }}
+                          variants={{
+                            visible: { opacity: 1, y: 0 },
+                            hidden: { opacity: 0, y: 30 },
+                          }}
+                        >
+                          <div className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            {/* Service Name Header */}
+                            <div className="px-8 py-8 text-center border-b border-border bg-warm-beige/50">
+                              <h3 className="text-2xl md:text-3xl font-sans font-semibold text-text-primary tracking-wide">
+                                {service.name}
+                              </h3>
                             </div>
 
-                            {/* Content */}
                             <div
-                              className={`p-8 md:p-12 flex flex-col justify-center ${
-                                index % 2 !== 0 ? "md:col-start-1" : ""
+                              className={`grid md:grid-cols-2 ${
+                                index % 2 !== 0 ? "md:grid-flow-col-dense" : ""
                               }`}
                             >
-                              <div className="space-y-6">
-                                <div className="text-text-secondary leading-relaxed space-y-4">
-                                  {service.description
-                                    .split(". ")
-                                    .slice(0, 4)
-                                    .map((sentence, idx) => (
-                                      <p
-                                        key={idx}
-                                        className="text-base leading-relaxed"
-                                      >
-                                        {sentence.replace(/[✨🌟]/g, "").trim()}
-                                        {sentence.endsWith(".") ? "" : "."}
-                                      </p>
-                                    ))}
-                                </div>
+                              {/* Image */}
+                              <div
+                                className={`${
+                                  index % 2 !== 0 ? "md:col-start-2" : ""
+                                } flex items-center justify-center`}
+                              >
+                                <img
+                                  src={
+                                    imageMap[service.image] ||
+                                    `/src/assets/images/${service.image}`
+                                  }
+                                  alt={service.name}
+                                  className="w-full h-64 md:h-96 object-contain object-center"
+                                />
+                              </div>
 
-                                <div className="pt-6 mt-8 border-t border-gray-200">
-                                  <div className="flex items-center justify-between">
-                                    <div className="flex items-baseline gap-3">
-                                      <span className="text-3xl font-bold text-text-primary">
-                                        ${service.price}
-                                      </span>
-                                      <span className="text-sm text-text-secondary">
-                                        {service.duration} minutes
-                                      </span>
+                              {/* Content */}
+                              <div
+                                className={`p-8 md:p-12 flex flex-col justify-center ${
+                                  index % 2 !== 0 ? "md:col-start-1" : ""
+                                }`}
+                              >
+                                <div className="space-y-6">
+                                  <div className="text-text-secondary leading-relaxed space-y-4">
+                                    {service.description
+                                      .split(". ")
+                                      .slice(0, 4)
+                                      .map((sentence, idx) => (
+                                        <p
+                                          key={idx}
+                                          className="text-base leading-relaxed"
+                                        >
+                                          {sentence
+                                            .replace(/[✨🌟]/g, "")
+                                            .trim()}
+                                          {sentence.endsWith(".") ? "" : "."}
+                                        </p>
+                                      ))}
+                                  </div>
+
+                                  <div className="pt-6 mt-8 border-t border-gray-200">
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex items-baseline gap-3">
+                                        <span className="text-3xl font-bold text-text-primary">
+                                          ${service.price}
+                                        </span>
+                                        <span className="text-sm text-text-secondary">
+                                          {service.duration} minutes
+                                        </span>
+                                      </div>
+
+                                      <Link to={`/book/${service._id}`}>
+                                        <button className="px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                          Book Now
+                                        </button>
+                                      </Link>
                                     </div>
-
-                                    <Link to={`/book/${service._id}`}>
-                                      <button className="px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                                        Book Now
-                                      </button>
-                                    </Link>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
+                        </motion.div>
+                      );
+                    })
+                )}
               </div>
             </section>
 

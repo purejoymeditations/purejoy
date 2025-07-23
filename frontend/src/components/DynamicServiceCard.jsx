@@ -9,18 +9,18 @@ const serviceOptions = {
       {
         id: "1-session",
         label: "1 Session",
-        price: 80,
+        price: 20,
         duration: 60,
         description:
-          "A single guided meditation session to help you find inner peace and clarity. Perfect for beginners or those seeking immediate stress relief and mindfulness practice.",
+          "This 60-minute guided meditation is a transformative journey into deep relaxation, supported by soothing music and vibrational frequencies that assist the body in releasing tension and restoring balance. In this sacred space, the collective energy of the group amplifies the experience, making it easier to relax and go deeper into meditation. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration, Supports emotional release and energy balancing, Deepens mindfulness and sense of connection, Leaves you feeling grounded, centered, and renewed. Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
       },
       {
         id: "5-sessions",
         label: "5 Sessions Package",
-        price: 350,
+        price: 75,
         duration: 300, // 5 hours total
         description:
-          "A comprehensive meditation journey with 5 guided sessions over several weeks. Develop a sustainable meditation practice, deepen your mindfulness, and experience lasting transformation in your daily life.",
+          "Special Offer: 5-Class Pass for Guided Meditation. Experience the full benefit of regular meditation practice with our 5-class pass for $75. This package offers a $25 discount, making each 60-minute guided meditation class just $15. Whether you're seeking relaxation, focus, or a deeper connection to yourself, this pass allows you to attend multiple sessions at a reduced rate while fostering a consistent self-care practice. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration, Supports emotional release and energy balancing, Deepens mindfulness and sense of connection, Leaves you feeling grounded, centered, and renewed. Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
       },
     ],
   },
@@ -84,9 +84,9 @@ const DynamicServiceCard = ({ service, index, imageMap }) => {
         hidden: { opacity: 0, y: 30 },
       }}
     >
-      <div className="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-        {/* Service Name Header */}
-        <div className="px-8 py-8 text-center border-b border-gray-200 bg-gray-50/50">
+      <div className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+        {/* Header section */}
+        <div className="px-8 py-8 text-center border-b border-border bg-warm-beige/50">
           <h3 className="text-2xl md:text-3xl font-sans font-semibold text-text-primary tracking-wide">
             {service.name}
           </h3>
@@ -132,7 +132,7 @@ const DynamicServiceCard = ({ service, index, imageMap }) => {
                       className={`p-3 rounded-lg border-2 transition-all duration-200 text-sm font-medium ${
                         selectedOption?.id === option.id
                           ? "border-primary bg-primary/10 text-primary"
-                          : "border-gray-200 text-text-secondary hover:border-primary/50"
+                          : "border-border text-text-secondary hover:border-primary/50"
                       }`}
                     >
                       {option.label}
@@ -152,7 +152,7 @@ const DynamicServiceCard = ({ service, index, imageMap }) => {
 
               {/* Price and Book Section */}
               {selectedOption && (
-                <div className="pt-6 mt-8 border-t border-gray-200">
+                <div className="pt-6 mt-8 border-t border-border">
                   <div className="flex items-center justify-between">
                     <div className="flex items-baseline gap-3">
                       <span className="text-3xl font-bold text-text-primary">

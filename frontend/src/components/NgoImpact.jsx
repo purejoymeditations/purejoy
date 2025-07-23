@@ -10,20 +10,25 @@ const NgoImpact = () => {
   const images = [mongoliaImg1, mongoliaImg2, mongoliaImg3];
 
   return (
-    <section className="bg-text-secondary py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-sage-whisper to-honey-glow">
+      <div
+        className="absolute inset-0 bg-repeat bg-center opacity-5"
+        style={{
+          backgroundImage:
+            "url('https://www.transparenttextures.com/patterns/canvas.png')",
+        }}
+      ></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <AnimateOnScroll>
             <div className="text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
-                Healing Beyond Ourselves
+              <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
+                Healing Connected to Earth
               </h2>
-              <p className="text-xl text-gray-200 max-w-2xl mx-auto md:mx-0 mb-8">
-                Our commitment to healing extends beyond our walls. We're
-                honored to partner with talented artisans in Mongolia, bringing
-                their beautiful, handcrafted goods to our community. Each
-                purchase directly supports their families and helps preserve
-                their rich cultural heritage.
+              <p className="text-xl text-text-secondary max-w-2xl mx-auto md:mx-0 mb-8">
+                Our commitment to healing extends beyond our sanctuary to
+                support artisans who work in harmony with nature, bringing you
+                authentic, earth-connected treasures.
               </p>
               <a
                 href="#"

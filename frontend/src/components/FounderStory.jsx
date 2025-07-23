@@ -23,23 +23,23 @@ const FounderStory = () => {
   ];
 
   return (
-    <section className="bg-secondary py-16 md:py-24 relative overflow-hidden">
+    <section className="bg-sage-whisper py-16 md:py-24 relative overflow-hidden">
       <div
         className="absolute inset-0 bg-repeat bg-center opacity-5"
         style={{
           backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/gplay.png')",
+            "url('https://www.transparenttextures.com/patterns/canvas.png')",
         }}
       ></div>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 font-serif">
-              Meet Our Wisdom Keepers
+              Meet Our Nature Guides
             </h2>
             <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-              Our guides on the path to wellness, here to support and empower
-              you.
+              Connected to earth's wisdom, here to guide you on your healing
+              journey.
             </p>
           </div>
         </AnimateOnScroll>
@@ -51,24 +51,24 @@ const FounderStory = () => {
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <div className="md:w-1/3">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-yellow-400 via-red-500 to-purple-600 rounded-lg blur-md opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                <div className="flex-1">
+                  <div className="relative">
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      className="relative rounded-lg shadow-xl w-full"
+                      className="w-full max-w-md mx-auto rounded-2xl shadow-golden object-cover border-4 border-logo-gold/20"
                     />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-logo-gold/10 to-transparent"></div>
                   </div>
                 </div>
-                <div className="md:w-2/3 text-center md:text-left">
-                  <h3 className="text-3xl font-serif font-bold text-logo-gold mb-2">
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 font-serif">
                     {founder.name}
                   </h3>
-                  <p className="text-lg text-text-primary italic mb-4">
+                  <p className="text-lg text-logo-gold mb-6 font-medium">
                     {founder.title}
                   </p>
-                  <p className="text-lg text-text-secondary leading-relaxed">
+                  <p className="text-text-secondary leading-relaxed text-lg">
                     {founder.story}
                   </p>
                 </div>
