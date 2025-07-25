@@ -171,12 +171,12 @@ const AllServicesPage = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-16 xl:py-20 bg-background">
         {categories.map((category, categoryIndex) => (
           <React.Fragment key={category}>
-            <section id={createId(category)} className="mb-20">
+            <section id={createId(category)} className="mb-16 lg:mb-20">
               <motion.div
-                className="text-center mb-16"
+                className="text-center mb-12 lg:mb-16"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -194,7 +194,7 @@ const AllServicesPage = () => {
                 </div>
               </motion.div>
 
-              <div className="space-y-20">
+              <div className="space-y-16 lg:space-y-20">
                 {category === "Meditation & Classes" ? (
                   // Special handling for Meditation & Classes - show hardcoded service if none from database
                   services.filter((s) => s.category === category).length > 0 ? (
@@ -341,7 +341,7 @@ const AllServicesPage = () => {
 
             {categoryIndex < categories.length - 1 && (
               <div className="flex justify-center">
-                <hr className="my-16 w-1/2 border-t-2 border-border" />
+                <hr className="my-12 lg:my-16 w-1/2 border-t-2 border-border" />
               </div>
             )}
           </React.Fragment>

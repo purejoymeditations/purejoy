@@ -17,7 +17,7 @@ module.exports = {
         'ocean-whisper': '#F6FAFE',        // Light ocean blue
 
         // Warm, minimal, and luxurious backgrounds
-        'warm-cream': '#FDF6EC',
+        'warm-cream-original': '#FDF6EC',
         'golden-sand': '#FDFBF5',
         'cream-50': '#FEFEFC',
         'warm-beige': '#FDFCF9',
@@ -56,6 +56,17 @@ module.exports = {
         'border-light': '#F0EBE3',
         'border-nature': '#E8F0E8',
         'border': '#E5E7EB',               // Default border color
+
+        // New Design System Colors (from feedback)
+        'deep-purple': '#8000DE',          // Primary deep purple
+        'soft-gold': '#D4B26B',            // Soft gold accent
+        'warm-cream': '#FDF9F3',           // Soft cream background
+        'blush-beige': '#F7E8D6',          // Warm blush beige
+        'pale-honey': '#F6ECD9',           // Pale honey gold
+        'leaf-green': '#E4EAD2',           // Light olive tint
+        'lavender-mist': '#EDE6F2',        // Soft lavender
+        'nature-cream': '#F3F7E7',         // Light greenish cream
+        'warm-ecru': '#F4F4EC',            // Warm ecru
       },
       boxShadow: {
         'golden': '0 10px 25px -5px rgba(192, 160, 99, 0.15), 0 8px 10px -6px rgba(192, 160, 99, 0.1)',
@@ -63,6 +74,7 @@ module.exports = {
         'healing': '0 4px 20px -2px rgba(32, 178, 170, 0.08)',
         'soft': '0 2px 10px -2px rgba(107, 91, 79, 0.08)',
         'nature': '0 4px 20px -2px rgba(123, 155, 123, 0.1)',
+        'warm-glow': '0 20px 40px rgba(212, 178, 107, 0.15)',
       },
       fontFamily: {
         'sans': ['Montserrat', 'sans-serif'],
@@ -72,5 +84,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/line-clamp'),
   ],
 }

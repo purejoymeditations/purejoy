@@ -228,7 +228,7 @@ const ShopPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-secondary py-12 overflow-hidden">
+      <section className="relative bg-secondary py-8 lg:py-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={mangolia3Img}
@@ -243,19 +243,19 @@ const ShopPage = () => {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <AnimateOnScroll>
             <div className="text-center">
-              <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 font-serif animate-fade-in-up">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-3 lg:mb-4 font-serif animate-fade-in-up">
                 Our Curated Collection
               </h1>
-              <p className="text-base text-text-secondary max-w-2xl mx-auto mb-4 animate-fade-in-up animation-delay-200">
+              <p className="text-base lg:text-lg text-text-secondary max-w-2xl mx-auto mb-3 lg:mb-4 animate-fade-in-up animation-delay-200">
                 Handcrafted wellness products and spiritual treasures for your
                 journey.
               </p>
               <div className="flex items-center justify-center text-text-secondary animate-fade-in-up animation-delay-400">
                 <ShoppingCart className="mr-2 animate-pulse" size={18} />
-                <span className="font-medium text-sm">
+                <span className="font-medium text-sm lg:text-base">
                   {products.length} Products Available
                 </span>
               </div>

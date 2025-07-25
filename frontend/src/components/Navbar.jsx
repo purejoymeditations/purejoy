@@ -55,9 +55,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-sm sticky top-0 z-50 shadow-2xl border-b border-logo-gold/20 overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 animate-gradient-x"></div>
+    <header className="relative bg-[#008080] backdrop-blur-sm sticky top-0 z-50 shadow-2xl border-b border-logo-gold/20 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-[#008080] animate-gradient-x" />
 
       {/* Floating Natural Elements - Reduced */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -96,19 +96,19 @@ const Navbar = () => {
         </div>
 
         {/* Glowing Orbs - Reduced */}
-        <div className="absolute top-3 right-1/12 w-0.5 h-0.5 bg-logo-gold/50 rounded-full animate-glow"></div>
-        <div className="absolute top-5 left-3/4 w-0.5 h-0.5 bg-logo-gold/40 rounded-full animate-glow-delayed"></div>
+        <div className="absolute top-3 right-1/12 w-0.5 h-0.5 bg-logo-gold/50 rounded-full animate-glow" />
+        <div className="absolute top-5 left-3/4 w-0.5 h-0.5 bg-logo-gold/40 rounded-full animate-glow-delayed" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <a href="#" className="group relative">
+            <a href="#" className="group relative flex items-center">
               <div className="absolute inset-0 bg-logo-gold/5 rounded-full blur-md group-hover:bg-logo-gold/20 transition-all duration-500"></div>
               <img
                 src={logo}
                 alt="Purejoy Logo"
-                className="h-16 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-golden relative z-10 mix-blend-multiply"
+                className="h-20 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-golden relative z-10 mix-blend-multiply"
               />
             </a>
           </div>

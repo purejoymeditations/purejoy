@@ -293,7 +293,7 @@ const AboutUsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-beige">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-warm-cream to-golden-sand">
+      <section className="py-12 md:py-16 lg:py-20 xl:py-24 relative overflow-hidden bg-gradient-to-br from-warm-cream to-golden-sand">
         <div
           className="absolute inset-0 bg-repeat bg-center opacity-5"
           style={{
@@ -301,104 +301,67 @@ const AboutUsPage = () => {
               "url('https://www.transparenttextures.com/patterns/canvas.png')",
           }}
         ></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <AnimateOnScroll>
-            <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6 font-serif">
-                Meet Leanne & Lesley
+            <div className="text-center mb-12 lg:mb-16">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-4 lg:mb-6 font-serif">
+                Meet Our Nature Guides
               </h1>
-              <p className="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
-                Two besties who turned their dreams into a fragrant wonderland
-                of healing and empowerment
+              <p className="text-lg md:text-xl lg:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
+                Connected to earth's wisdom, here to guide you on your healing
+                journey
               </p>
-        </div>
+            </div>
           </AnimateOnScroll>
 
-          {/* Founders Introduction */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <AnimateOnScroll>
-              <div className="text-center">
-                <motion.div
-                  className="relative mb-6"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          {/* Nature Guides Section */}
+          <div className="space-y-16 lg:space-y-20">
+            {[
+              {
+                name: "Leanne",
+                title: "Quantum Lightworker & Multidimensional Healer",
+                image: leanneImg,
+                story:
+                  "Leanne offers quantum healing sessions infused with multidimensional frequencies from the Galactic Universe, interwoven with her own embodied advanced healing techniques anchored in higher light intelligence. Leanne works within advanced dimensional frequencies to clear illness at its energetic root, activating deep healing across timelines, heal past & present soul layers, ancestral lines and fragmented chakras. Within her sacred healing temple, she holds a nurturing, high-frequency space where your spirit guides, galactic allies, and higher self are invited to step forward, offering divine insight, guidance, and transmissions tailored for your unique soul path.",
+              },
+              {
+                name: "Lesley",
+                title: "Aromatic Alchemist / Energy Healer",
+                image: lesleyImg,
+                story:
+                  "Lesley's passion for wellbeing and intuitive guidance has transformed the lives of those she supports. With expertise in Reiki, Tarot, and Rune readings, she brings a profound sense of clarity to those seeking spiritual and emotional alignment. As a skilled AromaTouch and Massage Therapist, she uses the art of touch to restore harmony within the body, offering comfort and rejuvenation through her gentle, restorative techniques. A dedicated advocate for doTERRA, Lesley's vast knowledge of Pure Essential Oils helps bring a sense of calmness to everyday life. Her creative spirit has shaped a fragrant sanctuary with an array of beautiful handcrafted aromatherapy products—a haven of tranquility designed to awaken the senses and soothe the soul. Lesley's approach to healing is imbued with kindness, intuition, and a heartfelt commitment to guiding others on their wellness journey.",
+              },
+            ].map((founder, index) => (
+              <AnimateOnScroll key={founder.name}>
+                <div
+                  className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 ${
+                    index % 2 === 1 ? "md:flex-row-reverse" : ""
+                  }`}
                 >
-                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-logo-gold/20 to-bronze/20 rounded-2xl blur-lg opacity-50"></div>
-                  <img
-                    src={leanneImg}
-                    alt="Leanne"
-                    className="relative rounded-2xl shadow-golden w-full max-w-sm mx-auto object-cover border-4 border-border-light"
-                  />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-text-primary mb-3 font-serif">
-                  Leanne
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  After trauma, sexual abuse, domestic violence, and major
-                  mental health challenges, I spent 8 months in Chiang Mai,
-                  Thailand - including 3 months in a mental health
-                  rehabilitation and wellbeing centre. Opening the shop gives me
-                  a sense of HOPE, belonging, connection and wanting to give
-                  back to the community and empower women who have been in
-                  similar situations.
-                </p>
-                <div className="flex justify-center gap-2 mt-4">
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Peace
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Freedom
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Resilient
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Courageous
-                  </span>
+                  <div className="flex-1">
+                    <div className="relative">
+                      <img
+                        src={founder.image}
+                        alt={founder.name}
+                        className="w-full max-w-md mx-auto rounded-2xl shadow-golden object-cover border-4 border-logo-gold/20"
+                      />
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-logo-gold/10 to-transparent"></div>
+                    </div>
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 font-serif">
+                      {founder.name}
+                    </h3>
+                    <p className="text-lg text-logo-gold mb-6 font-medium">
+                      {founder.title}
+                    </p>
+                    <p className="text-text-secondary leading-relaxed text-lg">
+                      {founder.story}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll>
-              <div className="text-center">
-              <motion.div
-                  className="relative mb-6"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-logo-gold/20 to-bronze/20 rounded-2xl blur-lg opacity-50"></div>
-                  <img
-                    src={lesleyImg}
-                    alt="Lesley"
-                    className="relative rounded-2xl shadow-golden w-full max-w-sm mx-auto object-cover border-4 border-border-light"
-                  />
-              </motion.div>
-                <h3 className="text-2xl font-bold text-text-primary mb-3 font-serif">
-                  Lesley
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  I'm a Doterra Wellness advocate and carer for my mum who is
-                  94. This shop is something that is uniquely mine, that brings
-                  passion, sense of purpose, connection, and purpose. We both
-                  love being in partnership together having fun, laughing,
-                  creating, designing, humour, drive, passion.
-                </p>
-                <div className="flex justify-center gap-2 mt-4">
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Spiritual
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Creative
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Passionate
-                  </span>
-                  <span className="px-3 py-1 bg-nature-green/20 text-earth-brown rounded-full text-sm">
-                    Supportive
-                  </span>
-                </div>
-              </div>
-            </AnimateOnScroll>
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
       </section>
@@ -409,17 +372,17 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-warm-beige/30 to-transparent"></div>
         <div className="relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll>
-            <div className="text-center mb-16">
+            <AnimateOnScroll>
+              <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
                   Discover Pure Gold
-              </h2>
+                </h2>
                 <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                   Explore our journey, services, and vision through interactive
                   stories
-              </p>
-            </div>
-          </AnimateOnScroll>
+                </p>
+              </div>
+            </AnimateOnScroll>
 
             {/* Tab Navigation */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -487,12 +450,12 @@ const AboutUsPage = () => {
                         <div className="flex-1">
                           <motion.div
                             className="relative group"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 300,
+                              damping: 20,
+                            }}
                           >
                             <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-logo-gold/20 to-bronze/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-1000"></div>
                             <img
@@ -605,7 +568,7 @@ const AboutUsPage = () => {
                           {plan.icon}
                           <h3 className="text-xl font-bold text-text-primary font-serif">
                             {plan.title}
-                    </h3>
+                          </h3>
                         </div>
                         <p className="text-text-secondary">
                           {plan.description}
@@ -714,16 +677,16 @@ const AboutUsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cream-50/40 to-transparent"></div>
         <div className="relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll>
-            <div className="text-center mb-16">
+            <AnimateOnScroll>
+              <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
                   Our Core Values
-              </h2>
+                </h2>
                 <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                   The principles that guide everything we do at Pure Gold
-              </p>
-            </div>
-          </AnimateOnScroll>
+                </p>
+              </div>
+            </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {coreValues.map((value, index) => (
@@ -754,17 +717,17 @@ const AboutUsPage = () => {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-logo-gold/30 to-transparent"></div>
         <div className="relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll>
-            <div className="text-center mb-16">
+            <AnimateOnScroll>
+              <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
                   Visit Our Sanctuary
-              </h2>
+                </h2>
                 <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                   Experience the magic of Pure Gold in our beautiful Maldon
                   location
-              </p>
-            </div>
-          </AnimateOnScroll>
+                </p>
+              </div>
+            </AnimateOnScroll>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <AnimateOnScroll>
@@ -812,7 +775,7 @@ const AboutUsPage = () => {
                 <div className="bg-container-bg rounded-xl p-8 shadow-warm border border-border-light">
                   <h3 className="text-2xl font-bold text-text-primary mb-6 font-serif">
                     Opening Hours
-                    </h3>
+                  </h3>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-border-light">
                       <span className="text-text-primary font-medium">
@@ -862,7 +825,7 @@ const AboutUsPage = () => {
             <AnimateOnScroll>
               <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
                 Begin Your Healing Journey
-                </h2>
+              </h2>
               <p className="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
                 Experience the transformative power of natural healing in our
                 sacred sanctuary. Walk into our fragrant wonderland and discover
@@ -885,4 +848,3 @@ const AboutUsPage = () => {
 };
 
 export default AboutUsPage;
-

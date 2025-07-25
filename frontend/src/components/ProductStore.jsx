@@ -1,5 +1,5 @@
 import React from "react";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Sparkles } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
 import saltImg from "../assets/images/salt.jpg";
@@ -47,13 +47,45 @@ const ProductStore = () => {
   ];
 
   return (
-    <section className="py-16 bg-sage-whisper">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 font-serif">
+    <section className="py-12 lg:py-16 relative overflow-hidden bg-gradient-to-br from-white via-warm-cream to-honey-glow">
+      {/* Subtle natural pattern overlay */}
+      <div
+        className="absolute inset-0 bg-repeat bg-center opacity-2"
+        style={{
+          backgroundImage:
+            "url('https://www.transparenttextures.com/patterns/light-sketch.png')",
+        }}
+      />
+
+      {/* Floating natural elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#008080] rounded-full blur-3xl opacity-3" />
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary rounded-full blur-3xl opacity-3" />
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blush-rose rounded-full blur-2xl opacity-3" />
+      </div>
+
+      {/* Gentle background decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 text-[#008080] opacity-20 animate-twinkle">
+          <Sparkles className="w-3 h-3" />
+        </div>
+        <div className="absolute top-1/3 right-1/4 text-[#008080] opacity-20 animate-twinkle-delayed">
+          <Sparkles className="w-2 h-2" />
+        </div>
+        <div className="absolute bottom-1/3 left-1/3 text-[#008080] opacity-20 animate-twinkle-slow">
+          <Sparkles className="w-2 h-2" />
+        </div>
+        <div className="absolute bottom-1/4 right-1/3 text-[#008080] opacity-20 animate-twinkle">
+          <Sparkles className="w-3 h-3" />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-3 lg:mb-4 font-serif">
             Nature's Treasures
           </h2>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             Handcrafted with love and intention, bringing earth's healing energy
             into your daily rituals.
           </p>
@@ -62,31 +94,35 @@ const ProductStore = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {previewProducts.map((product) => (
             <AnimateOnScroll key={product._id}>
-              <div className="group bg-container-bg rounded-xl shadow-warm overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-golden border border-border-light">
-                <div className="h-64 overflow-hidden bg-honey-glow">
+              <div className="group bg-white rounded-2xl shadow-md shadow-[#e5d3ba] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg border border-[#f0ebe3] h-full flex flex-col">
+                <div className="h-64 overflow-hidden bg-[#f9f5f1]">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
-                  <span className="inline-block bg-primary-light text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                    {product.category}
-                  </span>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2 font-serif">
-                    {product.name}
-                  </h3>
-                  <p className="text-text-secondary text-sm mb-4">
-                    {product.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-earth-brown">
-                      {product.weight || product.volume}
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex flex-col space-y-3 mb-4">
+                    <span className="inline-block text-[#b18b4f] text-xs font-medium uppercase tracking-wider">
+                      {product.category}
                     </span>
-                    <button className="bg-bronze hover:bg-bronze-dark text-white px-4 py-2 rounded-full text-sm transition-all duration-300 transform hover:scale-105">
-                      Add to Cart
-                    </button>
+                    <h3 className="text-lg font-semibold text-[#3c2e20] font-serif leading-tight">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-[#5f5241] leading-relaxed">
+                      {product.description}
+                    </p>
+                  </div>
+                  <div className="mt-auto pt-4 border-t border-[#f0ebe3]">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-[#7A5C3E] font-medium">
+                        {product.weight || product.volume}
+                      </span>
+                      <button className="border-2 border-[#008080] text-[#008080] hover:bg-[#008080] hover:text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -98,7 +134,7 @@ const ProductStore = () => {
           <AnimateOnScroll>
             <a
               href="/shop"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 bg-[#008080] hover:bg-[#006666] text-white font-medium px-6 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
             >
               <ShoppingBag size={20} />
               Explore Full Collection

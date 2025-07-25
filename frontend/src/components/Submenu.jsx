@@ -7,7 +7,7 @@ const Submenu = ({ items, onMouseEnter, onMouseLeave }) => {
     <motion.div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-md py-2 w-56"
+      className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-md py-2 w-56 border border-gray-200"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
@@ -18,7 +18,7 @@ const Submenu = ({ items, onMouseEnter, onMouseLeave }) => {
           <li key={item.title}>
             <Link
               to={item.href}
-              className="block px-4 py-2 text-sm text-text-primary hover:bg-secondary"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#008080] transition-colors duration-200"
             >
               {item.title}
             </Link>

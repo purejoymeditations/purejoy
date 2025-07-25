@@ -4,7 +4,7 @@ import "./animations.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import FounderStory from "./components/FounderStory";
+
 import ServicesOffered from "./components/ServicesOffered";
 import RetreatsEvents from "./components/RetreatsEvents";
 import ProductStore from "./components/ProductStore";
@@ -26,13 +26,7 @@ const HomePage = () => (
   <>
     <Hero />
     <SectionSeparator />
-    <AnimateOnScroll>
-      <FounderStory />
-    </AnimateOnScroll>
-    <SectionSeparator />
-    <AnimateOnScroll>
-      <OurApproach />
-    </AnimateOnScroll>
+    <OurApproach />
     <SectionSeparator />
     <AnimateOnScroll>
       <ServicesOffered />

@@ -23,7 +23,7 @@ const FounderStory = () => {
   ];
 
   return (
-    <section className="bg-sage-whisper py-16 md:py-24 relative overflow-hidden">
+    <section className="bg-sage-whisper py-12 lg:py-16 xl:py-24 relative overflow-hidden">
       <div
         className="absolute inset-0 bg-repeat bg-center opacity-5"
         style={{
@@ -31,23 +31,23 @@ const FounderStory = () => {
             "url('https://www.transparenttextures.com/patterns/canvas.png')",
         }}
       ></div>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <AnimateOnScroll>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 font-serif">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-3 lg:mb-4 font-serif">
               Meet Our Nature Guides
             </h2>
-            <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-text-secondary max-w-3xl mx-auto">
               Connected to earth's wisdom, here to guide you on your healing
               journey.
             </p>
           </div>
         </AnimateOnScroll>
-        <div className="space-y-20">
+        <div className="space-y-16 lg:space-y-20">
           {founders.map((founder, index) => (
             <AnimateOnScroll key={founder.name}>
               <div
-                className={`flex flex-col md:flex-row items-center gap-12 ${
+                className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 ${
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >

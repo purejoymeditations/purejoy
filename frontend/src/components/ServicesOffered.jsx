@@ -1,21 +1,15 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Hand, Sparkles, BookOpen, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Hand, Sparkles, BookOpen } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import ServiceCard from "./ServiceCard";
 import remedialImg from "../assets/images/services/remedial.jpeg";
 import relaxedImg from "../assets/images/services/relaxation.jpeg";
 import triggerpointImg from "../assets/images/services/triggerpoint.jpeg";
-import aromatouchImg from "../assets/images/services/aromatouch.jpeg";
 import ancestralhealingImg from "../assets/images/services/ancestralhealing.jpeg";
 import reikiImg from "../assets/images/services/reiki.jpeg";
 import quantumImg from "../assets/images/services/quantum.jpeg";
-import reikiheadImg from "../assets/images/services/reikihead.jpeg";
-import crystalImg from "../assets/images/services/crystal.jpeg";
-import wombImg from "../assets/images/services/womb.jpeg";
-import holographicImg from "../assets/images/services/holographic.jpeg";
-import reikiserviceImg from "../assets/images/services/reikiservice.jpeg";
 import tarotImg from "../assets/images/tarrot.jpeg";
-import stoneImg from "../assets/images/stone.jpeg";
 import meditationImg from "../assets/images/services/meditation.jpeg";
 
 const servicesData = {
@@ -59,17 +53,6 @@ const servicesData = {
       isIntroductory: true,
       image: triggerpointImg,
     },
-    {
-      _id: "massage4",
-      name: "Aroma Touch Massage",
-      description:
-        "AromaTouch® is a deeply nurturing, hands-on therapy designed to bring balance to the body and mind using the power of pure essential oils...",
-      fullDescription:
-        "AromaTouch® is a deeply nurturing, hands-on therapy designed to bring balance to the body and mind using the power of pure essential oils. This unique treatment applies a sequence of eight therapeutic-grade essential oils and blends directly to the back and feet, enhancing physical well-being and emotional calm. Each oil sequence has a specific role in supporting the body's natural healing process—whether it's grounding, calming, immune-boosting, or promoting deep relaxation. The gentle application technique stimulates energy flow, supports stress reduction, and encourages a profound sense of harmony.",
-      price: "A$120.00",
-      duration: "1 hr",
-      image: aromatouchImg,
-    },
   ],
   Healing: [
     {
@@ -105,61 +88,6 @@ const servicesData = {
       duration: "1 hr",
       image: ancestralhealingImg,
     },
-    {
-      _id: "healing4",
-      name: "Quantum Healing",
-      description:
-        "During a Quantum Healing session, Leanne works beyond the physical body, accessing the energetic, ethereal, and subconscious realms to initiate profound transformation...",
-      fullDescription:
-        "During a Quantum Healing session, Leanne works beyond the physical body, accessing the energetic, ethereal, and subconscious realms to initiate profound transformation and deep healing. Grounded in the principles of quantum physics and energy medicine, this practice harmonizes and aligns your energy systems while clearing blockages that disrupt your emotional, mental, and physical well-being. Each session targets a specific trauma, illness, or energetic imbalance, addressing its root cause embedded within your body, mind, or emotional layers. These disruptions often stem from unresolved inner child wounds or past-life imprints. Through her intuitive guidance, Leanne clears these traumas, patterns, dissolving the energetic stagnation that manifests as stress, fatigue, anxiety, or physical symptoms. As blockages are released, your energy flows freely, fostering renewal and a higher vibrational state. This process shifts limiting beliefs and negative self-perceptions, helping you reconnect with your true essence, clarity, and balance. You'll leave feeling lighter, aligned, and ready to explore the limitless possibilities of your life.",
-      price: "A$160.00",
-      duration: "1 hr 30 min",
-      image: quantumImg,
-    },
-    {
-      _id: "healing5",
-      name: "Reiki Head Detox",
-      description:
-        "Reiki Detox is a specialized form of energy healing focused on releasing stagnant energy and restoring harmony in the areas of the head, brain, neck, and feet...",
-      fullDescription:
-        "Reiki Detox is a specialized form of energy healing focused on releasing stagnant energy and restoring harmony in the areas of the head, brain, neck, and feet. This session is designed to support mental clarity, alleviate tension, and enhance the body's natural detoxification process. The session begins with a calming flow of energy to soothe mental overactivity, brain fog, and emotional stress. Gentle Reiki is then directed to the neck and shoulders, releasing built-up tension and restoring a sense of ease. The feet, which are powerful grounding points, are also treated to help anchor your energy, fostering a deep sense of stability and balance. Benefits of a Reiki Detox Session: Relieves headaches, mental fatigue, and emotional overwhelm, Promotes relaxation in the neck and shoulder areas, Grounds excess mental energy to restore focus and calmness, Enhances circulation and energetic flow throughout the body. This deeply restorative treatment is ideal for those experiencing stress, tension, or feeling ungrounded. By focusing on the key areas of the head and feet, Reiki Detox supports a full-body reset, leaving you feeling lighter, clearer, and reconnected to your sense of calm and purpose. Available via zoom or In Person.",
-      price: "A$60.00",
-      duration: "30 min",
-      image: reikiheadImg,
-    },
-    {
-      _id: "healing6",
-      name: "Womb Healing - 3 sessions",
-      description:
-        "The Womb Healing Program is a deeply transformative journey designed to restore balance, harmony, and vitality to your womb space...",
-      fullDescription:
-        "The Womb Healing Program is a deeply transformative journey designed to restore balance, harmony, and vitality to your womb space. Through tailored one-on-one sessions over six weeks, you'll heal trauma at its root, reconnect with your feminine energy, and cultivate profound self-love and empowerment. Womb healing is essential for women, as the womb serves as both an energetic and physical center. Imbalances or stored trauma in this space can manifest as emotional pain, irregular menstrual cycles, low energy, mood swings, or even physical illnesses. By healing the womb, you can enhance your overall well-being, supporting regular cycles, improved fertility, stable energy levels, and emotional harmony. The womb can hold onto emotional and energetic imprints from trauma, guilt, anger, fear, and self-criticism. Through the Womb Healing Program, we gently release these stored blockages and memories, clearing the womb space and restoring its natural flow of energy. This healing journey includes emotional and spiritual practices that promote self-discovery and healing, helping you reconnect with your inner child and access deep-seated thoughts and feelings. Benefits include: Emotional and spiritual release of trauma stored in the womb, Restored balance in your reproductive system, supporting regular menstrual cycles and fertility, Improved mood, energy levels, and self-confidence, Deeper connection to your body, feminine energy, and inner child, Empowerment to move beyond past trauma and embrace a life of self-love and growth.",
-      price: "A$500.00",
-      duration: "3 hr",
-      image: wombImg,
-    },
-    {
-      _id: "healing7",
-      name: "Holographic Healing",
-      description:
-        "Immerse yourself in the transformative power of Holographic Healing, a deeply restorative session that works across the physical, spiritual, and soul layers...",
-      fullDescription:
-        "Immerse yourself in the transformative power of Holographic Healing, a deeply restorative session that works across the physical, spiritual, and soul layers. You'll be guided onto an energetic bed where soothing waves of colored light move gently through your body and energy fields. These healing lights cleanse and release blockages, stuck emotions, other people's energy, and deeply rooted pain from past lives and ancestral trauma. This unique process promotes the healing of physical ailments, emotional wounds, and energetic imbalances, leaving you feeling renewed and aligned. Perfect for those seeking profound transformation, this session harmonizes your entire being, offering peace, clarity, and an awakened sense of self. Step into your full potential with Holographic Healing. ✨💫🌈",
-      price: "A$150.00",
-      duration: "1 hr",
-      image: holographicImg,
-    },
-    {
-      _id: "healing8",
-      name: "Reiki",
-      description:
-        "Reiki is a gentle, yet powerful energy healing practice that promotes relaxation, emotional balance, and holistic well-being...",
-      fullDescription:
-        "Reiki is a gentle, yet powerful energy healing practice that promotes relaxation, emotional balance, and holistic well-being. Reiki works by channeling universal life force energy through the practitioner's hands to the recipient, helping to clear energetic blockages and support the body's natural healing processes. During a Reiki session, you will lie comfortably as the practitioner places their hands gently on or above various points of your body. This non-invasive process allows the energy to flow where it's needed most—whether to ease physical discomfort, release emotional stress, or restore a sense of calm and clarity. Benefits of Reiki Healing: Reduces stress and anxiety, Supports emotional healing and resilience, Clears energetic imbalances and enhances vitality, Promotes mental clarity and spiritual connection. Reiki is a deeply restorative experience, perfect for anyone seeking relaxation, emotional release, or alignment of mind, body, and soul. Allow yourself to be held in a space of unconditional love and healing as you reconnect with your inner peace.",
-      price: "A$120.00",
-      duration: "1 hr",
-      image: reikiserviceImg,
-    },
   ],
   Readings: [
     {
@@ -191,149 +119,146 @@ const servicesData = {
   ],
 };
 
-const categoryIcons = {
-  Massage: <Hand size={22} />,
-  Healing: <Sparkles size={22} />,
-  Readings: <BookOpen size={22} />,
-  Meditation: <Sparkles size={22} />,
-};
-
 const ServicesOffered = () => {
   const [activeCategory, setActiveCategory] = useState("Massage");
 
-  const displayedServices = servicesData[activeCategory].slice(0, 3);
+  const categories = [
+    { name: "Massage", icon: Hand },
+    { name: "Healing", icon: Sparkles },
+    { name: "Readings", icon: BookOpen },
+    { name: "Meditation", icon: Sparkles },
+  ];
 
   return (
-    <section id="services" className="bg-secondary py-16 md:py-24 relative">
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-warm-cream to-honey-glow py-20">
+      {/* Subtle natural pattern overlay - matching hero section */}
       <div
-        className="absolute inset-0 bg-repeat bg-center opacity-5"
+        className="absolute inset-0 bg-repeat bg-center opacity-2"
         style={{
           backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/az-subtle.png')",
+            "url('https://www.transparenttextures.com/patterns/light-sketch.png')",
         }}
       ></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimateOnScroll>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-primary">
-              Our Services
-            </h2>
-            <p className="text-lg md:text-xl text-text-secondary mt-4 max-w-3xl mx-auto">
-              Holistic therapies to nurture your mind, body, and spirit.
-            </p>
-          </div>
-        </AnimateOnScroll>
 
-        <div className="flex justify-center items-center gap-6 md:gap-10 mb-16">
-          {Object.keys(servicesData)
-            .filter((category) => servicesData[category].length > 0)
-            .map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors duration-300 ${
-                  activeCategory === category
-                    ? "text-logo-gold"
-                    : "text-text-secondary hover:text-logo-gold"
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span
-                  className={`flex items-center gap-3 ${
-                    activeCategory === category
-                      ? "text-logo-gold"
-                      : "text-text-secondary hover:text-logo-gold"
-                  }`}
-                >
-                  {categoryIcons[category]}
-                  <span className="hidden sm:inline">{category}</span>
-                </span>
-              </motion.button>
-            ))}
-        </div>
+      {/* Floating natural elements - matching hero section */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-logo-gold rounded-full blur-3xl opacity-3"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary rounded-full blur-3xl opacity-3"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blush-rose rounded-full blur-2xl opacity-3"></div>
+      </div>
 
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        {/* Section Header */}
         <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mb-16 lg:mb-20"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {displayedServices.map((service) => (
-              <motion.div
-                key={service._id}
-                className={`relative overflow-hidden rounded-xl shadow-lg group h-[450px] ring-2 ring-yellow-400 ring-opacity-60 shadow-yellow-400/25 ${
-                  service.isHighlighted
-                    ? "ring-opacity-100 shadow-yellow-400/40"
-                    : ""
-                }`}
-                whileHover={{ scale: 1.03, y: -5 }}
-              >
-                <img
-                  src={service.image}
-                  alt={service.name}
-                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <h3 className="text-2xl font-serif font-bold text-white mb-2">
-                    {service.name}
-                  </h3>
-                  <div className="text-white/90 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
-                    <p className="mb-4 text-secondary">{service.description}</p>
-                    <div className="flex justify-between items-center text-lg border-t border-white/20 pt-4">
-                      <div className="flex flex-col">
-                        {service.isIntroductory ? (
-                          <>
-                            <span className="font-bold text-logo-gold text-xl">
-                              {service.price}
-                            </span>
-                            <span className="text-sm text-accent line-through">
-                              {service.originalPrice}
-                            </span>
-                            <span className="text-xs text-yellow-400 font-medium">
-                              🌟 Introductory Price!
-                            </span>
-                          </>
-                        ) : service.isHighlighted ? (
-                          <>
-                            <span className="font-bold text-logo-gold text-xl">
-                              {service.price}
-                            </span>
-                            <span className="text-xs text-yellow-400 font-medium">
-                              ✨ Quick & Insightful!
-                            </span>
-                          </>
-                        ) : (
-                          <span className="font-bold text-logo-gold">
-                            {service.price}
-                          </span>
-                        )}
-                      </div>
-                      <span className="font-light">{service.duration}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex items-center justify-center space-x-3 mb-6"
+          >
+            <Sparkles className="w-5 h-5 text-[#D8B86F] animate-twinkle" />
+            <span className="text-sm font-medium tracking-widest uppercase text-[#D8B86F]">
+              Sacred Services
+            </span>
+            <Sparkles className="w-5 h-5 text-[#D8B86F] animate-twinkle-delayed" />
+          </motion.div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#6B4F3B] mb-6 font-serif">
+            Our Services
+          </h2>
+          <p className="text-lg md:text-xl lg:text-2xl text-[#7A5C3E]/80 max-w-4xl mx-auto leading-relaxed">
+            Discover our range of holistic healing services, each designed to
+            nurture your mind, body, and spirit with gentle, transformative
+            care.
+          </p>
         </motion.div>
 
-        <AnimateOnScroll>
-          <div className="mt-20 text-center">
-            <motion.a
-              href="#"
-              className="inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform"
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mb-12">
+          {categories.map((category) => (
+            <motion.button
+              key={category.name}
+              onClick={() => setActiveCategory(category.name)}
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 ${
+                activeCategory === category.name
+                  ? "bg-[#D8B86F] text-white shadow-lg shadow-[#D8B86F]/30 border-0"
+                  : "bg-white/90 text-[#6B4F3B] hover:bg-[#D8B86F]/10 hover:text-[#D8B86F] border border-[#D8B86F]/20"
+              }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
+              <category.icon className="w-5 h-5" />
+              <span>{category.name}</span>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Service Cards Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {servicesData[activeCategory].map((service, index) => (
+            <motion.div
+              key={service._id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="h-full"
+            >
+              <ServiceCard
+                title={service.name}
+                imageUrl={service.image}
+                description={service.description}
+                price={service.price}
+                originalPrice={service.originalPrice}
+                duration={service.duration}
+                tag={null}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Explore All Services Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center mt-16"
+        >
+          <motion.button
+            className="bg-[#008080] text-white px-8 py-4 rounded-full shadow-lg hover:bg-[#006666] transition-all duration-300 font-medium text-lg group"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="flex items-center space-x-2">
               <span>Explore All Services</span>
-              <ArrowRight size={22} />
-            </motion.a>
-          </div>
-        </AnimateOnScroll>
+              <svg
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </span>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
