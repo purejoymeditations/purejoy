@@ -19,29 +19,29 @@ const Navbar = () => {
     { title: "ABOUT US", href: "/about" },
     // { title: "OUR STORY", href: "/our-story" },
     { title: "COMMUNITY", href: "/community" },
-    {
-      title: "SERVICES",
-      href: "/services",
-      submenu: [
-        {
-          title: "Remedial & Relaxation Massage",
-          href: `/services#${createId("Remedial & Relaxation Massage")}`,
-        },
-        {
-          title: "Energy & Ancestral Healing",
-          href: `/services#${createId("Energy & Ancestral Healing")}`,
-        },
-        {
-          title: "Tarot & Card Readings",
-          href: `/services#${createId("Tarot & Card Readings")}`,
-        },
-        {
-          title: "Meditation & Classes",
-          href: `/services#${createId("Meditation & Classes")}`,
-        },
-      ],
-    },
-    { title: "SHOP", href: "/shop" },
+    // {
+    //   title: "SERVICES",
+    //   href: "/services",
+    //   submenu: [
+    //     {
+    //       title: "Remedial & Relaxation Massage",
+    //       href: `/services#${createId("Remedial & Relaxation Massage")}`,
+    //     },
+    //     {
+    //       title: "Energy & Ancestral Healing",
+    //       href: `/services#${createId("Energy & Ancestral Healing")}`,
+    //     },
+    //     {
+    //       title: "Tarot & Card Readings",
+    //       href: `/services#${createId("Tarot & Card Readings")}`,
+    //     },
+    //     {
+    //       title: "Meditation & Classes",
+    //       href: `/services#${createId("Meditation & Classes")}`,
+    //     },
+    //   ],
+    // },
+    // { title: "SHOP", href: "/shop" },
   ];
 
   const menuVariants = {
