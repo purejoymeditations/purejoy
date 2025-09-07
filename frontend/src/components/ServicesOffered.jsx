@@ -130,21 +130,22 @@ const ServicesOffered = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-white via-warm-cream to-honey-glow py-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-warm-cream via-honey-glow to-sage-whisper py-20">
+      
       {/* Subtle natural pattern overlay - matching hero section */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-repeat bg-center opacity-2"
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/light-sketch.png')",
         }}
-      ></div>
+      ></div> */}
 
       {/* Floating natural elements - matching hero section */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-logo-gold rounded-full blur-3xl opacity-3"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-logo-gold rounded-full blur-3xl opacity-10"></div>
         <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary rounded-full blur-3xl opacity-3"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blush-rose rounded-full blur-2xl opacity-3"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blush-rose rounded-full blur-2xl opacity-5"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -185,8 +186,9 @@ const ServicesOffered = () => {
               onClick={() => setActiveCategory(category.name)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-0 ${
                 activeCategory === category.name
-                  ? "bg-[#D8B86F] text-white shadow-lg shadow-[#D8B86F]/30 border-0"
-                  : "bg-white/90 text-[#6B4F3B] hover:bg-[#D8B86F]/10 hover:text-[#D8B86F] border border-[#D8B86F]/20"
+                ? "bg-[#008080] text-white shadow-lg shadow-[#008080]/30 border-0"
+                : "bg-white/90 text-[#6B4F3B] hover:bg-[#008080]/10 hover:text-[#008080] border border-[#008080]/20"
+              
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

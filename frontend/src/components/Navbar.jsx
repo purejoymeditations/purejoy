@@ -17,6 +17,8 @@ const Navbar = () => {
   const navLinks = [
     { title: "HOME", href: "/" },
     { title: "ABOUT US", href: "/about" },
+    // { title: "OUR STORY", href: "/our-story" },
+    { title: "COMMUNITY", href: "/community" },
     {
       title: "SERVICES",
       href: "/services",
@@ -40,7 +42,6 @@ const Navbar = () => {
       ],
     },
     { title: "SHOP", href: "/shop" },
-    { title: "OUR PEOPLE", href: "#" },
   ];
 
   const menuVariants = {

@@ -81,23 +81,23 @@ const RetreatsEvents = () => {
 
                 <div className="relative bg-[#fdfaf6] rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.01] border border-[#f0ebe3] overflow-hidden">
                   <div className="h-72 overflow-hidden bg-[#fdfaf5]">
-                    <img
-                      src={event.image}
-                      alt={event.name}
+                  <img
+                    src={event.image}
+                    alt={event.name}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                  />
+                </div>
                   <div className="p-6 flex flex-col h-full">
                     <div className="flex flex-col space-y-4">
                       <p className="text-xs uppercase tracking-wider text-[#b18b4f] font-medium">
-                        {event.date}
-                      </p>
+                    {event.date}
+                  </p>
                       <h3 className="text-2xl font-bold text-[#4b3c2f] font-serif leading-tight">
-                        {event.name}
-                      </h3>
+                    {event.name}
+                  </h3>
                       <p className="text-[#5e5042] leading-relaxed text-sm">
-                        {event.description}
-                      </p>
+                    {event.description}
+                  </p>
                     </div>
                     <div className="mt-6 pt-4 border-t border-[#f0ebe3]">
                       <a

@@ -32,65 +32,129 @@ import meditationImg from "../assets/images/services/meditation.jpeg";
 // Import new Aboutus images
 import daySpaCollage from "../assets/images/Aboutus/Day Spa Photo Collage Luxury Package.png";
 import aromaImg from "../assets/images/Aboutus/aroma.jpg";
-import eventImg1 from "../assets/images/Aboutus/20250117_143433[19837].jpg";
 import eventImg2 from "../assets/images/Aboutus/0c7d56c2-a981-460a-b97b-9be94ea9edca.jpg";
 import eventImg3 from "../assets/images/Aboutus/4732aaea-73e4-4930-ab12-7c533000bb4a.jpg";
 import eventImg4 from "../assets/images/Aboutus/6a9e58f1-2a78-402c-9ad1-809d387521b8.jpg";
 import eventImg5 from "../assets/images/Aboutus/b9ba35a1-c84b-48f3-a9f4-76b664cf623f.jpg";
 
+// Import Our Story images - using dynamic imports for better performance
+const storyImages = {
+  story1: [
+    "/src/assets/images/Aboutus/ourstory/ll.jpeg",
+    "/src/assets/images/Aboutus/ourstory/ll2.jpeg",
+    "/src/assets/images/Aboutus/ourstory/popup.jpeg",
+  ],
+  story2: [
+    "/src/assets/images/Aboutus/makingproducts/aromaprep.jpeg",
+    "/src/assets/images/Aboutus/makingproducts/candleprep.jpg",
+    "/src/assets/images/Aboutus/makingproducts/candleprep2.jpg",
+  ],
+  story3: [
+    "/src/assets/images/Aboutus/officialopening/candles.jpg",
+    "/src/assets/images/Aboutus/officialopening/gothicproducts.jpg",
+    "/src/assets/images/Aboutus/officialopening/llgothic.jpeg",
+  ],
+  story4: [
+    "/src/assets/images/Aboutus/lotus/gabby.png",
+    "/src/assets/images/Aboutus/lotus/lotusmongolia.jpeg",
+    "/src/assets/images/Aboutus/lotus/lotusmongolia2.jpeg",
+  ],
+  story5: [
+    "/src/assets/images/Aboutus/massage/a.png",
+    "/src/assets/images/Aboutus/massage/davidtobin.png",
+    "/src/assets/images/Aboutus/massage/dog.jpg",
+  ],
+  story6: [
+    "/src/assets/images/Aboutus/community/deathcafemaldon.jpeg",
+    "/src/assets/images/Aboutus/community/deathcafeevent.jpeg",
+    "/src/assets/images/Aboutus/community/deathcafeevent2.jpeg",
+  ],
+  story7: [
+    "/src/assets/images/Aboutus/expansion/event.jpeg",
+    "/src/assets/images/Aboutus/expansion/tarrot.jpeg",
+  ],
+};
+
 const AboutUsPage = () => {
   const [activeTab, setActiveTab] = useState("story");
 
-  const timelineEvents = [
+  const storySections = [
     {
-      year: "2023",
-      title: "A Journey of Healing",
-      description:
-        "After experiencing trauma, sexual abuse, domestic violence, and major mental health challenges, I spent 8 months in Chiang Mai, Thailand - including 3 months in a mental health rehabilitation and wellbeing centre. This transformative experience planted the seeds of hope and healing.",
-      image: leanneImg,
+      id: 1,
+      title: "The Beginning",
+      subtitle: "Where Pure Gold blossomed",
+      content:
+        "Pure Gold blossomed from a dream shared by two soul-connected friends, Leanne and Lesley—bound by courage, creativity, and a deep commitment to holistic healing.\n\nAfter leaving behind a difficult past, Leanne found profound healing and purpose in Chiang Mai, where she immersed herself in the world of Quantum Healing. Upon returning, she reconnected with Lesley—a devoted wellness advocate and certified AromaTouch specialist—whose passion for self-care and spiritual wellbeing matched her own.\n\nTheir journey together began playfully, offering tarot readings in a local crystal shop—just for fun. But their shared love for spirituality, natural healing, and empowering others soon sparked something bigger: a vision for their own holistic and wellbeing shop, filled with aromatherapy products, healing tools, and heart-led experiences.\n\nThat vision started to take shape when Jamie, the owner of Maldon Getaways, invited them to host a pop-up shop during the Gothic Weekend. It was a beautiful opportunity—one that gave Pure Gold its first space to connect, share, and shine.\n\nAnd so, Pure Gold was born—from friendship, healing, and the belief that true wellness comes from within.",
+      images: storyImages.story1,
       icon: <Heart className="text-logo-gold" size={24} />,
-      side: "left",
-      person: "Leanne",
+      color: "from-rose-50 to-pink-50",
+      accentColor: "bg-rose-100",
     },
     {
-      year: "January 2024",
-      title: "A New Beginning",
-      description:
-        "I separated from my husband and left the state with just my clothes. A friend offered me a free studio to stay in. Lesley, a Doterra Wellness advocate, was nearby in another town. We had been doing tarot readings together in a crystal shop, having fun and building our spiritual connection.",
-      image: storeFrontImg,
+      id: 2,
+      title: "The Heart of Our Craft",
+      subtitle: "Where magic meets creation",
+      content:
+        "Many magical days and late nights were spent at Lesley's house, where laughter, tears, and wild creativity flowed as freely as the essential oils. Surrounded by love and intuition, we hand-blended roll-ons and sprays—each one a reflection of our shared vision and heartfelt energy.\n\nA dear friend from Adelaide flew in to teach us the art of candle-making. What followed were four unforgettable days filled with joy, curiosity, and soulful experimentation. We mixed, measured, laughed (sometimes cried), and occasionally got our essential oil conversions hilariously wrong. But every moment was part of the magic.\n\nWe poured ourselves into every step—mastering fragrance blends, choosing the perfect wicks, and learning the delicate balance of heat, wax, and scent. With Leanne leading the alchemy and Lesley adding her signature creative touch to the finishing details, each candle became more than just a product. It became a story, a feeling, a healing moment.\n\nOur hand-poured candles are crafted as vessels of wellness—designed to calm the body, soothe emotions, and lift the spirit. Every flicker carries our intention: to guide others toward peace, self-care, and inner light.\n\nThis is Pure Gold. Created with heart. Shared with love.",
+      images: storyImages.story2,
       icon: <Sparkles className="text-logo-gold" size={24} />,
-      side: "right",
-      person: "Both",
+      color: "from-purple-50 to-indigo-50",
+      accentColor: "bg-purple-100",
     },
     {
-      year: "August 2024",
-      title: "The Pop-Up Dream",
-      description:
-        "We both loved being creative and wanted something we could own. Jamie from Maldon Getaways offered us a pop-up shop opportunity. We chose the Gothic Festival as our starting date. After that magical weekend, Jamie asked us to stay until 2030 - he didn't want anyone else to steal us!",
-      image: massageImg,
-      icon: <Star className="text-logo-gold" size={24} />,
-      side: "left",
-      person: "Both",
-    },
-    {
-      year: "2024",
-      title: "Building Our Sanctuary",
-      description:
-        "We're renting a beautiful, open and airy space that we love. Out the back is a small area where the building owner lived - we're working to create healing & massage rooms. Our space is becoming a true sanctuary for transformation.",
-      image: candleMakingImg,
-      icon: <Shield className="text-logo-gold" size={24} />,
-      side: "right",
-      person: "Both",
-    },
-    {
-      year: "Today",
-      title: "Community & Empowerment",
-      description:
-        "Pure Gold has become more than a shop - we're a community hub supporting local women in business, hosting workshops, and creating a space for healing and empowerment. We're planning support groups for domestic violence & mental health, and supporting our friend's orphanage in Mongolia.",
-      image: lesleyImg,
+      id: 3,
+      title: "Our Official Opening",
+      subtitle: "Where magic came to life",
+      content:
+        'As the Goldfields Gothic Festival of Dark Ideas approached, we knew we wanted to create something extra fun and a little bit wild. Lesley\'s mother playfully suggested bats and spiders—and that was all the inspiration we needed! Soon we were brewing up gothic-inspired creations: red-blooded spider sprays laced with frankincense, candles dripping with wax "blood," skull motifs, and eerie-yet-charming spider jewellery. It was quirky, unexpected, and pure magic.\n\nOn August 1st, 2024, we officially opened our 3-day pop-up shop in Maldon. Dressed in flowing black gowns and ethereal fairy wings, we fully embraced the Gothic spirit—ready to enchant and uplift with every scent, shimmer, and spark of joy.\n\nThe response was overwhelming. Our stall—filled with handcrafted aromatherapy products, healing sprays, and soulful candles—nearly sold out! Jamie from Maldon Getaways was so impressed he joked, "I want you here until 2030!"\n\nBut Pure Gold is more than a shop. For those who stepped into our space, it became a fragrant wonderland—a sanctuary woven with essential oils, intuitive healing, and heart. Built on friendship, purpose, and resilience, Pure Gold is a place where women uplift each other, reconnect with their inner strength, and celebrate who they truly are.\n\nWe believe holistic wellbeing is more than a trend—it\'s a lifestyle. One where the senses are soothed, the spirit is nourished, and every visitor feels seen, supported, and inspired.',
+      images: storyImages.story3,
       icon: <Users className="text-logo-gold" size={24} />,
-      side: "left",
-      person: "Both",
+      color: "from-blue-50 to-cyan-50",
+      accentColor: "bg-blue-100",
+    },
+    {
+      id: 4,
+      title: "Giving Back: From Streets to Safety",
+      subtitle: "Supporting the Lotus Children's Centre, Mongolia",
+      content:
+        "Lesley and Gabby have been friends since childhood. Today, Gabby stands as the inspiring founder of the Lotus Children's Centre in Ulaanbaatar, Mongolia—a sanctuary that has been transforming lives for over 30 years.\n\nWhat began as a heartfelt mission has grown into a lifeline for children abandoned on the streets. Through tireless dedication, Gabby has provided safety, education, and life skills to more than 200 children. Today, she continues to nurture 45 young lives, giving them not just shelter, but a future filled with possibility. The Centre runs entirely on donations and sponsorships, making every act of support deeply meaningful.\n\nWhen Leanne and Lesley met Gabby, the connection was instant—heartfelt and soul-deep. Moved by her story and unwavering devotion, they knew they wanted to help.\n\nAt Pure Gold Holistic & Wellbeing, we proudly support the Lotus Children's Centre by selling handmade items from Mongolia. Every piece carries a story of resilience, hope, and love—and 100% of proceeds go directly to the children. It's a small act with a powerful ripple effect—turning compassion into real, lasting change.",
+      images: storyImages.story4,
+      icon: <Star className="text-logo-gold" size={24} />,
+      color: "from-yellow-50 to-amber-50",
+      accentColor: "bg-yellow-100",
+    },
+    {
+      id: 5,
+      title: "Expanding Our Healing Touch: Massage Therapy",
+      subtitle: "Where hands meet heart",
+      content:
+        "As Pure Gold continued to grow, massage therapy felt like the natural next step—a way to bring deeper grounding, physical restoration, and embodied healing into our space.\n\nAt first, Leanne had doubts. Was massage really her calling? Were her hands made for this work? But everything changed under the wise, funny, and heart-led guidance of David John Tobin. His training was filled with laughter, soulful connection, and the kind of encouragement that melts fear away. By the end, both Leanne and Lesley left not just certified, but confident—ready to offer Relaxation and Remedial Massage with the same love and intention they brought to everything they do.\n\nJust a month later, they returned to complete their Trigger Point Massage certification, diving deeper into the art of healing the body through precision, intuition, and care.\n\nSince then, every massage—whether relaxation, remedial, or trigger point—has been infused with the Pure Gold essence: deep presence, energetic sensitivity, and just the right dash of cheeky charm.\n\nOne unforgettable moment captured it perfectly: during a massage with Lesley, a lively puppy leapt up onto the table and curled at his owner's feet—fully at peace. Even the animals could feel the calm in the room.\n\nAnd as for Leanne's trigger point sessions? Let's just say she quickly gained a reputation. \"Brace yourself—in the best way!\" became a running joke among clients who left feeling lighter, looser, and completely renewed.\n\nWhat began with uncertainty has become a beautiful, full-bodied offering—crafted with intuition, grounded in care, and delivered with heart. This is the Pure Gold touch: sacred, sensory, and soul-aligned.",
+      images: storyImages.story5,
+      icon: <Leaf className="text-logo-gold" size={24} />,
+      color: "from-green-50 to-emerald-50",
+      accentColor: "bg-green-100",
+    },
+    {
+      id: 6,
+      title: "Supporting the Wider Community",
+      subtitle: "Where hearts connect and souls heal",
+      content:
+        "At Pure Gold, community connection lies at the heart of everything we do.\n\nOne of our most cherished offerings is the monthly Spiritual Circle—a sacred gathering where intuition is honoured, laughter is shared, and sisterhood is deeply felt. It's more than a group; it's a safe, empowering space where women come together to trust their inner voice, share their wisdom, and celebrate the unfolding magic of their lives. Here, confidence blooms, healing takes root, and every soul is lifted by the energy of love and belonging.\n\nThis year, our hearts called us to birth something even more profound—Death Café Maldon.\n\nPart of a global movement, our local Death Café is a not-for-profit, gently held space where people can speak openly about death, dying, grief, legacy, and what it means to truly live. For Lesley, the idea emerged during quiet moments of reflection while caring for her elderly mother. For Leanne, it came from a personal journey through grief, mental health challenges, and the raw, real process of loss.\n\nTogether, we felt deeply moved to create a space where these tender conversations could unfold with compassion, honesty, and courage.\n\nAt Death Café Maldon, nothing is taboo. There's no agenda, no pressure—just presence. Through shared dialogue, we hope to soften fear, foster peace, and remind each other that the journey of life and death is one we need not walk alone.\n\nWhether celebrating life's vibrant highs or honouring its quiet final chapters, Pure Gold is devoted to holding space for the full spectrum of the human experience—with heart, grace, and unwavering love.",
+      images: storyImages.story6,
+      icon: <Globe className="text-logo-gold" size={24} />,
+      color: "from-teal-50 to-cyan-50",
+      accentColor: "bg-teal-100",
+    },
+    {
+      id: 7,
+      title: "Wellness Expansion: Blissful Pampering Packages",
+      subtitle: "Where indulgence meets soul-deep nourishment",
+      content:
+        "Recently, we had the absolute joy of hosting a radiant group of five women for a deeply nourishing experience—a soulful blend of relaxation massage, Reiki, tarot readings, foot spas, mandala art, and custom roll-on blending.\n\nThe space came alive with laughter, connection, and creativity. It was more than a gathering—it was a sacred circle where each woman was invited to reconnect with herself and others in a way that was both healing and magical.\n\nFrom that beautiful day, our Pure Bliss Pampering Spa Packages were born—intentionally curated experiences that combine indulgence with soul-deep nourishment. Whether hosted in our space or designed for special occasions, each package is crafted with care, intuition, and heart.\n\nAnd now, we're expanding that magic even further…\n\nWe're taking our offerings on the road—bringing the Pure Gold experience into the home. One of our first traveling pamper journeys? A 50th birthday celebration for a group of eight women, wrapped in warmth, ritual, and joyful feminine energy.\n\nThis is wellness reimagined: tender, sensory, and deeply personal. Whether you're gathering for a celebration or simply craving reconnection, our pampering packages are designed to meet you where you are—with love, intention, and a little sparkle of Pure Gold.",
+      images: storyImages.story7,
+      icon: <Award className="text-logo-gold" size={24} />,
+      color: "from-orange-50 to-red-50",
+      accentColor: "bg-orange-100",
     },
   ];
 
@@ -183,7 +247,7 @@ const AboutUsPage = () => {
       title: "Death Cafe Events",
       description:
         "Creating safe spaces for open conversations about death, dying, and life. These events provide comfort, understanding, and community support for those navigating end-of-life topics.",
-      image: eventImg1,
+      image: eventImg2,
       icon: <Heart className="text-logo-gold" size={24} />,
     },
     {
@@ -406,66 +470,119 @@ const AboutUsPage = () => {
             <AnimateOnScroll>
               <div className="min-h-[600px]">
                 {activeTab === "story" && (
-                  <div className="space-y-16">
-                    {timelineEvents.map((event, index) => (
-                      <div
-                        key={index}
-                        className={`relative flex items-center ${
-                          event.side === "left"
-                            ? "lg:flex-row"
-                            : "lg:flex-row-reverse"
-                        } gap-8 lg:gap-16`}
+                  <div className="space-y-12">
+                    {storySections.map((section, index) => (
+                      <motion.div
+                        key={section.id}
+                        className="relative overflow-hidden"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: index * 0.2 }}
                       >
-                        {/* Timeline dot */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-logo-gold rounded-full ring-4 ring-white shadow-lg hidden lg:block z-10"></div>
-
-                        {/* Content */}
+                        {/* Background Pattern */}
                         <div
-                          className={`flex-1 ${
-                            event.side === "left"
-                              ? "lg:text-right"
-                              : "lg:text-left"
-                          }`}
-                        >
-                          <div className="bg-container-bg rounded-xl p-8 shadow-warm hover:shadow-golden transition-all duration-300 border border-border-light">
-                            <div className="flex items-center gap-3 mb-4">
-                              {event.icon}
-                              <span className="text-2xl font-bold text-logo-gold">
-                                {event.year}
-                              </span>
-                              <span className="text-sm text-earth-brown font-medium">
-                                ({event.person})
-                              </span>
-                            </div>
-                            <h3 className="text-2xl font-bold text-text-primary mb-4 font-serif">
-                              {event.title}
-                            </h3>
-                            <p className="text-text-secondary leading-relaxed">
-                              {event.description}
-                            </p>
-                          </div>
-                        </div>
+                          className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-30`}
+                        ></div>
 
-                        {/* Image */}
-                        <div className="flex-1">
-                          <motion.div
-                            className="relative group"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 300,
-                              damping: 20,
-                            }}
-                          >
-                            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-logo-gold/20 to-bronze/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-1000"></div>
-                            <img
-                              src={event.image}
-                              alt={event.title}
-                              className="relative rounded-2xl shadow-golden w-full object-cover border-4 border-border-light"
-                            />
-                          </motion.div>
+                        {/* Main Content Container */}
+                        <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
+                          {/* Header Section */}
+                          <div className="relative p-8 md:p-12 bg-gradient-to-r from-white/90 to-white/70">
+                            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
+                              {/* Icon and Title */}
+                              <div className="flex items-center gap-6">
+                                <div
+                                  className={`p-6 rounded-2xl ${section.accentColor} shadow-xl relative overflow-hidden`}
+                                >
+                                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                                  <div className="relative z-10">
+                                    {section.icon}
+                                  </div>
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                                    <h2 className="text-4xl md:text-5xl font-bold text-text-primary font-serif leading-tight">
+                                      {section.title}
+                                    </h2>
+                                    <span className="text-sm text-logo-gold font-bold bg-gradient-to-r from-logo-gold/20 to-bronze/20 px-6 py-3 rounded-full shadow-lg border border-logo-gold/30">
+                                      {section.year}
+                                    </span>
+                                  </div>
+                                  <p className="text-2xl text-text-secondary font-medium">
+                                    {section.subtitle}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Content and Images Grid */}
+                          <div className="p-8 md:p-12">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                              {/* Text Content */}
+                              <div className="space-y-6">
+                                <div className="prose prose-lg max-w-none">
+                                  {section.content
+                                    .split("\n\n")
+                                    .map((paragraph, index) => (
+                                      <p
+                                        key={index}
+                                        className="text-text-secondary leading-relaxed text-lg mb-6 first:text-2xl first:font-semibold first:text-text-primary"
+                                      >
+                                        {paragraph}
+                                      </p>
+                                    ))}
+                                </div>
+                              </div>
+
+                              {/* Images Gallery */}
+                              {section.images && section.images.length > 0 && (
+                                <div className="space-y-6">
+                                  <h3 className="text-2xl font-bold text-text-primary font-serif mb-6">
+                                    Visual Journey
+                                  </h3>
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    {section.images.map((image, imgIndex) => (
+                                      <motion.div
+                                        key={imgIndex}
+                                        className="relative group overflow-hidden rounded-2xl shadow-xl"
+                                        whileHover={{ scale: 1.03, y: -8 }}
+                                        transition={{
+                                          duration: 0.5,
+                                          ease: "easeOut",
+                                        }}
+                                      >
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-br from-logo-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <img
+                                          src={image}
+                                          alt={`${section.title} - Image ${
+                                            imgIndex + 1
+                                          }`}
+                                          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                                          loading="lazy"
+                                        />
+                                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                          <p className="text-white text-lg font-semibold">
+                                            Pure Gold
+                                          </p>
+                                          <p className="text-white/80 text-sm">
+                                            Journey of Healing
+                                          </p>
+                                        </div>
+                                      </motion.div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Decorative Elements */}
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-logo-gold/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-bronze/10 to-transparent rounded-full translate-y-12 -translate-x-12"></div>
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 )}

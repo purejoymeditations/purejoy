@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Sparkles, Heart } from "lucide-react";
+import { Calendar, Sparkles, Heart, Users } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import bannerImg from "../assets/images/Sheargold-25.jpg";
 

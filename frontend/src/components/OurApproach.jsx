@@ -80,13 +80,13 @@ const OurApproach = () => {
             <Sparkles className="w-5 h-5 text-logo-gold animate-twinkle-delayed" />
           </motion.div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-earth-brown mb-4 lg:mb-6">
-            Our Natural Approach
-          </h2>
+              Our Natural Approach
+            </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-earth-brown/80 max-w-4xl mx-auto leading-relaxed">
             We believe in the power of nature's wisdom, combining ancient
             healing practices with modern understanding to create transformative
             experiences.
-          </p>
+            </p>
         </motion.div>
 
         {/* Content Grid - Responsive Layout */}
@@ -128,10 +128,10 @@ const OurApproach = () => {
                         {step.title.split(" ").slice(1).join(" ")}
                       </span>
                     )}
-                  </h3>
+                    </h3>
                   <p className="text-earth-brown/80 leading-relaxed text-base lg:text-lg group-hover:text-earth-brown transition-colors duration-300">
-                    {step.description}
-                  </p>
+                      {step.description}
+                    </p>
                 </div>
               </motion.div>
             ))}
@@ -164,12 +164,12 @@ const OurApproach = () => {
               {/* Top-right icon */}
               <div className="absolute top-4 right-4 bg-white/70 backdrop-blur-md p-2 rounded-full shadow-md">
                 <Heart className="w-5 h-5 text-logo-gold" />
-              </div>
+            </div>
 
               {/* Bottom-left icon */}
               <div className="absolute bottom-4 left-4 bg-white/70 backdrop-blur-md p-2 rounded-full shadow-md">
                 <Sparkles className="w-5 h-5 text-logo-gold" />
-              </div>
+          </div>
             </motion.div>
           </motion.div>
         </div>

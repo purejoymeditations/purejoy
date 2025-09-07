@@ -20,7 +20,11 @@ import AdminDashboard from "./components/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AllServicesPage from "./components/AllServicesPage";
 import ShopPage from "./components/ShopPage";
-import AboutUsPage from "./components/AboutUsPage";
+import AboutUsPage from "./components/AboutUsPageNew";
+import OurStory from "./components/OurStory";
+import CommunityPage from "./components/CommunityPage";
+import CommunityPreview from "./components/CommunityPreview";
+import SocialMediaBar from "./components/SocialMediaBar";
 
 const HomePage = () => (
   <>
@@ -32,10 +36,7 @@ const HomePage = () => (
       <ServicesOffered />
     </AnimateOnScroll>
     <SectionSeparator />
-    <AnimateOnScroll>
-      <RetreatsEvents />
-    </AnimateOnScroll>
-    <SectionSeparator />
+
     <AnimateOnScroll>
       <ProductStore />
     </AnimateOnScroll>
@@ -45,7 +46,7 @@ const HomePage = () => (
     </AnimateOnScroll>
     <SectionSeparator />
     <AnimateOnScroll>
-      <NgoImpact />
+      <CommunityPreview />
     </AnimateOnScroll>
   </>
 );
@@ -60,6 +61,8 @@ const AppContent = () => {
           {/* Public Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/our-story" element={<OurStory />} />
+          <Route path="/community" element={<CommunityPage />} />
           <Route path="/services" element={<AllServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailsPage />} />
           <Route path="/shop" element={<ShopPage />} />
@@ -73,6 +76,7 @@ const AppContent = () => {
         </Routes>
       </main>
       <Footer />
+      <SocialMediaBar />
     </div>
   );
 };

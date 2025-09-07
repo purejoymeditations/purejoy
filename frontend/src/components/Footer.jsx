@@ -86,8 +86,8 @@ const Footer = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold text-logo-gold font-serif ml-3">
-                Purejoy
-              </h3>
+              Purejoy
+            </h3>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Your sanctuary for healing, growth, and inner peace. Where

@@ -49,17 +49,17 @@ const ProductStore = () => {
   return (
     <section className="py-12 lg:py-16 relative overflow-hidden bg-gradient-to-br from-white via-warm-cream to-honey-glow">
       {/* Subtle natural pattern overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-repeat bg-center opacity-2"
         style={{
           backgroundImage:
             "url('https://www.transparenttextures.com/patterns/light-sketch.png')",
         }}
-      />
+      /> */}
 
       {/* Floating natural elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-[#008080] rounded-full blur-3xl opacity-3" />
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#008080] rounded-full blur-3xl opacity-10" />
         <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary rounded-full blur-3xl opacity-3" />
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blush-rose rounded-full blur-2xl opacity-3" />
       </div>
@@ -119,7 +119,7 @@ const ProductStore = () => {
                       <span className="text-sm text-[#7A5C3E] font-medium">
                         {product.weight || product.volume}
                       </span>
-                      <button className="border-2 border-[#008080] text-[#008080] hover:bg-[#008080] hover:text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
+                      <button className="border-2 border-[#D4B26B] text-[#D4B26B] hover:bg-[#D4B26B] hover:text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
                         Add to Cart
                       </button>
                     </div>
