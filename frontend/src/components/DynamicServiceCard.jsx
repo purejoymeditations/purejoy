@@ -12,7 +12,7 @@ const serviceOptions = {
         price: 20,
         duration: 60,
         description:
-          "This 60-minute guided meditation is a transformative journey into deep relaxation, supported by soothing music and vibrational frequencies that assist the body in releasing tension and restoring balance. In this sacred space, the collective energy of the group amplifies the experience, making it easier to relax and go deeper into meditation. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration, Supports emotional release and energy balancing, Deepens mindfulness and sense of connection, Leaves you feeling grounded, centered, and renewed. Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
+          "This 60-minute guided meditation is a transformative journey into deep relaxation, supported by soothing music and vibrational frequencies that assist the body in releasing tension and restoring balance. In this sacred space, the collective energy of the group amplifies the experience, making it easier to relax and go deeper into meditation. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration Supports emotional release and energy balancing Deepens mindfulness and sense of connection Leaves you feeling grounded, centered, and renewed Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
       },
       {
         id: "5-sessions",
@@ -20,7 +20,7 @@ const serviceOptions = {
         price: 75,
         duration: 300, // 5 hours total
         description:
-          "Special Offer: 5-Class Pass for Guided Meditation. Experience the full benefit of regular meditation practice with our 5-class pass for $75. This package offers a $25 discount, making each 60-minute guided meditation class just $15. Whether you're seeking relaxation, focus, or a deeper connection to yourself, this pass allows you to attend multiple sessions at a reduced rate while fostering a consistent self-care practice. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration, Supports emotional release and energy balancing, Deepens mindfulness and sense of connection, Leaves you feeling grounded, centered, and renewed. Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
+          "Special Offer: 5 x 1 hour Class Pass for Guided Meditation - $75 Experience the full benefit of regular meditation practice with our 5-class pass for $75. This package offers a $25 discount, making each 60-minute guided meditation class just $15. Whether you're seeking relaxation, focus, or a deeper connection to yourself, this pass allows you to attend multiple sessions at a reduced rate while fostering a consistent self-care practice. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration Supports emotional release and energy balancing Deepens mindfulness and sense of connection Leaves you feeling grounded, centered, and renewed Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
       },
     ],
   },
@@ -45,7 +45,7 @@ const serviceOptions = {
       {
         id: "45-min",
         label: "45 Minutes",
-        price: 80,
+        price: 90,
         duration: 45,
         description:
           "A 45-minute Tarot reading is a comprehensive and intuitive session designed to provide deep insights into your life's unfolding journey. This extended time allows for a thorough exploration of your questions, uncovering hidden influences, addressing multiple areas, and providing guidance to help you realign with your highest path. What You Can Expect: A full spread examining key aspects of your life: love, career, purpose, or personal growth, Clarification of patterns, blocks, and opportunities for transformation, Time to ask follow-up questions for deeper understanding, Intuitive messages that inspire clarity, healing, and empowerment. This session is ideal for those navigating significant life changes or seeking a holistic view of their current circumstances. A 45-minute Tarot reading offers you the space to reflect, receive, and realign with clarity and confidence.",
@@ -167,7 +167,7 @@ const DynamicServiceCard = ({ service, index, imageMap }) => {
                     </div>
 
                     <Link
-                      to={`/book/${service._id}?option=${selectedOption.id}`}
+                      // to={`/book/${service._id}?option=${selectedOption.id}`}
                     >
                       <button className="px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                         Book Now

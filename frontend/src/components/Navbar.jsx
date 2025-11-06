@@ -19,28 +19,28 @@ const Navbar = () => {
     { title: "ABOUT US", href: "/about" },
     // { title: "OUR STORY", href: "/our-story" },
     { title: "COMMUNITY", href: "/community" },
-    // {
-    //   title: "SERVICES",
-    //   href: "/services",
-    //   submenu: [
-    //     {
-    //       title: "Remedial & Relaxation Massage",
-    //       href: `/services#${createId("Remedial & Relaxation Massage")}`,
-    //     },
-    //     {
-    //       title: "Energy & Ancestral Healing",
-    //       href: `/services#${createId("Energy & Ancestral Healing")}`,
-    //     },
-    //     {
-    //       title: "Tarot & Card Readings",
-    //       href: `/services#${createId("Tarot & Card Readings")}`,
-    //     },
-    //     {
-    //       title: "Meditation & Classes",
-    //       href: `/services#${createId("Meditation & Classes")}`,
-    //     },
-    //   ],
-    // },
+    {
+      title: "SERVICES",
+      href: "/services",
+       submenu: [
+      //   {
+      //     title: "Remedial & Relaxation Massage",
+      //     href: `/services#${createId("Remedial & Relaxation Massage")}`,
+      //   },
+      //   {
+      //     title: "Energy & Ancestral Healing",
+      //     href: `/services#${createId("Energy & Ancestral Healing")}`,
+      //   },
+      //   {
+      //     title: "Tarot & Card Readings",
+      //     href: `/services#${createId("Tarot & Card Readings")}`,
+      //   },
+      //   {
+      //     title: "Meditation & Classes",
+      //     href: `/services#${createId("Meditation & Classes")}`,
+      //   },
+      ],
+    },
     // { title: "SHOP", href: "/shop" },
   ];
 
@@ -155,7 +155,7 @@ const Navbar = () => {
                   {/* Pulse effect on hover */}
                   <div className="absolute inset-0 bg-logo-gold/5 rounded-lg opacity-0 group-hover/nav:opacity-100 transition-all duration-500 animate-pulse"></div>
 
-                  <AnimatePresence>
+                  {/* <AnimatePresence>
                     {isServicesLink && isServicesHovered && (
                       <Submenu
                         items={link.submenu}
@@ -163,7 +163,7 @@ const Navbar = () => {
                         onMouseLeave={() => setIsServicesHovered(false)}
                       />
                     )}
-                  </AnimatePresence>
+                  </AnimatePresence> */}
                 </div>
               );
             })}

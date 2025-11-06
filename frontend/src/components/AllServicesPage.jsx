@@ -21,7 +21,7 @@ import holographicImg from "../assets/images/services/holographic.jpeg";
 import reikiserviceImg from "../assets/images/services/reikiservice.jpeg";
 import deepTissueImg from "../assets/images/deeptissue.jpeg";
 import relaxedImg from "../assets/images/relaxed.jpeg";
-import tarotImg from "../assets/images/tarrot.jpeg";
+import tarotImg from "../assets/images/tarrot.png";
 import stoneImg from "../assets/images/stone.jpeg";
 import meditationImg from "../assets/images/services/meditation.jpeg";
 
