@@ -5,11 +5,11 @@ import AnimateOnScroll from "./AnimateOnScroll";
 import ServiceCard from "./ServiceCard";
 import remedialImg from "../assets/images/services/remedial.jpeg";
 import relaxedImg from "../assets/images/services/relaxation.jpeg";
-import triggerpointImg from "../assets/images/services/triggerpoint.png";
+import triggerpointImg from "../assets/images/services/triggerpoint.jpeg";
 import ancestralhealingImg from "../assets/images/services/ancestralhealing.jpeg";
-import reikiImg from "../assets/images/services/reikimassage.png";
-import quantumImg from "../assets/images/services/quantum.png";
-import tarotImg from "../assets/images/tarrot.png";
+import reikiImg from "../assets/images/services/reikimassage.jpeg";
+import quantumImg from "../assets/images/services/quantum.jpeg";
+import tarotImg from "../assets/images/tarrot.jpeg";
 import meditationImg from "../assets/images/services/meditation.jpeg";
 import { useNavigate } from "react-router-dom";
 

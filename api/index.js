@@ -16,7 +16,7 @@ const adminRoutes = require('./routes/adminRoutes');
 connectDB();
 
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -29,10 +29,20 @@ app.use('/api/products', productRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/admin', adminRoutes);
 
+
 app.get('/', (req, res) => {
     res.send('Hello from the Purejoy Backend!');
 });
 
+//react
+// 🧩 Serve Frontend (after build)
+const frontendPath = path.join(__dirname, "./frontend-dist");
+app.use(express.static(frontendPath));
+
+// 🧠 Catch-all route: send React index.html for non-API routes
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+});
 // Test DB connection route (can be removed later or kept for diagnostics)
 app.get('/api/db-test', async (req, res) => {
     const mongoose = require('mongoose');
@@ -53,8 +63,10 @@ app.get('/api/db-test', async (req, res) => {
     }
 });
 
-const server = app.listen(port, () => {
-    console.log(`Backend server listening at http://localhost:${port}`);
+
+
+const server = app.listen(PORT, () => {
+    console.log(`Backend server listening at http://localhost:${PORT}`);
 });
 
 process.on('unhandledRejection', (err, promise) => {

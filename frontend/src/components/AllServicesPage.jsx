@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import CategoryMenu from "./CategoryMenu";
 import DynamicServiceCard from "./DynamicServiceCard";
 import bannerImg from "../assets/images/banner.jpeg"; // Import banner image
+import api from "../api";
 
 // Import service images
+import reikimassage from "../assets/images/services/reikimassage.jpeg";
 import remedialImg from "../assets/images/services/remedial.jpeg";
 import relaxationImg from "../assets/images/services/relaxation.jpeg";
 import triggerpointImg from "../assets/images/services/triggerpoint.jpeg";
@@ -39,6 +41,7 @@ const imageMap = {
   "services/womb.jpeg": wombImg,
   "services/holographic.jpeg": holographicImg,
   "services/reikiservice.jpeg": reikiserviceImg,
+  "services/reikimassage.jpeg":reikimassage,
   "remedial.jpeg": remedialImg,
   "relaxation.jpeg": relaxationImg,
   "triggerpoint.jpeg": triggerpointImg,
@@ -82,8 +85,8 @@ const AllServicesPage = () => {
   const location = useLocation();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/services")
+    api
+      .get("/api/services")
       .then((response) => {
         const fetchedServices = response.data.filter(
           (s) => s.slug !== "discovery-call"
