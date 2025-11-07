@@ -34,15 +34,16 @@ app.get('/', (req, res) => {
     res.send('Hello from the Purejoy Backend!');
 });
 
-//react
-// 🧩 Serve Frontend (after build)
-const frontendPath = path.join(__dirname, "./frontend-dist");
-app.use(express.static(frontendPath));
+// inside api/index.js
+// if (process.env.NODE_ENV !== "production") {
+//     const path = require("path");
+//     const frontendPath = path.join(__dirname, "../frontend/dist");
+//     app.use(express.static(frontendPath));
+//     app.get("*", (req, res) => {
+//         res.sendFile(path.join(frontendPath, "index.html"));
+//     });
+// }
 
-// 🧠 Catch-all route: send React index.html for non-API routes
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-});
 // Test DB connection route (can be removed later or kept for diagnostics)
 app.get('/api/db-test', async (req, res) => {
     const mongoose = require('mongoose');
