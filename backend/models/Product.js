@@ -1,0 +1,54 @@
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    category: {
+        type: String,
+        trim: true
+    },
+    weight: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    volume: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    image: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    inStock: {
+        type: Boolean,
+        default: true
+    },
+    // We can add more fields later, like images, stock, etc.
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    Highlight:{
+        type:Boolean,
+        default:false
+    }
+});
+
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product; 

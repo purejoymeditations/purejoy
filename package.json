@@ -1,0 +1,28 @@
+{
+  "name": "purejoy-wellness",
+  "version": "1.0.0",
+  "description": "PureJoy Wellness Website - Full Stack Application",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [
+    "wellness",
+    "react",
+    "nodejs",
+    "mongodb",
+    "fullstack"
+  ],
+  "author": "PureJoy Development Team",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^152.0.0",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
