@@ -114,3 +114,4 @@ public/uploads/
 
 # Local development files
 .cursor/ 
+.vercel

@@ -12,13 +12,40 @@ const productRoutes = require('./routes/productRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
-// Connect to database
-connectDB();
 
 const app = express();
 const port = 3001;
 
-app.use(cors());
+
+let isConnected = false;
+// Connect to database
+async function connectTOMongoDB(params) {
+    connectDB();
+}
+
+app.use((req, res, next) => {
+    if (!isConnected) {
+        connectTOMongoDB();
+    }
+    next();
+})
+
+
+// app.use(cors());
+
+// app.use(
+//     cors({
+//         origin: ["https://www.puregoldholisticwellbeing.com","https://purejoy-backend-qyla26f1t-leannes-projects-a9c5f7e8.vercel.app"], // ✅ frontend domain
+//         credentials: true, // ✅ if using cookies or auth headers
+//     })
+// );
+
+app.use(
+    cors({
+      origin: "*", // temporarily allow all
+    })
+  );
+
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Mount routers
@@ -33,29 +60,13 @@ app.get('/', (req, res) => {
     res.send('Hello from the Purejoy Backend!');
 });
 
-// Test DB connection route (can be removed later or kept for diagnostics)
-app.get('/api/db-test', async (req, res) => {
-    const mongoose = require('mongoose');
-    try {
-        if (mongoose.connection.readyState === 1) { // 1 means connected
-            const adminDb = mongoose.connection.db.admin();
-            const dbList = await adminDb.listDatabases();
-            res.json({
-                message: 'Database connection successful!',
-                databases: dbList.databases.map(db => db.name)
-            });
-        } else {
-            res.status(500).json({ message: 'Mongoose not connected' });
-        }
-    } catch (err) {
-        console.error('Error fetching database list:', err);
-        res.status(500).json({ message: 'Error connecting to database', error: err.message });
-    }
-});
 
-const server = app.listen(port, () => {
-    console.log(`Backend server listening at http://localhost:${port}`);
-});
+
+// const server = app.listen(port, () => {
+//     console.log(`Backend server listening at http://localhost:${port}`);
+// });
+
+module.exports = app;
 
 process.on('unhandledRejection', (err, promise) => {
     console.log(`Error: ${err.message}`);
