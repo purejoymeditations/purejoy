@@ -83,7 +83,7 @@ const AllServicesPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/services")
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/services`)
       .then((response) => {
         const fetchedServices = response.data.filter(
           (s) => s.slug !== "discovery-call"
