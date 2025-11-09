@@ -5,6 +5,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: "dist",
+    rollupOptions: {
+      input: '/frontend/index.html'
+    }
   },
   server: {
     proxy: {
