@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "concurrently \"cd api && npm run dev\" \"cd frontend && npm run dev\"",
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "start": "cd api && node index.js"
   },
   "dependencies": {
