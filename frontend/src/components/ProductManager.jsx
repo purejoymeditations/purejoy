@@ -23,7 +23,7 @@ const ProductManager = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/products");
+      const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products`);
       setProducts(response.data);
     } catch (err) {
       console.error("Failed to fetch products", err);

@@ -14,7 +14,6 @@ import AnimateOnScroll from "./AnimateOnScroll";
 
 // Import product images
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
-import saltImg from "../assets/images/salt.jpg";
 import rollonImg from "../assets/images/rollon.jpg";
 import soapbarImg from "../assets/images/soapbar.jpg";
 import aromaImg from "../assets/images/aroma.jpeg";
@@ -27,6 +26,22 @@ import mangolia3Img from "../assets/images/mangolia3.jpeg";
 import relaxedImg from "../assets/images/relaxed.jpeg";
 import deepTissueImg from "../assets/images/deeptissue.jpeg";
 import rosePetalsImg from "../assets/images/products/bathsalts/rose-petals.webp";
+import mintyzestImg from "../assets/images/products/candles/mintyzest.webp";
+import teaCupSubBurstImg from "../assets/images/products/candles/teacupsunburst.webp";
+import sunburstImg from "../assets/images/products/candles/sunburst.webp";
+import citrussorbetImg from "../assets/images/products/candles/citrussorbet.webp";
+import teacupfrangipanibloomImg from "../assets/images/products/candles/teacupfrangipani.webp";
+import teacupexoticbreezeImg from "../assets/images/products/candles/teacupexoticbreeze.webp";
+import coconutkissImg from "../assets/images/products/candles/coconutkiss.webp";
+import exoticbreezeImg from "../assets/images/products/candles/exoticbreeze.webp";
+import lemonmyrtleImg from "../assets/images/products/candles/lemonmyrtle.webp";
+import cedarskyImg from "../assets/images/products/candles/cedarsky.webp";
+import frangipanibloomImg from "../assets/images/products/candles/frangipanibloom.webp";
+import lemongrasslimeImg from "../assets/images/products/candles/lemongrasslime.webp";
+import teacupwhitegardenImg from "../assets/images/products/candles/teacupwhitegarden.webp";
+import lemonmyrtlemarbleImg from "../assets/images/products/candles/lemonmyrtlemarble.webp";
+import whitegardenImg from "../assets/images/products/candles/whitegarden.webp";
+import teacupcedarImg from "../assets/images/products/candles/teacupcedar.webp";
 
 const ShopPage = () => {
   // State management
@@ -42,8 +57,23 @@ const ShopPage = () => {
 
   // Image mappings
   const imageMap = {
-    "vanilacandle.jpg": vanillaCandleImg,
-    "salt.jpg": saltImg,
+    "products/candles/mintyzest.webp": mintyzestImg,
+    "products/bathsalts/rose-petals.webp": rosePetalsImg,
+    "products/candles/teacupsunburst.webp": teaCupSubBurstImg,
+    "products/candles/sunburst.webp": sunburstImg,
+    "products/candles/citrussorbet.webp": citrussorbetImg,
+    "products/candles/teacupfrangipanibloom.webp": teacupfrangipanibloomImg,
+    "products/candles/teacupexoticbreeze.webp": teacupexoticbreezeImg,
+    "products/candles/coconutkiss.webp": coconutkissImg,
+    "products/candles/exoticbreeze.webp": exoticbreezeImg,
+    "products/candles/lemonmyrtle.webp": lemonmyrtleImg,
+    "products/candles/cedarsky.webp": cedarskyImg,
+    "products/candles/frangipanibloom.webp": frangipanibloomImg,
+    "products/candles/lemongrasslime.webp": lemongrasslimeImg,
+    "products/candles/teacupwhitegarden.webp": teacupwhitegardenImg,
+    "products/candles/lemonmyrtlemarble.webp": lemonmyrtlemarbleImg,
+    "products/candles/whitegarden.webp": whitegardenImg,
+    "products/candles/teacupcedar.webp": teacupcedarImg,
     "rollon.jpg": rollonImg,
     "soapbar.jpg": soapbarImg,
     "aroma.jpeg": aromaImg,
@@ -55,12 +85,26 @@ const ShopPage = () => {
     "mangolia3.jpeg": mangolia3Img,
     "relaxed.jpeg": relaxedImg,
     "deeptissue.jpeg": deepTissueImg,
-    "products/bathsalts/rose-petals.webp": rosePetalsImg,
   };
 
   const productImages = [
+    mintyzestImg,
+    teaCupSubBurstImg,
+    teacupcedarImg,
+    whitegardenImg,
+    teacupwhitegardenImg,
+    lemongrasslimeImg,
+    frangipanibloomImg,
+    cedarskyImg,
+    lemonmyrtleImg,
+    exoticbreezeImg,
+    coconutkissImg,
+    teacupexoticbreezeImg,
+    citrussorbetImg,
+    sunburstImg,
+    teaCupSubBurstImg,
+    lemonmyrtlemarbleImg,
     vanillaCandleImg,
-    saltImg,
     rollonImg,
     soapbarImg,
     aromaImg,
@@ -75,9 +119,27 @@ const ShopPage = () => {
   ];
 
   const categoryImages = {
-    Candles: [vanillaCandleImg],
-    "Bath & Body": [saltImg, soapbarImg, relaxedImg],
-    "Bath Salts": [rosePetalsImg, saltImg],
+    Candles: [
+      vanillaCandleImg,
+      mintyzestImg,
+      teaCupSubBurstImg,
+      teacupcedarImg,
+      whitegardenImg,
+      teacupwhitegardenImg,
+      lemongrasslimeImg,
+      frangipanibloomImg,
+      cedarskyImg,
+      lemonmyrtleImg,
+      exoticbreezeImg,
+      coconutkissImg,
+      teacupexoticbreezeImg,
+      citrussorbetImg,
+      sunburstImg,
+      teaCupSubBurstImg,
+      lemonmyrtlemarbleImg,
+    ],
+    "Bath & Body": [soapbarImg, relaxedImg],
+    "Bath Salts": [rosePetalsImg],
     Aromatherapy: [
       rollonImg,
       aromaImg,

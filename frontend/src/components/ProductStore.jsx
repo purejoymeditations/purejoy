@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingBag, Sparkles } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
-import saltImg from "../assets/images/salt.jpg";
+// import saltImg from "../assets/images/salt.jpg";
 import rollonImg from "../assets/images/rollon.jpg";
 import soapbarImg from "../assets/images/soapbar.jpg";
 
@@ -22,7 +22,7 @@ const ProductStore = () => {
       name: "Himalayan Salt",
       description:
         "Pure Himalayan salt for purification and creating a sacred bathing ritual. Rich in minerals for natural healing.",
-      image: saltImg,
+      image: vanillaCandleImg,
       weight: "500g",
       category: "Bath & Body",
     },
