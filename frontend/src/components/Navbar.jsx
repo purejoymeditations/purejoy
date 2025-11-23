@@ -41,7 +41,7 @@ const Navbar = () => {
       //   },
       ],
     },
-    // { title: "SHOP", href: "/shop" },
+    { title: "SHOP", href: "/shop" },
   ];
 
   const menuVariants = {
