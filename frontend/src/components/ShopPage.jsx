@@ -14,17 +14,6 @@ import AnimateOnScroll from "./AnimateOnScroll";
 
 // Import product images
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
-import rollonImg from "../assets/images/rollon.jpg";
-import soapbarImg from "../assets/images/soapbar.jpg";
-import aromaImg from "../assets/images/aroma.jpeg";
-import stoneImg from "../assets/images/stone.jpeg";
-import sunflowerImg from "../assets/images/sunflower.jpeg";
-import tarrotImg from "../assets/images/tarrot.jpeg";
-import mangoliaImg from "../assets/images/mangolia.jpeg";
-import mangolia2Img from "../assets/images/mangolia2.jpeg";
-import mangolia3Img from "../assets/images/mangolia3.jpeg";
-import relaxedImg from "../assets/images/relaxed.jpeg";
-import deepTissueImg from "../assets/images/deeptissue.jpeg";
 import rosePetalsImg from "../assets/images/products/bathsalts/rose-petals.webp";
 import mintyzestImg from "../assets/images/products/candles/mintyzest.webp";
 import teaCupSubBurstImg from "../assets/images/products/candles/teacupsunburst.webp";
@@ -42,6 +31,19 @@ import teacupwhitegardenImg from "../assets/images/products/candles/teacupwhiteg
 import lemonmyrtlemarbleImg from "../assets/images/products/candles/lemonmyrtlemarble.webp";
 import whitegardenImg from "../assets/images/products/candles/whitegarden.webp";
 import teacupcedarImg from "../assets/images/products/candles/teacupcedar.webp";
+import angelsprayImg from "../assets/images/products/sprays/angelspray.webp";
+import evileyesprayImg from "../assets/images/products/sprays/evileyespray.webp";
+import whitesagesprayImg from "../assets/images/products/sprays/whitesagespray.webp";
+import painawaybodyspritzImg from "../assets/images/products/sprays/painawaybodyspritz.webp";
+import coolitbodyspritzImg from "../assets/images/products/sprays/coolitbodyspritz.webp";
+import justmebodyspritzImg from "../assets/images/products/sprays/justmebodyspritz.webp";
+import calmmeroomsprayImg from "../assets/images/products/sprays/calmmeroomspray.webp";
+import sleepytimeroomsprayImg from "../assets/images/products/sprays/sleepytimeroomspray.webp";
+import refreshmeroomsprayImg from "../assets/images/products/sprays/refreshmeroomspray.webp";
+import herbalmagicroomsprayImg from "../assets/images/products/sprays/herbalmagicroomspray.webp";
+import magnesiumlavendersprayImg from "../assets/images/products/sprays/magnesiumlavenderspray.webp";
+import magnesiumlemongrasssprayImg from "../assets/images/products/sprays/magnesiumlemongrassspray.webp";
+import magnesiumsportmusclerecoverysprayImg from "../assets/images/products/sprays/magnesiumsportmusclerecoveryspray.webp";
 
 const ShopPage = () => {
   // State management
@@ -57,6 +59,7 @@ const ShopPage = () => {
 
   // Image mappings
   const imageMap = {
+    // Candles
     "products/candles/mintyzest.webp": mintyzestImg,
     "products/bathsalts/rose-petals.webp": rosePetalsImg,
     "products/candles/teacupsunburst.webp": teaCupSubBurstImg,
@@ -74,20 +77,27 @@ const ShopPage = () => {
     "products/candles/lemonmyrtlemarble.webp": lemonmyrtlemarbleImg,
     "products/candles/whitegarden.webp": whitegardenImg,
     "products/candles/teacupcedar.webp": teacupcedarImg,
-    "rollon.jpg": rollonImg,
-    "soapbar.jpg": soapbarImg,
-    "aroma.jpeg": aromaImg,
-    "stone.jpeg": stoneImg,
-    "sunflower.jpeg": sunflowerImg,
-    "tarrot.jpeg": tarrotImg,
-    "mangolia.jpeg": mangoliaImg,
-    "mangolia2.jpeg": mangolia2Img,
-    "mangolia3.jpeg": mangolia3Img,
-    "relaxed.jpeg": relaxedImg,
-    "deeptissue.jpeg": deepTissueImg,
+
+    // Sprays
+    "products/sprays/angelspray.webp": angelsprayImg,
+    "products/sprays/evileyespray.webp": evileyesprayImg,
+    "products/sprays/whitesagespray.webp": whitesagesprayImg,
+    "products/sprays/painawaybodyspritz.webp": painawaybodyspritzImg,
+    "products/sprays/coolitbodyspritz.webp": coolitbodyspritzImg,
+    "products/sprays/justmebodyspritz.webp": justmebodyspritzImg,
+    "products/sprays/calmmeroomspray.webp": calmmeroomsprayImg,
+    "products/sprays/sleepytimeroomspray.webp": sleepytimeroomsprayImg,
+    "products/sprays/refreshmeroomspray.webp": refreshmeroomsprayImg,
+    "products/sprays/herbalmagicroomspray.webp": herbalmagicroomsprayImg,
+    "products/sprays/magnesiumlavenderspray.webp": magnesiumlavendersprayImg,
+    "products/sprays/magnesiumlemongrassspray.webp":
+      magnesiumlemongrasssprayImg,
+    "products/sprays/magnesiumsportmusclerecoveryspray.webp":
+      magnesiumsportmusclerecoverysprayImg,
   };
 
   const productImages = [
+    // Candles
     mintyzestImg,
     teaCupSubBurstImg,
     teacupcedarImg,
@@ -105,17 +115,21 @@ const ShopPage = () => {
     teaCupSubBurstImg,
     lemonmyrtlemarbleImg,
     vanillaCandleImg,
-    rollonImg,
-    soapbarImg,
-    aromaImg,
-    stoneImg,
-    sunflowerImg,
-    tarrotImg,
-    mangoliaImg,
-    mangolia2Img,
-    mangolia3Img,
-    relaxedImg,
-    deepTissueImg,
+
+    // Sprays
+    angelsprayImg,
+    evileyesprayImg,
+    whitesagesprayImg,
+    painawaybodyspritzImg,
+    coolitbodyspritzImg,
+    justmebodyspritzImg,
+    calmmeroomsprayImg,
+    sleepytimeroomsprayImg,
+    refreshmeroomsprayImg,
+    herbalmagicroomsprayImg,
+    magnesiumlavendersprayImg,
+    magnesiumlemongrasssprayImg,
+    magnesiumsportmusclerecoverysprayImg,
   ];
 
   const categoryImages = {
@@ -138,20 +152,29 @@ const ShopPage = () => {
       teaCupSubBurstImg,
       lemonmyrtlemarbleImg,
     ],
-    "Bath & Body": [soapbarImg, relaxedImg],
-    "Bath Salts": [rosePetalsImg],
-    Aromatherapy: [
-      rollonImg,
-      aromaImg,
-      mangoliaImg,
-      mangolia2Img,
-      mangolia3Img,
+    Sprays: [
+      angelsprayImg,
+      evileyesprayImg,
+      whitesagesprayImg,
+      painawaybodyspritzImg,
+      coolitbodyspritzImg,
+      justmebodyspritzImg,
+      calmmeroomsprayImg,
+      sleepytimeroomsprayImg,
+      refreshmeroomsprayImg,
+      herbalmagicroomsprayImg,
+      magnesiumlavendersprayImg,
+      magnesiumlemongrasssprayImg,
+      magnesiumsportmusclerecoverysprayImg,
     ],
-    "Oracle Cards": [tarrotImg],
-    Tarot: [tarrotImg],
-    Crystals: [stoneImg],
-    "Essential Oils": [sunflowerImg, aromaImg, mangoliaImg],
-    Massage: [deepTissueImg, relaxedImg],
+    "Bath & Body": [],
+    "Bath Salts": [],
+    Aromatherapy: [],
+    "Oracle Cards": [],
+    Tarot: [],
+    Crystals: [],
+    "Essential Oils": [],
+    Massage: [],
   };
 
   // Helper functions
@@ -193,7 +216,9 @@ const ShopPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products`)
+        const response = await axios.get(
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products`
+        );
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (err) {
@@ -293,7 +318,7 @@ const ShopPage = () => {
       <section className="relative bg-secondary py-8 lg:py-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={mangolia3Img}
+            src={angelsprayImg}
             alt="Pure Joy Shop - Beautiful Magnolia Collection"
             className="w-full h-full object-cover opacity-50 transform scale-105 hover:scale-110 transition-transform duration-[3000ms] ease-out"
           />
@@ -463,6 +488,7 @@ const ShopPage = () => {
                         {/* Price Section */}
                         <div className="text-center transform transition-transform duration-300 group-hover:scale-105">
                           <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent animate-gradient-x">
+                          {/* <div className="text-3xl font-bold text-logo-gold mb-4"> */}
                             A${product.price.toFixed(2)}
                           </div>
                           <div className="flex items-center justify-center gap-3 text-xs text-gray-500">
@@ -570,7 +596,8 @@ const ShopPage = () => {
                     <h3 className="text-3xl font-bold text-text-primary mb-2 font-serif">
                       {selectedProduct.name}
                     </h3>
-                    <div className="text-3xl font-bold text-logo-gold mb-4">
+                    {/* <div className="text-3xl font-bold text-logo-gold mb-4"> */}
+                    <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent animate-gradient-x">
                       A${selectedProduct.price.toFixed(2)}
                     </div>
                     <div className="flex items-center gap-4 text-sm text-text-secondary">
