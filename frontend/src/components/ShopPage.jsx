@@ -56,6 +56,11 @@ import justmeRollonImg from "../assets/images/products/rollon/justme.webp";
 import painawayRollonImg from "../assets/images/products/rollon/painaway.webp";
 import stresslessRollonImg from "../assets/images/products/rollon/stressless.webp";
 
+// Diffusers
+import lumoDiffuserImg from "../assets/images/products/diffusers/lumo.webp";
+import petalDiffuserImg from "../assets/images/products/diffusers/petal.webp";
+import concretelavaDiffuserImg from "../assets/images/products/diffusers/concretelava.webp";
+
 const ShopPage = () => {
   // State management
   const [products, setProducts] = useState([]);
@@ -150,6 +155,11 @@ const ShopPage = () => {
     justmeRollonImg,
     painawayRollonImg,
     stresslessRollonImg,
+
+    // Diffusers
+    lumoDiffuserImg,
+    petalDiffuserImg,
+    concretelavaDiffuserImg,
   ];
 
   const categoryImages = {
@@ -195,6 +205,11 @@ const ShopPage = () => {
       justmeRollonImg,
       painawayRollonImg,
       stresslessRollonImg,
+    ],
+    Diffusers: [
+      lumoDiffuserImg,
+      petalDiffuserImg,
+      concretelavaDiffuserImg,
     ],
     "Bath & Body": [],
     "Bath Salts": [],
