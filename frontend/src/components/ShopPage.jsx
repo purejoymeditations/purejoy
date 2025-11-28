@@ -31,6 +31,8 @@ import teacupwhitegardenImg from "../assets/images/products/candles/teacupwhiteg
 import lemonmyrtlemarbleImg from "../assets/images/products/candles/lemonmyrtlemarble.webp";
 import whitegardenImg from "../assets/images/products/candles/whitegarden.webp";
 import teacupcedarImg from "../assets/images/products/candles/teacupcedar.webp";
+
+//candles
 import angelsprayImg from "../assets/images/products/sprays/angelspray.webp";
 import evileyesprayImg from "../assets/images/products/sprays/evileyespray.webp";
 import whitesagesprayImg from "../assets/images/products/sprays/whitesagespray.webp";
@@ -44,6 +46,20 @@ import herbalmagicroomsprayImg from "../assets/images/products/sprays/herbalmagi
 import magnesiumlavendersprayImg from "../assets/images/products/sprays/magnesiumlavenderspray.webp";
 import magnesiumlemongrasssprayImg from "../assets/images/products/sprays/magnesiumlemongrassspray.webp";
 import magnesiumsportmusclerecoverysprayImg from "../assets/images/products/sprays/magnesiumsportmusclerecoveryspray.webp";
+
+// Roll-Ons
+import coolitRollonImg from "../assets/images/products/rollon/coolit.webp";
+import clarityRollonImg from "../assets/images/products/rollon/clarity.webp";
+import immunityRollonImg from "../assets/images/products/rollon/immunity.webp";
+import sweetdreamsRollonImg from "../assets/images/products/rollon/sweetdreams.webp";
+import justmeRollonImg from "../assets/images/products/rollon/justme.webp";
+import painawayRollonImg from "../assets/images/products/rollon/painaway.webp";
+import stresslessRollonImg from "../assets/images/products/rollon/stressless.webp";
+
+// Diffusers
+import lumoDiffuserImg from "../assets/images/products/diffusers/lumo.webp";
+import petalDiffuserImg from "../assets/images/products/diffusers/petal.webp";
+import concretelavaDiffuserImg from "../assets/images/products/diffusers/concretelava.webp";
 
 const ShopPage = () => {
   // State management
@@ -130,6 +146,20 @@ const ShopPage = () => {
     magnesiumlavendersprayImg,
     magnesiumlemongrasssprayImg,
     magnesiumsportmusclerecoverysprayImg,
+
+    // Roll-Ons
+    coolitRollonImg,
+    clarityRollonImg,
+    immunityRollonImg,
+    sweetdreamsRollonImg,
+    justmeRollonImg,
+    painawayRollonImg,
+    stresslessRollonImg,
+
+    // Diffusers
+    lumoDiffuserImg,
+    petalDiffuserImg,
+    concretelavaDiffuserImg,
   ];
 
   const categoryImages = {
@@ -166,6 +196,20 @@ const ShopPage = () => {
       magnesiumlavendersprayImg,
       magnesiumlemongrasssprayImg,
       magnesiumsportmusclerecoverysprayImg,
+    ],
+    "Roll-On": [
+      coolitRollonImg,
+      clarityRollonImg,
+      immunityRollonImg,
+      sweetdreamsRollonImg,
+      justmeRollonImg,
+      painawayRollonImg,
+      stresslessRollonImg,
+    ],
+    Diffusers: [
+      lumoDiffuserImg,
+      petalDiffuserImg,
+      concretelavaDiffuserImg,
     ],
     "Bath & Body": [],
     "Bath Salts": [],
@@ -488,7 +532,7 @@ const ShopPage = () => {
                         {/* Price Section */}
                         <div className="text-center transform transition-transform duration-300 group-hover:scale-105">
                           <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent animate-gradient-x">
-                          {/* <div className="text-3xl font-bold text-logo-gold mb-4"> */}
+                            {/* <div className="text-3xl font-bold text-logo-gold mb-4"> */}
                             A${product.price.toFixed(2)}
                           </div>
                           <div className="flex items-center justify-center gap-3 text-xs text-gray-500">
