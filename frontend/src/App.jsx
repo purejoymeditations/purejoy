@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import "./animations.css";
 import Navbar from "./components/Navbar";
@@ -25,6 +31,7 @@ import OurStory from "./components/OurStory";
 import CommunityPage from "./components/CommunityPage";
 import CommunityPreview from "./components/CommunityPreview";
 import SocialMediaBar from "./components/SocialMediaBar";
+import CartPage from "./components/CartPage";
 
 const HomePage = () => (
   <>
@@ -51,6 +58,17 @@ const HomePage = () => (
   </>
 );
 
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location.pathname]);
+
+  return null;
+};
+
 const AppContent = () => {
   return (
     <div className="w-full">
@@ -66,6 +84,7 @@ const AppContent = () => {
           <Route path="/services" element={<AllServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailsPage />} />
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/book/:serviceId" element={<BookingPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
 
@@ -84,6 +103,7 @@ const AppContent = () => {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <AppContent />
     </Router>
   );

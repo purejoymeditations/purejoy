@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const availabilityRuleSchema = new mongoose.Schema({
-    practitioner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Practitioner',
-        required: true
-    },
+     practitioners: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Practitioner',
+            required: true
+        }],
     // e.g., 'weekly', 'specific-date'
     type: {
         type: String,

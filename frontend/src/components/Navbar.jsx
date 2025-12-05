@@ -1,18 +1,26 @@
 import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingCart, X } from "lucide-react";
 import logo from "../assets/images/High Resolution Logo.png";
 import Submenu from "./Submenu";
+import { useCart } from "../context/CartContext.jsx";
 
 // Helper to create URL-friendly IDs
 const createId = (text) =>
   text.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-");
 
+const currencyFormatter = new Intl.NumberFormat("en-AU", {
+  style: "currency",
+  currency: "AUD",
+});
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const location = useLocation();
+  const { itemCount, totalPrice } = useCart();
+  const formattedTotal = currencyFormatter.format(totalPrice);
 
   const navLinks = [
     { title: "HOME", href: "/" },
@@ -22,23 +30,23 @@ const Navbar = () => {
     {
       title: "SERVICES",
       href: "/services",
-       submenu: [
-      //   {
-      //     title: "Remedial & Relaxation Massage",
-      //     href: `/services#${createId("Remedial & Relaxation Massage")}`,
-      //   },
-      //   {
-      //     title: "Energy & Ancestral Healing",
-      //     href: `/services#${createId("Energy & Ancestral Healing")}`,
-      //   },
-      //   {
-      //     title: "Tarot & Card Readings",
-      //     href: `/services#${createId("Tarot & Card Readings")}`,
-      //   },
-      //   {
-      //     title: "Meditation & Classes",
-      //     href: `/services#${createId("Meditation & Classes")}`,
-      //   },
+      submenu: [
+        //   {
+        //     title: "Remedial & Relaxation Massage",
+        //     href: `/services#${createId("Remedial & Relaxation Massage")}`,
+        //   },
+        //   {
+        //     title: "Energy & Ancestral Healing",
+        //     href: `/services#${createId("Energy & Ancestral Healing")}`,
+        //   },
+        //   {
+        //     title: "Tarot & Card Readings",
+        //     href: `/services#${createId("Tarot & Card Readings")}`,
+        //   },
+        //   {
+        //     title: "Meditation & Classes",
+        //     href: `/services#${createId("Meditation & Classes")}`,
+        //   },
       ],
     },
     { title: "SHOP", href: "/shop" },
@@ -167,10 +175,43 @@ const Navbar = () => {
                 </div>
               );
             })}
+            <Link
+              to="/cart"
+              className="relative flex items-center gap-3 pl-6 border-l border-white/20 text-white hover:text-logo-gold transition"
+            >
+              <div className="relative">
+                <ShoppingCart size={24} />
+                {itemCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-logo-gold text-[#1b0f08] text-xs font-bold rounded-full px-1.5 py-0.5">
+                    {itemCount}
+                  </span>
+                )}
+              </div>
+              <div className="hidden lg:flex flex-col leading-tight text-sm">
+                <span className="uppercase tracking-[0.4em] text-white/60">
+                  Cart
+                </span>
+                <span className="font-semibold">
+                  {currencyFormatter.format(totalPrice)}
+                </span>
+              </div>
+            </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Cart + Menu */}
+          <div className="md:hidden flex items-center gap-4">
+            <Link
+              to="/cart"
+              className="relative text-white hover:text-logo-gold transition"
+              aria-label="Open cart"
+            >
+              <ShoppingCart size={26} />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-logo-gold text-[#1b0f08] text-xs font-bold rounded-full px-1.5 py-0.5">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="relative text-white hover:text-logo-gold transition-all duration-300 group"

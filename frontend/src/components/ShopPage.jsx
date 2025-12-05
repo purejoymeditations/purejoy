@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Search,
   ShoppingCart,
@@ -10,7 +10,9 @@ import {
   Eye,
 } from "lucide-react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import AnimateOnScroll from "./AnimateOnScroll";
+import { useCart } from "../context/CartContext.jsx";
 
 // Import product images
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
@@ -72,6 +74,16 @@ const ShopPage = () => {
   const [isFilterAnimating, setIsFilterAnimating] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const { items: cartItems, addItem } = useCart();
+
+  const cartLookup = useMemo(() => {
+    const lookup = new Map();
+    cartItems.forEach((item) => {
+      lookup.set(item.id, item);
+    });
+    return lookup;
+  }, [cartItems]);
 
   // Image mappings
   const imageMap = {
@@ -206,11 +218,7 @@ const ShopPage = () => {
       painawayRollonImg,
       stresslessRollonImg,
     ],
-    Diffusers: [
-      lumoDiffuserImg,
-      petalDiffuserImg,
-      concretelavaDiffuserImg,
-    ],
+    Diffusers: [lumoDiffuserImg, petalDiffuserImg, concretelavaDiffuserImg],
     "Bath & Body": [],
     "Bath Salts": [],
     Aromatherapy: [],
@@ -255,6 +263,30 @@ const ShopPage = () => {
     setSelectedCategory(category);
     setTimeout(() => setIsFilterAnimating(false), 300);
   };
+
+  const handleAddToCart = (product, imageIndex = 0) => {
+    if (!product || product.inStock === false) return;
+    const result = addItem({
+      ...product,
+      cartImage: getProductImage(product, imageIndex),
+    });
+
+    if (result?.ok) {
+      setToastMessage(`Added "${product.name}" to your cart.`);
+    } else if (result?.reason === "max_unique_items") {
+      setToastMessage(
+        "You can have up to 20 different items in your cart. Increase the quantity of existing items instead."
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (!toastMessage) return;
+    const timeoutId = setTimeout(() => {
+      setToastMessage("");
+    }, 3000);
+    return () => clearTimeout(timeoutId);
+  }, [toastMessage]);
 
   // Fetch products
   useEffect(() => {
@@ -358,6 +390,13 @@ const ShopPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {toastMessage && (
+        <div className="fixed bottom-4 right-4 z-50">
+          <div className="bg-[#1b0f08]/95 text-white px-4 py-3 rounded-2xl shadow-xl border border-yellow-500/60 max-w-xs text-sm">
+            {toastMessage}
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative bg-secondary py-8 lg:py-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -573,24 +612,53 @@ const ShopPage = () => {
                             </span>
                           </button>
 
-                          <button
-                            className={`w-full group/btn font-medium py-3 px-6 rounded-full transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
-                              product.inStock !== false
-                                ? "bg-primary hover:bg-primary-hover text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-                                : "bg-gray-200 text-gray-500 cursor-not-allowed"
-                            }`}
-                            disabled={product.inStock === false}
-                          >
-                            <ShoppingCart
-                              size={16}
-                              className="transition-all duration-300 group-hover/btn:scale-110"
-                            />
-                            <span className="tracking-wide font-medium">
-                              {product.inStock !== false
-                                ? "Add to Cart"
-                                : "Unavailable"}
-                            </span>
-                          </button>
+                          {(() => {
+                            const cartItem = cartLookup.get(product._id);
+                            const atMax = cartItem
+                              ? cartItem.quantity >= cartItem.maxQty
+                              : false;
+                            const label =
+                              product.inStock === false
+                                ? "Unavailable"
+                                : cartItem
+                                ? atMax
+                                  ? "Max Reached"
+                                  : "Add Another"
+                                : "Add to Cart";
+
+                            return (
+                              <>
+                                <button
+                                  onClick={() =>
+                                    handleAddToCart(product, index)
+                                  }
+                                  className={`w-full group/btn font-medium py-3 px-6 rounded-full transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
+                                    product.inStock !== false && !atMax
+                                      ? "bg-primary hover:bg-primary-hover text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                                      : "bg-gray-200 text-gray-500 cursor-not-allowed"
+                                  }`}
+                                  disabled={product.inStock === false || atMax}
+                                >
+                                  <ShoppingCart
+                                    size={16}
+                                    className="transition-all duration-300 group-hover/btn:scale-110"
+                                  />
+                                  <span className="tracking-wide font-medium">
+                                    {label}
+                                  </span>
+                                </button>
+                                {cartItem && (
+                                  <Link
+                                    to="/cart"
+                                    className="text-center text-sm text-primary hover:text-primary-hover underline"
+                                  >
+                                    View cart ({cartItem.quantity} item
+                                    {cartItem.quantity > 1 ? "s" : ""})
+                                  </Link>
+                                )}
+                              </>
+                            );
+                          })()}
                         </div>
                       </div>
                     </div>
@@ -698,25 +766,59 @@ const ShopPage = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-6 border-t border-gray-200">
-                  <button
-                    className={`flex-1 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
-                      selectedProduct.inStock !== false
-                        ? "bg-primary hover:bg-primary-hover text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    }`}
-                    disabled={selectedProduct.inStock === false}
-                  >
-                    <ShoppingCart size={20} className="inline mr-2" />
-                    {selectedProduct.inStock !== false
-                      ? "Add to Cart"
-                      : "Unavailable"}
-                  </button>
-                  <button
-                    onClick={closeProductModal}
-                    className="px-6 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-all duration-300"
-                  >
-                    Close
-                  </button>
+                  {(() => {
+                    const modalCartItem = cartLookup.get(selectedProduct._id);
+                    const modalAtMax = modalCartItem
+                      ? modalCartItem.quantity >= modalCartItem.maxQty
+                      : false;
+                    const modalLabel =
+                      selectedProduct.inStock === false
+                        ? "Unavailable"
+                        : modalCartItem
+                        ? modalAtMax
+                          ? "Max Reached"
+                          : "Add Another"
+                        : "Add to Cart";
+
+                    return (
+                      <>
+                        <button
+                          onClick={() => {
+                            handleAddToCart(selectedProduct, 0);
+                            closeProductModal();
+                          }}
+                          className={`flex-1 py-3 px-6 rounded-full font-semibold transition-all duration-300 ${
+                            selectedProduct.inStock !== false && !modalAtMax
+                              ? "bg-primary hover:bg-primary-hover text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          }`}
+                          disabled={
+                            selectedProduct.inStock === false || modalAtMax
+                          }
+                        >
+                          <ShoppingCart size={20} className="inline mr-2" />
+                          {modalLabel}
+                        </button>
+                        {modalCartItem && (
+                          <Link
+                            to="/cart"
+                            className="flex items-center justify-center px-6 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-all duration-300"
+                            onClick={closeProductModal}
+                          >
+                            View Cart
+                          </Link>
+                        )}
+                      </>
+                    );
+                  })()}
+                  {!cartLookup.get(selectedProduct._id) && (
+                    <button
+                      onClick={closeProductModal}
+                      className="px-6 py-3 rounded-full font-semibold border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-all duration-300"
+                    >
+                      Close
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
