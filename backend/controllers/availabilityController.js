@@ -51,9 +51,24 @@ exports.getAvailability = async (req, res) => {
         while (day <= endDay) {
             const dayOfWeek = day.day();
 
-            for (const rule of availabilityRules.filter(r => r.dayOfWeek === dayOfWeek)) {
-                const ruleStart = day.clone().hour(rule.startTime.split(':')[0]).minute(rule.startTime.split(':')[1]);
-                const ruleEnd = day.clone().hour(rule.endTime.split(':')[0]).minute(rule.endTime.split(':')[1]);
+            for (const rule of availabilityRules) {
+                // Weekly rules: match by day of week
+                if (rule.type === 'weekly') {
+                    if (rule.dayOfWeek !== dayOfWeek) continue;
+                }
+
+                // Date-specific rules: only apply on that exact calendar day (Australia/Sydney)
+                if (rule.type === 'date') {
+                    if (!rule.date) continue;
+                    const ruleDate = moment.tz(rule.date, 'Australia/Sydney').startOf('day');
+                    if (!day.isSame(ruleDate, 'day')) continue;
+                }
+
+                const [startHour, startMinute] = rule.startTime.split(':').map(Number);
+                const [endHour, endMinute] = rule.endTime.split(':').map(Number);
+
+                const ruleStart = day.clone().hour(startHour).minute(startMinute);
+                const ruleEnd = day.clone().hour(endHour).minute(endMinute);
 
                 const slots = generateSlots(ruleStart, ruleEnd, service.duration);
 
