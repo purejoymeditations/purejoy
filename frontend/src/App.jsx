@@ -26,7 +26,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AllServicesPage from "./components/AllServicesPage";
 import ShopPage from "./components/ShopPage";
-import AboutUsPage from "./components/AboutUsPageNew";
+import AboutUsPage from "./components/AboutUsPage";
 import OurStory from "./components/OurStory";
 import CommunityPage from "./components/CommunityPage";
 import CommunityPreview from "./components/CommunityPreview";

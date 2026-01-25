@@ -15,6 +15,7 @@ import AnimateOnScroll from "./AnimateOnScroll";
 import { useCart } from "../context/CartContext.jsx";
 
 // Import product images
+//candles
 import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
 import rosePetalsImg from "../assets/images/products/bathsalts/rose-petals.webp";
 import mintyzestImg from "../assets/images/products/candles/mintyzest.webp";
@@ -33,8 +34,10 @@ import teacupwhitegardenImg from "../assets/images/products/candles/teacupwhiteg
 import lemonmyrtlemarbleImg from "../assets/images/products/candles/lemonmyrtlemarble.webp";
 import whitegardenImg from "../assets/images/products/candles/whitegarden.webp";
 import teacupcedarImg from "../assets/images/products/candles/teacupcedar.webp";
+import evileyecandleImg from "../assets/images/products/candles/evileye.webp";
+import teacupmintyzestImg from "../assets/images/products/candles/teacupmintyzest.webp";
 
-//candles
+//spray
 import angelsprayImg from "../assets/images/products/sprays/angelspray.webp";
 import evileyesprayImg from "../assets/images/products/sprays/evileyespray.webp";
 import whitesagesprayImg from "../assets/images/products/sprays/whitesagespray.webp";
@@ -105,6 +108,8 @@ const ShopPage = () => {
     "products/candles/lemonmyrtlemarble.webp": lemonmyrtlemarbleImg,
     "products/candles/whitegarden.webp": whitegardenImg,
     "products/candles/teacupcedar.webp": teacupcedarImg,
+    "products/candles/evileye.webp": evileyecandleImg,
+    "products/candles/teacupmintyzest.webp": teacupmintyzestImg,
 
     // Sprays
     "products/sprays/angelspray.webp": angelsprayImg,
@@ -143,6 +148,8 @@ const ShopPage = () => {
     teaCupSubBurstImg,
     lemonmyrtlemarbleImg,
     vanillaCandleImg,
+    evileyecandleImg,
+    teacupmintyzestImg,
 
     // Sprays
     angelsprayImg,
@@ -193,6 +200,8 @@ const ShopPage = () => {
       sunburstImg,
       teaCupSubBurstImg,
       lemonmyrtlemarbleImg,
+      evileyecandleImg,
+      teacupmintyzestImg,
     ],
     Sprays: [
       angelsprayImg,

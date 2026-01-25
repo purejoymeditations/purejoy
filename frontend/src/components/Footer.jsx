@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Heart, Sparkles } from "lucide-react";
+import { Mail, MapPin, Phone, Heart, Sparkles, Calendar } from "lucide-react";
 import logo from "../assets/images/High Resolution Logo.png";
 
 const Footer = () => {
@@ -73,9 +73,9 @@ const Footer = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-start">
           {/* About Section */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1">
             <div className="flex items-center mb-6">
               <div className="relative">
                 <div className="absolute inset-0 bg-logo-gold/5 rounded-full blur-md"></div>
@@ -86,8 +86,8 @@ const Footer = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold text-logo-gold font-serif ml-3">
-              Purejoy
-            </h3>
+                Purejoy
+              </h3>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Your sanctuary for healing, growth, and inner peace. Where
@@ -99,74 +99,57 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links Section */}
-          <div className="col-span-1">
-            <h4 className="font-semibold text-logo-gold font-serif mb-4">
-              Navigate
-            </h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  to="/services"
-                  className="text-white/80 hover:text-logo-gold transition-colors duration-300 group flex items-center"
-                >
-                  <Sparkles className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  All Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/shop"
-                  className="text-white/80 hover:text-logo-gold transition-colors duration-300 group flex items-center"
-                >
-                  <Sparkles className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-white/80 hover:text-logo-gold transition-colors duration-300 group flex items-center"
-                >
-                  <Sparkles className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-white/80 hover:text-logo-gold transition-colors duration-300 group flex items-center"
-                >
-                  <Sparkles className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact Section */}
           <div className="col-span-1">
             <h4 className="font-semibold text-logo-gold font-serif mb-4">
               Contact Us
             </h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center text-white/80">
-                <Mail className="w-4 h-4 mr-3 text-logo-gold" />
-                info@purejoy.com
+              <li className="flex items-start text-white/80">
+                <Mail className="w-4 h-4 mr-3 text-logo-gold flex-shrink-0 mt-0.5" />
+                <span className="break-words">
+                  info@puregoldholisiticwellbeing.com
+                </span>
+              </li>
+              <li className="flex items-start text-white/80">
+                <MapPin className="w-4 h-4 mr-3 text-logo-gold flex-shrink-0 mt-0.5" />
+                <span>
+                  1 Spring St<br />
+                  Maldon, Victoria 3463
+                </span>
               </li>
               <li className="flex items-center text-white/80">
-                <MapPin className="w-4 h-4 mr-3 text-logo-gold" />
-                123 Healing Way, Sydney
+                <Phone className="w-4 h-4 mr-3 text-logo-gold flex-shrink-0" />
+                <span>+61 0419505919</span>
               </li>
-              <li className="flex items-center text-white/80">
-                <Phone className="w-4 h-4 mr-3 text-logo-gold" />
-                +61 2 1234 5678
+            </ul>
+          </div>
+
+          {/* Opening Hours Section */}
+          <div className="col-span-1">
+            <h4 className="font-semibold text-logo-gold font-serif mb-4">
+              Opening Hours
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start text-white/80">
+                <Calendar className="w-4 h-4 mr-3 mt-0.5 text-logo-gold flex-shrink-0" />
+                <span>
+                  <span className="font-medium block">Wednesdays - Thursday</span>
+                  <span className="text-white/70 block mt-0.5">12pm to 4pm</span>
+                </span>
+              </li>
+              <li className="flex items-start text-white/80">
+                <Calendar className="w-4 h-4 mr-3 mt-0.5 text-logo-gold flex-shrink-0" />
+                <span>
+                  <span className="font-medium block">Friday - Sunday</span>
+                  <span className="text-white/70 block mt-0.5">10am to 5pm</span>
+                </span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Section */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1">
             <h4 className="font-semibold text-logo-gold font-serif mb-4">
               Stay Connected
             </h4>
