@@ -16,15 +16,14 @@ import AnimateOnScroll from "./AnimateOnScroll";
 
 // Import community images
 import deathCafeEvent1 from "../assets/images/Aboutus/community/deathcafeevent.jpeg";
-import deathCafeEvent2 from "../assets/images/Aboutus/community/deathcafeevent2.jpeg";
 import deathCafeMaldon from "../assets/images/Aboutus/community/deathcafemaldon.jpeg";
 import eventImg from "../assets/images/Aboutus/expansion/event.jpeg";
 import tarotImg from "../assets/images/Aboutus/expansion/tarrot.jpeg";
 
 // Import Mongolia NGO images
-import mongoliaImg1 from "../assets/images/Aboutus/lotus/gabby.png";
 import mongoliaImg2 from "../assets/images/Aboutus/lotus/lotusmongolia.jpeg";
 import mongoliaImg3 from "../assets/images/Aboutus/lotus/lotusmongolia2.jpeg";
+import lotusDonationImg from "../assets/images/Aboutus/lotus/lotusdonation.jpg";
 
 const CommunityPage = () => {
   const [activeSection, setActiveSection] = useState("events");
@@ -58,26 +57,16 @@ const CommunityPage = () => {
   ];
 
   const upcomingEvents = [
-    {
-      title: "Monthly Death Cafe",
-      date: "Every First Saturday",
-      time: "2:00 PM - 4:00 PM",
-      location: "Pure Gold Holistic & Wellbeing",
-      description:
-        "Join us for open, honest conversations about death and dying in a safe, supportive environment.",
-      image: deathCafeMaldon,
-      featured: true,
-    },
-    {
-      title: "Tarot & Intuition Workshop",
-      date: "Monthly",
-      time: "10:00 AM - 12:00 PM",
-      location: "Pure Gold Holistic & Wellbeing",
-      description:
-        "Learn to read tarot cards and develop your intuitive abilities in this hands-on workshop.",
-      image: tarotImg,
-      featured: false,
-    },
+    // {
+    //   title: "Monthly Death Cafe",
+    //   date: "Every First Saturday",
+    //   time: "2:00 PM - 4:00 PM",
+    //   location: "Pure Gold Holistic & Wellbeing",
+    //   description:
+    //     "Join us for open, honest conversations about death and dying in a safe, supportive environment.",
+    //   image: deathCafeMaldon,
+    //   featured: true,
+    // },
     {
       title: "Community Healing Circle",
       date: "Every Third Sunday",
@@ -141,7 +130,7 @@ const CommunityPage = () => {
               <AnimateOnScroll>
                 <div className="text-center mb-16">
                   <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
-                    Upcoming Community Events
+                    Community Events
                   </h2>
                   <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                     Join us for meaningful gatherings, workshops, and community
@@ -268,23 +257,35 @@ const CommunityPage = () => {
                       Visual Journey
                     </h3>
                     <div className="grid grid-cols-1 gap-6">
-                      {[deathCafeEvent1, deathCafeEvent2].map(
-                        (image, index) => (
-                          <motion.div
-                            key={index}
-                            className="relative group overflow-hidden rounded-2xl shadow-xl"
-                            whileHover={{ scale: 1.03, y: -8 }}
-                            transition={{ duration: 0.5 }}
-                          >
+                      {[deathCafeEvent1].map((image, index) => (
+                        <motion.div
+                          key={index}
+                          className="relative group overflow-hidden rounded-2xl shadow-xl bg-gradient-to-br from-warm-beige/30 to-cream-50"
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          transition={{ duration: 0.4 }}
+                        >
+                          {/* Decorative overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-logo-gold/5 via-transparent to-bronze/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+
+                          {/* Image container with aspect ratio preservation */}
+                          <div className="relative w-full aspect-[4/3] flex items-start justify-center overflow-hidden">
                             <img
                               src={image}
                               alt={`Death Cafe Event ${index + 1}`}
-                              className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                               loading="lazy"
                             />
-                          </motion.div>
-                        )
-                      )}
+
+                            {/* Shine effect on hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+                          </div>
+
+                          {/* Corner accent */}
+                          <div className="absolute top-4 right-4 w-10 h-10 bg-logo-gold/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+                            <Heart className="text-logo-gold" size={18} />
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </AnimateOnScroll>
@@ -388,7 +389,7 @@ const CommunityPage = () => {
                   </h2>
                   <p className="text-xl text-text-secondary max-w-3xl mx-auto">
                     Making a difference in communities around the world through
-                    our NGO partnerships
+                    our Not for Profit partnerships
                   </p>
                 </div>
               </AnimateOnScroll>
@@ -455,9 +456,9 @@ const CommunityPage = () => {
                           resilience, hope, and love—and 100% of proceeds go
                           directly to the children.
                         </p>
-                        <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-healing">
+                        {/* <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-healing">
                           Shop Mongolia Products
-                        </button>
+                        </button> */}
                       </div>
                     </div>
 
@@ -466,27 +467,37 @@ const CommunityPage = () => {
                         Visual Journey
                       </h3>
                       <div className="grid grid-cols-1 gap-6">
-                        {[mongoliaImg1, mongoliaImg2, mongoliaImg3].map(
+                        {[mongoliaImg2, mongoliaImg3, lotusDonationImg].map(
                           (image, index) => (
                             <motion.div
                               key={index}
-                              className="relative group overflow-hidden rounded-2xl shadow-xl"
-                              whileHover={{ scale: 1.03, y: -8 }}
-                              transition={{ duration: 0.5 }}
+                              className="relative group overflow-hidden rounded-2xl shadow-xl bg-gradient-to-br from-warm-beige/30 to-cream-50"
+                              whileHover={{ scale: 1.02, y: -5 }}
+                              transition={{ duration: 0.4 }}
                             >
-                              <img
-                                src={image}
-                                alt={`Mongolia NGO ${index + 1}`}
-                                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
-                                loading="lazy"
-                              />
-                              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <p className="text-white text-lg font-semibold">
-                                  Lotus Children's Centre
-                                </p>
-                                <p className="text-white/80 text-sm">
-                                  Ulaanbaatar, Mongolia
-                                </p>
+                              {/* Decorative overlay on hover */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-logo-gold/5 via-transparent to-bronze/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+
+                              {/* Image container with proper sizing */}
+                              <div className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden">
+                                <img
+                                  src={image}
+                                  alt={
+                                    index === 2
+                                      ? "Lotus Children's Centre Donation Information"
+                                      : `Mongolia NGO ${index + 1}`
+                                  }
+                                  className="max-w-full max-h-[500px] w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                                  loading="lazy"
+                                />
+
+                                {/* Shine effect on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+                              </div>
+
+                              {/* Corner accent */}
+                              <div className="absolute top-4 right-4 w-10 h-10 bg-logo-gold/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+                                <Heart className="text-logo-gold" size={18} />
                               </div>
                             </motion.div>
                           )
@@ -512,7 +523,8 @@ const CommunityPage = () => {
                         International Support
                       </h4>
                       <p className="text-text-secondary text-sm">
-                        Partnering with NGOs worldwide to create positive change
+                        Partnering with Not for Profit worldwide to create
+                        positive change
                       </p>
                     </div>
                     <div className="text-center">
@@ -523,7 +535,8 @@ const CommunityPage = () => {
                         100% Transparency
                       </h4>
                       <p className="text-text-secondary text-sm">
-                        All proceeds from NGO products go directly to the cause
+                        All proceeds from Not for Profit products go directly to
+                        the cause
                       </p>
                     </div>
                     <div className="text-center">
@@ -614,7 +627,7 @@ const CommunityPage = () => {
       {/* Contact Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-warm-cream to-golden-sand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll>
+          {/* <AnimateOnScroll>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 font-serif">
                 Get Involved
@@ -624,105 +637,9 @@ const CommunityPage = () => {
                 started
               </p>
             </div>
-          </AnimateOnScroll>
+          </AnimateOnScroll> */}
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <AnimateOnScroll>
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/50">
-                <h3 className="text-2xl font-bold text-text-primary mb-6 font-serif">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="text-logo-gold mt-1" size={24} />
-                    <div>
-                      <h4 className="font-semibold text-text-primary mb-1">
-                        Address
-                      </h4>
-                      <p className="text-text-secondary">
-                        1 Spring Street, Maldon, Victoria
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="text-logo-gold mt-1" size={24} />
-                    <div>
-                      <h4 className="font-semibold text-text-primary mb-1">
-                        Phone
-                      </h4>
-                      <p className="text-text-secondary">0419 505 919</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Mail className="text-logo-gold mt-1" size={24} />
-                    <div>
-                      <h4 className="font-semibold text-text-primary mb-1">
-                        Email
-                      </h4>
-                      <p className="text-text-secondary">
-                        info@puregold.com.au
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll>
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/50">
-                <h3 className="text-2xl font-bold text-text-primary mb-6 font-serif">
-                  Ways to Get Involved
-                </h3>
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-logo-gold rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-text-secondary">
-                      Attend our monthly Death Cafe
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-logo-gold rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-text-secondary">
-                      Join our workshops and classes
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-logo-gold rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-text-secondary">
-                      Connect with like-minded individuals
-                    </span>
-                  </div>
-                </div>
-
-                {/* Newsletter Signup */}
-                <div className="bg-gradient-to-r from-logo-gold/10 to-bronze/10 rounded-xl p-6 border border-logo-gold/20">
-                  <h4 className="text-lg font-bold text-text-primary mb-3 font-serif">
-                    Stay Connected
-                  </h4>
-                  <p className="text-text-secondary text-sm mb-4">
-                    Get updates on community events, workshops, and special
-                    offers.
-                  </p>
-                  <form className="flex gap-2">
-                    <input
-                      type="email"
-                      placeholder="Your email address"
-                      className="flex-1 px-4 py-2 rounded-lg text-sm bg-white/80 border border-logo-gold/30 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-logo-gold/50 focus:border-logo-gold transition-colors duration-300"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-logo-gold text-white px-4 py-2 rounded-lg hover:bg-logo-gold/80 transition-all duration-300 font-semibold text-sm"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
-                  <p className="text-text-secondary text-xs mt-2">
-                    We respect your privacy. Unsubscribe at any time.
-                  </p>
-                </div>
-              </div>
-            </AnimateOnScroll>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16"></div>
         </div>
       </section>
     </div>

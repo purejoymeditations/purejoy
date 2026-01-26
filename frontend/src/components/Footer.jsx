@@ -86,7 +86,7 @@ const Footer = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold text-logo-gold font-serif ml-3">
-                Purejoy
+                Pure Gold
               </h3>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
@@ -180,7 +180,7 @@ const Footer = () => {
 
         <div className="mt-16 border-t border-logo-gold/20 pt-8 text-center">
           <p className="text-white/60 text-sm">
-            &copy; {new Date().getFullYear()} Purejoy. All rights reserved.
+            &copy; {new Date().getFullYear()} Pure Gold. All rights reserved.
             <span className="text-logo-gold ml-2">✨ Sacred Wellness ✨</span>
           </p>
         </div>

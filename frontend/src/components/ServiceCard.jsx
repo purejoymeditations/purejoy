@@ -66,14 +66,14 @@ const ServiceCard = ({
         </div>
 
         {/* Learn More Button */}
-        <motion.button
+        {/* <motion.button
           className="flex items-center space-x-2 text-[#D8B86F] hover:text-[#c7a85f] transition-colors duration-300 font-medium text-sm group mt-auto"
           whileHover={{ x: 5 }}
           whileTap={{ scale: 0.95 }}
         >
           <span>Learn More</span>
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-        </motion.button>
+        </motion.button> */}
       </div>
     </motion.div>
   );

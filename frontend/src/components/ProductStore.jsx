@@ -1,50 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ShoppingBag, Sparkles } from "lucide-react";
+import axios from "axios";
 import AnimateOnScroll from "./AnimateOnScroll";
-import vanillaCandleImg from "../assets/images/vanilacandle.jpg";
-// import saltImg from "../assets/images/salt.jpg";
-import rollonImg from "../assets/images/rollon.jpg";
-import soapbarImg from "../assets/images/soapbar.jpg";
+import { getProductImage } from "../utils/productImages";
 
 const ProductStore = () => {
-  const previewProducts = [
-    {
-      _id: 1,
-      name: "Vanilla Candle",
-      description:
-        "A soothing vanilla candle to bring warmth and tranquility to your space. Hand-poured with natural soy wax and essential oils.",
-      image: vanillaCandleImg,
-      weight: "200g",
-      category: "Candles",
-    },
-    {
-      _id: 2,
-      name: "Himalayan Salt",
-      description:
-        "Pure Himalayan salt for purification and creating a sacred bathing ritual. Rich in minerals for natural healing.",
-      image: vanillaCandleImg,
-      weight: "500g",
-      category: "Bath & Body",
-    },
-    {
-      _id: 3,
-      name: "Aromatherapy Roll On",
-      description:
-        "A convenient roll-on to apply calming essential oils on the go. Perfect for stress relief and mindfulness.",
-      image: rollonImg,
-      volume: "10ml",
-      category: "Aromatherapy",
-    },
-    {
-      _id: 4,
-      name: "Handmade Soap Bar",
-      description:
-        "A natural, handcrafted soap bar to nourish your skin and soul. Made with organic ingredients and essential oils.",
-      image: soapbarImg,
-      weight: "100g",
-      category: "Bath & Body",
-    },
-  ];
+  const [highlightedProducts, setHighlightedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch highlighted products
+  useEffect(() => {
+    const fetchHighlightedProducts = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products`
+        );
+        // Filter products where highlight is true
+        const highlighted = response.data.filter(
+          (product) => product.highlight === true
+        );
+        // Limit to 4 products for homepage
+        setHighlightedProducts(highlighted.slice(0, 4));
+      } catch (err) {
+        console.error("Failed to fetch highlighted products:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchHighlightedProducts();
+  }, []);
 
   return (
     <section className="py-12 lg:py-16 relative overflow-hidden bg-gradient-to-br from-white via-warm-cream to-honey-glow">
@@ -91,44 +75,66 @@ const ProductStore = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {previewProducts.map((product) => (
-            <AnimateOnScroll key={product._id}>
-              <div className="group bg-white rounded-2xl shadow-md shadow-[#e5d3ba] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg border border-[#f0ebe3] h-full flex flex-col">
-                <div className="h-64 overflow-hidden bg-[#f9f5f1]">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex flex-col space-y-3 mb-4">
-                    <span className="inline-block text-[#b18b4f] text-xs font-medium uppercase tracking-wider">
-                      {product.category}
-                    </span>
-                    <h3 className="text-lg font-semibold text-[#3c2e20] font-serif leading-tight">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-[#5f5241] leading-relaxed">
-                      {product.description}
-                    </p>
+        {loading ? (
+          <div className="text-center py-12">
+            <p className="text-text-secondary">Loading featured products...</p>
+          </div>
+        ) : highlightedProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {highlightedProducts.map((product, index) => (
+              <AnimateOnScroll key={product._id}>
+                <div className="group bg-white rounded-2xl shadow-md shadow-[#e5d3ba] overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg border border-[#f0ebe3] h-full flex flex-col">
+                  <div className="h-64 overflow-hidden bg-[#f9f5f1]">
+                    <img
+                      src={getProductImage(product, index)}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                  <div className="mt-auto pt-4 border-t border-[#f0ebe3]">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-[#7A5C3E] font-medium">
-                        {product.weight || product.volume}
-                      </span>
-                      <button className="border-2 border-[#D4B26B] text-[#D4B26B] hover:bg-[#D4B26B] hover:text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md">
-                        Add to Cart
-                      </button>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex flex-col space-y-3 mb-4">
+                      {product.category && (
+                        <span className="inline-block text-[#b18b4f] text-xs font-medium uppercase tracking-wider">
+                          {product.category}
+                        </span>
+                      )}
+                      <h3 className="text-lg font-semibold text-[#3c2e20] font-serif leading-tight">
+                        {product.name}
+                      </h3>
+                      {product.description && (
+                        <p className="text-sm text-[#5f5241] leading-relaxed line-clamp-3">
+                          {product.description}
+                        </p>
+                      )}
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-[#f0ebe3]">
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-col">
+                          {(product.weight || product.volume) && (
+                            <span className="text-sm text-[#7A5C3E] font-medium">
+                              {product.weight || product.volume}
+                            </span>
+                          )}
+                          {product.price && (
+                            <span className="text-xl font-bold text-[#D8B86F]">
+                              ${product.price}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-text-secondary">
+              No featured products available at the moment.
+            </p>
+          </div>
+        )}
 
         <div className="text-center">
           <AnimateOnScroll>
