@@ -24,6 +24,7 @@ import relaxedImg from "../assets/images/relaxed.jpeg";
 import tarotImg from "../assets/images/tarrot.png";
 import stoneImg from "../assets/images/stone.jpeg";
 import meditationImg from "../assets/images/services/meditation.jpeg";
+import reikimassageImg from "../assets/images/services/reikimassage.png"
 
 // Image mapping object
 const imageMap = {
@@ -39,6 +40,7 @@ const imageMap = {
   "services/womb.jpeg": wombImg,
   "services/holographic.jpeg": holographicImg,
   "services/reikiservice.jpeg": reikiserviceImg,
+  "services/reikimassage.png":reikimassageImg,
   "remedial.jpeg": remedialImg,
   "relaxation.jpeg": relaxationImg,
   "triggerpoint.jpeg": triggerpointImg,
