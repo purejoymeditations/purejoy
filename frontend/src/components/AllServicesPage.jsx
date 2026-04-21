@@ -24,7 +24,7 @@ import relaxedImg from "../assets/images/relaxed.jpeg";
 import tarotImg from "../assets/images/tarrot.png";
 import stoneImg from "../assets/images/stone.jpeg";
 import meditationImg from "../assets/images/services/meditation.jpeg";
-import reikimassageImg from "../assets/images/services/reikimassage.png"
+import reikimassageImg from "../assets/images/services/reikimassage.png";
 
 // Image mapping object
 const imageMap = {
@@ -40,7 +40,7 @@ const imageMap = {
   "services/womb.jpeg": wombImg,
   "services/holographic.jpeg": holographicImg,
   "services/reikiservice.jpeg": reikiserviceImg,
-  "services/reikimassage.png":reikimassageImg,
+  "services/reikimassage.png": reikimassageImg,
   "remedial.jpeg": remedialImg,
   "relaxation.jpeg": relaxationImg,
   "triggerpoint.jpeg": triggerpointImg,
@@ -88,7 +88,7 @@ const AllServicesPage = () => {
       .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/services`)
       .then((response) => {
         const fetchedServices = response.data.filter(
-          (s) => s.slug !== "discovery-call"
+          (s) => s.slug !== "discovery-call",
         );
 
         const uniqueCategories = [
@@ -323,11 +323,14 @@ const AllServicesPage = () => {
                                         </span>
                                       </div>
 
-                                      <Link to={`/book/${service._id}`}>
-                                        <button className="px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                                          Book Now
-                                        </button>
-                                      </Link>
+                                      <a
+                                        href="https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/VPW4SUQASWAOVQE3QDRVDZ6K"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                                      >
+                                        Book Now
+                                      </a>
                                     </div>
                                   </div>
                                 </div>
