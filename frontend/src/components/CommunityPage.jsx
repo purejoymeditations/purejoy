@@ -57,26 +57,37 @@ const CommunityPage = () => {
   ];
 
   const upcomingEvents = [
-    // {
-    //   title: "Monthly Death Cafe",
-    //   date: "Every First Saturday",
-    //   time: "2:00 PM - 4:00 PM",
-    //   location: "Pure Gold Holistic & Wellbeing",
-    //   description:
-    //     "Join us for open, honest conversations about death and dying in a safe, supportive environment.",
-    //   image: deathCafeMaldon,
-    //   featured: true,
-    // },
     {
-      title: "Community Healing Circle",
-      date: "Every Third Sunday",
-      time: "6:00 PM - 8:00 PM",
+      title: "Spiritual circles",
+      date: "The First Sunday of every month",
+      time: "10:00 AM to 11:30 AM",
       location: "Pure Gold Holistic & Wellbeing",
       description:
-        "A monthly gathering for community healing, meditation, and connection.",
+        "A monthly gathering for community healing, meditation, and connection. $20 Per Person",
       image: eventImg,
       featured: false,
     },
+    {
+      title: "Meditation",
+      date: "Every First Saturday",
+      time: "10:00 AM - 11:00 AM",
+      location: "Pure Gold Holistic & Wellbeing",
+      description:
+        "A group guided meditation to practice calming our nervous system, stress and nurture wellbeing. $20 Per Person.",
+      image: eventImg,
+      featured: false,
+    },
+    // {
+    //   title: "Ladies Pampering Day",
+    //   date: "Every First Saturday",
+    //   time: "10:00 AM - 11:00 AM",
+    //   location: "Pure Gold Holistic & Wellbeing",
+    //   description:
+    //     "Spa Pampering packages for any occasion to suit any budget. Grab your besties and escape the daily chaos with our blissful pamper packages. Birthday bashes, hen’s nights or just a well-earned girl’s day out full of giggles and good vibes. Relax, recharge, and feel amazing. Max 4 persons per group.",
+    //   image: eventImg,
+    //   featured: false,
+    // }
+   
   ];
 
   return (
@@ -184,10 +195,10 @@ const CommunityPage = () => {
                       <p className="text-text-secondary leading-relaxed mb-6">
                         {event.description}
                       </p>
-
+                      {/* 
                       <button className="w-full bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-healing">
                         Learn More
-                      </button>
+                      </button> */}
                     </motion.div>
                   </AnimateOnScroll>
                 ))}
@@ -221,7 +232,7 @@ const CommunityPage = () => {
                         honest discussions about death and dying. Our Maldon
                         chapter provides a safe, supportive environment where
                         people can share their thoughts, fears, and experiences
-                        without judgment.
+                        without judgment. JOIN US -- Cake & Coffee provided.
                       </p>
                     </div>
 
@@ -231,10 +242,10 @@ const CommunityPage = () => {
                       </h4>
                       <div className="space-y-2 text-text-secondary">
                         <p>
-                          <strong>Date:</strong> First Saturday of each month
+                          <strong>Date:</strong> Last Sunday in the month
                         </p>
                         <p>
-                          <strong>Time:</strong> 2:00 PM - 4:00 PM
+                          <strong>Time:</strong> 10:00 AM - 11:00 AM
                         </p>
                         <p>
                           <strong>Location:</strong> Pure Gold Holistic &
@@ -244,9 +255,9 @@ const CommunityPage = () => {
                           <strong>Cost:</strong> Free
                         </p>
                       </div>
-                      <button className="mt-4 bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-healing">
+                      {/* <button className="mt-4 bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-healing">
                         RSVP Now
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </AnimateOnScroll>

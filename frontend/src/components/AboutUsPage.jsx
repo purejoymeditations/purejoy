@@ -83,7 +83,7 @@ const AboutUsPage = () => {
     },
     {
       name: "Lesley",
-      title: "Aromatic Alchemist / Energy Healer",
+      title: "Reiki healing / Tarot / Aromatouch massage",
       image: lesleyImg,
       story:
         "A Healer’s Light Heart open, soul aligned— to heal, inspire, and uplift.I do not mend with hands alone, but with the warmth my soul has known.In love I walk, in light I lead, With open heart and gentle creed.My compassion flows, a healing stream, reviving hearts, restoring dreams.I hold the space where truth can rise, where fears are met, not brushed aside.To awaken and ignite—our flames as one, our inner light.For every heart, a sacred role- This is the vow of my spirit’s soul.",
@@ -123,7 +123,14 @@ const AboutUsPage = () => {
       title: "Expanding Our Healing Touch",
       content:
         "As Pure Gold continued to grow, massage therapy felt like the natural next step—a way to bring deeper grounding, physical restoration, and embodied healing into our space. At first, Leanne had doubts. Was massage really her calling? Were her hands made for this work? But everything changed under the wise, funny, and heart-led guidance of David John Tobin. His training was filled with laughter, soulful connection, and the kind of encouragement that melts fear away. By the end, both Leanne and Lesley left not just certified, but confident—ready to offer Relaxation and Remedial Massage with the same love and intention they brought to everything they do. Just a month later, they returned to complete their Trigger Point Massage certification, diving deeper into the art of healing the body through precision, intuition, and care.",
-      year: "2024",
+      year: "2025",
+      images: [massageImg1, massageImg2, massageImg3],
+    },
+    {
+      title: " A Year of Expansion, Energy & New Holistic Services",
+      content:
+        "ITOVI WELLNESS SCAN -- In 2026, Pure Gold Holistic & Wellbeing proudly expanded into deeper personalised wellness support with the introduction of iTovi Wellness Scanning. This unique scan offers insight into energetic and physical imbalances, supporting customers with tailored recommendations for their individual needs. Whether you’re seeking clarity around stress, fatigue, immune support, emotional wellbeing, or nervous system regulation, iTovi provides a beautiful starting point for deeper self-awareness and healing. This marks an exciting evolution in our mission: helping people reconnect with their body’s wisdom and restore balance from the inside out. Personalised one on one sessions available. SPIRITUAL CIRCLES -- To welcome the bold and transformative frequency of the Year of the Fire Horse, we hosted our first Spiritual Circle of 2026, drawing together 15 beautiful souls for a morning of ritual, release, and empowerment. During this powerful circle, each participant created their own Fire Horse Alchemy Jar, infused with intention, symbolism, and energetic tools to support them throughout the year. These jars became sacred reminders to release old stories, outdated identities, limiting beliefs, and inherited stereotypes — and to step into freedom, momentum, and self-leadership. It was a celebration of new beginnings, soul expansion, and the reminder that the Universe responds when we choose courage. Circles - 1st Sunday of each month – 10am to 12 am.",
+      year: "2026",
       images: [massageImg1, massageImg2, massageImg3],
     },
   ];

@@ -64,7 +64,7 @@ const servicesData = {
       name: "Massage & Reiki",
       description: `A deeply nurturing fusion of body and energy healing. This 90-minute session combines the grounding power of full-body massage with the gentle, restorative energy of Reiki...`,
       fullDescription: `A deeply nurturing fusion of body and energy healing. This 90-minute session combines the grounding power of full-body massage with the gentle, restorative energy of Reiki. As your muscles release tension and your body softens under soothing touch, Reiki flows to clear blockages, realign your energy, and restore harmony within. You'll leave feeling lighter, rebalanced, and deeply renewed — physically, emotionally, and spiritually. Ideal for: Stress relief, energy clearing, emotional release, and full-body rejuvenation.`,
-      price: "A$180.00",
+      price: "A$160.00",
       duration: "1 hr 30 min",
       image: reikiImg,
     },

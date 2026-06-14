@@ -90,14 +90,14 @@ const SocialMediaBar = () => {
       hoverColor: "hover:from-orange-400 hover:to-red-400",
       textColor: "text-white",
     },
-    {
-      name: "Newsletter",
-      icon: <Mail className="w-5 h-5" />,
-      href: "#newsletter",
-      bgColor: "bg-gradient-to-br from-red-500 to-pink-500",
-      hoverColor: "hover:from-red-400 hover:to-pink-400",
-      textColor: "text-white",
-    },
+    // {
+    //   name: "Newsletter",
+    //   icon: <Mail className="w-5 h-5" />,
+    //   href: "#newsletter",
+    //   bgColor: "bg-gradient-to-br from-red-500 to-pink-500",
+    //   hoverColor: "hover:from-red-400 hover:to-pink-400",
+    //   textColor: "text-white",
+    // },
   ];
 
   return (

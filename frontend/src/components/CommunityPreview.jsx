@@ -21,7 +21,7 @@ import mongoliaImg1 from "../assets/images/Aboutus/lotus/gabby.png";
 const CommunityPreview = () => {
   const communityHighlights = [
     {
-      title: "Community Workshops",
+      title: "Community Events",
       description:
         "Learn tarot reading, aromatherapy, meditation, and other healing practices in our intimate group settings.",
       icon: <Users className="text-logo-gold" size={24} />,

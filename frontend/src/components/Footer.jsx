@@ -131,10 +131,17 @@ const Footer = () => {
               Opening Hours
             </h4>
             <ul className="space-y-3 text-sm">
+            <li className="flex items-start text-white/80">
+                <Calendar className="w-4 h-4 mr-3 mt-0.5 text-logo-gold flex-shrink-0" />
+                <span>
+                  <span className="font-medium block">Wednesdays</span>
+                  <span className="text-white/70 block mt-0.5">Appointment Only</span>
+                </span>
+              </li>
               <li className="flex items-start text-white/80">
                 <Calendar className="w-4 h-4 mr-3 mt-0.5 text-logo-gold flex-shrink-0" />
                 <span>
-                  <span className="font-medium block">Wednesdays - Thursday</span>
+                  <span className="font-medium block">Thursday</span>
                   <span className="text-white/70 block mt-0.5">12pm to 4pm</span>
                 </span>
               </li>
