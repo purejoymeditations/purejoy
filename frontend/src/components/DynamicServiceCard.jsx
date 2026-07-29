@@ -13,6 +13,7 @@ const serviceOptions = {
         duration: 60,
         description:
           "This 60-minute guided meditation is a transformative journey into deep relaxation, supported by soothing music and vibrational frequencies that assist the body in releasing tension and restoring balance. In this sacred space, the collective energy of the group amplifies the experience, making it easier to relax and go deeper into meditation. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration Supports emotional release and energy balancing Deepens mindfulness and sense of connection Leaves you feeling grounded, centered, and renewed Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/FC2OXMXFN63EAYPPDD4QMDI2"
       },
       {
         id: "5-sessions",
@@ -21,6 +22,7 @@ const serviceOptions = {
         duration: 300, // 5 hours total
         description:
           "Special Offer: 5 x 1 hour Class Pass for Guided Meditation - $75 Experience the full benefit of regular meditation practice with our 5-class pass for $75. This package offers a $25 discount, making each 60-minute guided meditation class just $15. Whether you're seeking relaxation, focus, or a deeper connection to yourself, this pass allows you to attend multiple sessions at a reduced rate while fostering a consistent self-care practice. Leanne gently holds the space for each participant, ensuring an atmosphere of safety, peace, and connection. The space is cleansed with sage to clear any stagnant energy, and an intention is set for the highest good of everyone attending. Participants are welcome to find their most comfortable position—whether seated on the lounge, reclining on the floor, or sitting cross-legged—whichever helps you feel at ease and supported. Benefits of the Session: Enhances mental and physical relaxation through sound vibration Supports emotional release and energy balancing Deepens mindfulness and sense of connection Leaves you feeling grounded, centered, and renewed Allow yourself to be held in this peaceful space and experience the power of collective calm, sound, and intention.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/HBZE2JA2WWZHBAPDAMO6VXQT"
       },
     ],
   },
@@ -33,6 +35,7 @@ const serviceOptions = {
         duration: 15,
         description:
           "A 15-minute Tarot reading is a focused and empowering session designed to provide quick yet profound insights into your current situation, questions, or challenges. Whether you're seeking guidance on love, career, life purpose, or simply need clarity, this reading helps illuminate the energies surrounding you and offers actionable advice. What You Can Expect: A clear and concise reading focused on your chosen question or area of life, Intuitive interpretations of key cards and messages from your higher self, Gentle, supportive guidance to help you make empowered decisions. In just 15 minutes, you'll gain valuable perspectives and a sense of direction to support your journey forward. Perfect for when you need a quick, soulful check-in.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/VYEOAM6PHY2PUJGG4SCTXGJQ"
       },
       {
         id: "30-min",
@@ -41,6 +44,7 @@ const serviceOptions = {
         duration: 30,
         description:
           "A 30-minute Tarot reading offers a deeper exploration of your life's path, providing clarity and guidance on important questions or challenges. This session allows time to dive into multiple areas, uncover patterns, and receive intuitive messages that empower you to move forward with confidence and purpose. What You Can Expect: In-depth exploration of your current energy and influences, Guidance on relationships, career, life purpose, or personal growth, Intuitive card spreads tailored to your specific concerns or general life overview, Supportive insights to help you make aligned decisions. This 30-minute session is perfect for those seeking clarity in multiple areas of life or wishing to delve into a complex situation. Let the Tarot illuminate your next steps and help you connect with your highest wisdom.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/UDFFVTPLZOURHN4743QMKPPN"
       },
       {
         id: "45-min",
@@ -49,6 +53,7 @@ const serviceOptions = {
         duration: 45,
         description:
           "A 45-minute Tarot reading is a comprehensive and intuitive session designed to provide deep insights into your life's unfolding journey. This extended time allows for a thorough exploration of your questions, uncovering hidden influences, addressing multiple areas, and providing guidance to help you realign with your highest path. What You Can Expect: A full spread examining key aspects of your life: love, career, purpose, or personal growth, Clarification of patterns, blocks, and opportunities for transformation, Time to ask follow-up questions for deeper understanding, Intuitive messages that inspire clarity, healing, and empowerment. This session is ideal for those navigating significant life changes or seeking a holistic view of their current circumstances. A 45-minute Tarot reading offers you the space to reflect, receive, and realign with clarity and confidence.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/AD4LAIUPOOOIT67BTRSMKY55"
       },
       {
         id: "60-min",
@@ -57,6 +62,7 @@ const serviceOptions = {
         duration: 60,
         description:
           "A 60 minute Tarot reading is a comprehensive and intuitive session designed to provide deep insights into your life's unfolding journey. This extended time allows for a thorough exploration of your questions, uncovering hidden influences, addressing multiple areas, and providing guidance to help you realign with your highest path. What You Can Expect: A full spread examining key aspects of your life: love, career, purpose, or personal growth, Clarification of patterns, blocks, and opportunities for transformation, Time to ask follow-up questions for deeper understanding, Intuitive messages that inspire clarity, healing, and empowerment. This session is ideal for those navigating significant life changes or seeking a holistic view of their current circumstances. A 60 minute Tarot reading offers you the space to reflect, receive, and realign with clarity and confidence.",
+        square:"https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/O6NM3B3ZKVGP4PALFXI5NZUO"
       },
     ],
   },
@@ -166,13 +172,14 @@ const DynamicServiceCard = ({ service, index, imageMap }) => {
                       </span>
                     </div>
 
-                    <Link
-                      // to={`/book/${service._id}?option=${selectedOption.id}`}
+                    <a
+                      href={selectedOption.square}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                      <button className="px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                        Book Now
-                      </button>
-                    </Link>
+                      Book Now
+                    </a>
                   </div>
                 </div>
               )}

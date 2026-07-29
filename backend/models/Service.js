@@ -44,6 +44,9 @@ const serviceSchema = new mongoose.Schema({
         ref: 'Practitioner',
         required: true
     }],
+    square:{
+        type:String,
+    },
     // Add other relevant fields like 'therapist', 'availability_schedule_template', etc. later
     createdAt: {
         type: Date,

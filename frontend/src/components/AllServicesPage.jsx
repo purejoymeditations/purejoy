@@ -324,7 +324,7 @@ const AllServicesPage = () => {
                                       </div>
 
                                       <a
-                                        href="https://book.squareup.com/appointments/oxend0m4bk6ble/location/LNNJSWP1HWASQ/services/VPW4SUQASWAOVQE3QDRVDZ6K"
+                                        href={service.square}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-block px-8 py-3 text-sm font-medium bg-primary text-white rounded-full hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
